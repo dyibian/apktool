@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?> 
+<PreferenceScreen 
+	xmlns:android="http://schemas.android.com/apk/res/android"> 
+    <PreferenceCategory android:title="选项">   
+		<CheckBoxPreference android:key="verbose" 
+			android:title="啰嗦模式" 
+			android:summary="是否开启啰嗦模式" > 
+		</CheckBoxPreference> 
+		<CheckBoxPreference android:key="usekey" 
+			android:title="自定义签名文件" 
+			android:summary="是否使用自定义签名文件" > 
+		</CheckBoxPreference> 
+		<EditTextPreference android:key="keypath" 
+			android:title="密钥地址" 
+			android:summary="密钥地址前缀，不包括扩展名，扩展名为.x509和.pk8" 
+			android:defaultValue="" 
+			android:dialogTitle="输入地址"> 
+		</EditTextPreference> 
+		<CheckBoxPreference android:key="qiangzhi" 
+			android:title="强制模式" 
+			android:summary="反编译时启用强制模式" > 
+		</CheckBoxPreference>
+		<ListPreference
+			android:key="loglevel"
+			android:title="日志级别"
+			android:summary="选择日志级别"
+			android:entries="@array/loglevel"
+			android:entryValues="@array/loglevel_value"
+			android:dialogTitle="日志级别"
+			android:defaultValue="@array/loglevel_value"
+		></ListPreference>
+    </PreferenceCategory> 
+</PreferenceScreen> 
