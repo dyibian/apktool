@@ -1,0 +1,5 @@
+include ':app'
+include ':apktool-lib'
+include ':brut.j.common'
+include ':brut.j.dir'
+include ':brut.j.util'

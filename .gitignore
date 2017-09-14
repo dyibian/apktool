@@ -1,22 +1,4 @@
-# Gradle
-.gradle/
-bin/
-gen/
-# Build
-**/build/
-
-# Eclipse
-**/nbproject/private/
-*.project
-*.classpath
-*.settings
-*.setting
-
-# Tmp Files
-*.kate-swp
-*~
-
-# IntelliJ
-*.iml
-.idea/*
-/out
+/build
+local.properties
+*/build
+.gradle

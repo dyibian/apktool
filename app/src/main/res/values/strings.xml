@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Apktool</string>
+    <string name="hello_world">Hello world!</string>
+	<!--Key-->
+	<string name="no_debug_key" translatable="false">no-debug-info</string>
+	<string name="keep_broken_key" translatable="false">keep-broken-res</string>
+	<string name="api_key" translatable="false">api-level</string>
+	
+	<!--Settings-->
+	<string name="decode">Decode</string>
+	<string name="no_debug_title">No Debug Info</string>
+	<string name="no_debug_summary">don\'t write out debug info \(.local, .param, .line, etc.\)</string>
+	<string name="keep_broken_title">Keep broken res</string>
+	<string name="keep_broken_summary">Use if there was an error and some resources were dropped, e.g.\n
+\"Invalid config flags detected. Dropping resources\", but you\n
+want to decode them anyway, even with errors. You will have to\n"
+fix them manually before building.</string>
+	<string name="api_title">API Level</string>
+	<string name="api_summary">The numeric api-level of the file to generate, e.g. 14 for ICS.</string>
+	<string name="api_dialogTitle">Number of API Level:</string>
+	
+</resources>
