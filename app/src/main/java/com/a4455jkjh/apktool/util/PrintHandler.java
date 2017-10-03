@@ -9,10 +9,12 @@ import java.util.logging.LogManager;
 import java.util.logging.LogRecord;
 import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
+import android.widget.ScrollView;
 
-public class PrintHandler extends Handler
+public class PrintHandler extends Handler implements Runnable
 {
 	private static TextView out=null;
+	private static ScrollView scroll = null;
 	private static PrintHandler handler;
 	private static final int OUT = 1;
 	public static void init()
@@ -21,13 +23,20 @@ public class PrintHandler extends Handler
 			handler = new PrintHandler();
 		setupLogging(Verbosity.NORMAL);
 	}
-	public static void setOut(TextView out)
+	public static void setOut(TextView out,ScrollView scroll)
 	{
 		PrintHandler.out = out;
+		PrintHandler.scroll = scroll;
 	}
 	public static void reset()
 	{
 		out = null;
+	}
+
+	@Override
+	public void run()
+	{
+		scroll.scrollTo(0,out.getHeight());
 	}
 
 	public static void post1(Runnable run)
@@ -41,6 +50,7 @@ public class PrintHandler extends Handler
 			return;
 		CharSequence c = (CharSequence)msg.obj;
 		out.append(c);
+		post(this);
 	}
 	private static void setupLogging(final Verbosity verbosity)
 	{
@@ -102,5 +112,5 @@ public class PrintHandler extends Handler
 	enum Verbosity
 	{
         NORMAL, VERBOSE, QUIET
-		}
+	}
 }

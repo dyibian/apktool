@@ -29,7 +29,15 @@ public class ApkOptions {
     public boolean isFramework = false;
     public boolean resourcesAreCompressed = false;
     public Collection<String> doNotCompress;
-	public File in,out;
 
+	public File in,out,tmp;
+	public String keystore;
+	public String pk8,x509;
+	public String storepass;
+	public String keypass;
+	public String alias;
+	
+    public String frameworkFolderLocation = null;
     public String frameworkTag = null;
+    public String aaptPath = "";
 }

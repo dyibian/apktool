@@ -4,4 +4,8 @@
 	</style>
 	<style name="AppTheme.Dialog" parent="@android:style/Theme.Holo.Light.Dialog">
 	</style>
+    <style name="AppTheme.Dark" parent="@android:style/Theme.Holo">
+	</style>
+	<style name="AppTheme.Dialog.Dark" parent="@android:style/Theme.Holo.Dialog">
+	</style>
 </resources>

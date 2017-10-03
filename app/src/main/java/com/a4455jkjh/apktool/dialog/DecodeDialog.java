@@ -4,11 +4,13 @@ import brut.androlib.ApkDecoder;
 import brut.androlib.AndrolibException;
 import java.io.IOException;
 import brut.directory.DirectoryException;
+import java.util.logging.Logger;
+import com.a4455jkjh.apktool.MainActivity;
 
 public class DecodeDialog extends DialogCommon
 {
-	public DecodeDialog(Context c){
-		super(c);
+	public DecodeDialog(MainActivity c,int theme){
+		super(c,theme);
 	}
 
 	@Override
@@ -26,7 +28,7 @@ public class DecodeDialog extends DialogCommon
 			throw new BuildException("没有设置输入文件");
 		if(!(input instanceof ApkDecoder))
 			throw new BuildException("错误");
-		System.out.println("开始");
+		LOGGER.info("开始");
 		ApkDecoder decoder = (ApkDecoder)input;
 		try
 		{
@@ -38,5 +40,6 @@ public class DecodeDialog extends DialogCommon
 		}
 	}
 
+	private static Logger LOGGER = Logger.getLogger(DecodeDialog.class.getName());
 	
 }

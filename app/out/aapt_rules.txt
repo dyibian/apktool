@@ -1,0 +1,9 @@
+# view AndroidManifest.xml #generated:5
+-keep class com.a4455jkjh.apktool.App { <init>(...); }
+
+# view AndroidManifest.xml #generated:12
+-keep class com.a4455jkjh.apktool.MainActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:22
+-keep class com.a4455jkjh.apktool.SettingsActivity { <init>(...); }
+

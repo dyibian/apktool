@@ -11,14 +11,20 @@ import org.apache.commons.io.IOUtils;
 import android.os.Build;
 import android.widget.Toast;
 import brut.androlib.res.AndrolibResources;
+import sun1.security.provider.JavaProvider;
+import java.security.Security;
+import com.a4455jkjh.apktool.util.Settings;
 
 public class App extends Application
 {
 
+	public static String pk8,x509;
 	@Override
 	public void onCreate()
 	{
 		super.onCreate();
+		JavaProvider provider = new JavaProvider();
+		Security.addProvider(provider);
 		PrintHandler.init();
 		try
 		{
@@ -33,15 +39,16 @@ public class App extends Application
 	{
 		AssetManager assets = getAssets();
 		File dir = getFilesDir();
-		AndrolibResources.mFrameworkDirectory = dir;
+		Settings.mFrameworkDirectory = dir.getAbsolutePath();
 		copyFramework(assets, dir);
 		copy_aapt(assets, dir);
+		copyKey(assets,dir);
 	}
 
 	private void copy_aapt(AssetManager assets, File dir) throws IOException
 	{
 		File aapt = new File(dir, "aapt");
-		AndrolibResources.aapt = aapt;
+		Settings.aapt = aapt.getAbsolutePath();
 		if (aapt.exists())
 			return;
 		String name;
@@ -57,6 +64,26 @@ public class App extends Application
 		aapt.setExecutable(true, false);
 	}
 
+	private void copyKey(AssetManager assets,File dir) throws IOException{
+		File pk8 = new File(dir,"testkey.pk8");
+		File x509 = new File(dir,"testkey.x509.pem");
+		if(!pk8.exists()){
+			InputStream i_pk8 = assets.open("testkey.pk8");
+			OutputStream o = new FileOutputStream(pk8);
+			IOUtils.copy(i_pk8,o);
+			i_pk8.close();
+			o.close();
+		}
+		if(!x509.exists()){
+			InputStream i_x509 = assets.open("testkey.x509");
+			OutputStream o = new FileOutputStream(x509);
+			IOUtils.copy(i_x509,o);
+			i_x509.close();
+			o.close();
+		}
+		App.pk8=pk8.getAbsolutePath();
+		App.x509=x509.getAbsolutePath();
+	}
 	private void copyFramework(AssetManager assets, File dir) throws IOException
 	{
 		File f1 = new File(dir, "1.apk");

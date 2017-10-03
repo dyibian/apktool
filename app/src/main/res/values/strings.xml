@@ -7,18 +7,23 @@
 	<string name="no_debug_key" translatable="false">no-debug-info</string>
 	<string name="keep_broken_key" translatable="false">keep-broken-res</string>
 	<string name="api_key" translatable="false">api-level</string>
-	
-	<!--Settings-->
-	<string name="decode">Decode</string>
-	<string name="no_debug_title">No Debug Info</string>
-	<string name="no_debug_summary">don\'t write out debug info \(.local, .param, .line, etc.\)</string>
-	<string name="keep_broken_title">Keep broken res</string>
-	<string name="keep_broken_summary">Use if there was an error and some resources were dropped, e.g.\n
-\"Invalid config flags detected. Dropping resources\", but you\n
-want to decode them anyway, even with errors. You will have to\n"
-fix them manually before building.</string>
-	<string name="api_title">API Level</string>
-	<string name="api_summary">The numeric api-level of the file to generate, e.g. 14 for ICS.</string>
-	<string name="api_dialogTitle">Number of API Level:</string>
+	<string name="keystore_key" translatable="false">keystore</string>
+	<string name="theme_key" translatable="false">theme</string>
+		
+	<!--设置-->
+	<string name="encode">回编译</string>
+	<string name="decode">反编译</string>
+	<string name="theme">主题</string>
+	<string name="no_debug_title">不生成调试信息</string>
+	<string name="no_debug_summary">不生成调试信息（如‘.local’、‘.param’和‘.line’等）</string>
+	<string name="keep_broken_title">忽略损坏的资源</string>
+	<string name="keep_broken_summary">当出现错误或某些资源缺少（如：发现无效的config flags、 缺少资源)时，可以开启此项来忽略。但在构建之前必须修复它们。</string>
+	<string name="api_title">API版本</string>
+	<string name="api_summary">安卓版本对应的数字，如安卓4.0为14</string>
+	<string name="api_dialogTitle">安卓版本：</string>
+	<string name="keystore_title">密钥文件</string>
+	<string name="keystore_summary">密钥文件（pk8或者keystore文件)，若为pk8,则会自动添加x509.pem文件（如testkey.pk8对应testkey.x509.pem)。</string>
+	<string name="theme_title">主题</string>
+	<string name="theme_summary">选择主题</string>
 	
 </resources>

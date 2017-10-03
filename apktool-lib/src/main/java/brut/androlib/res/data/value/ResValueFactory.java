@@ -54,9 +54,9 @@ public class ResValueFactory {
                 return new ResFractionValue(value, rawValue);
             case TypedValue.TYPE_INT_BOOLEAN:
                 return new ResBoolValue(value != 0, value, rawValue);
-            case TypedValue.TYPE_DYNAMIC_REFERENCE:
+            case 0x07:
                 return newReference(value, rawValue);
-            case TypedValue.TYPE_DYNAMIC_ATTRIBUTE:
+            case 0x08:
                 return newReference(value, rawValue, true);
         }
 

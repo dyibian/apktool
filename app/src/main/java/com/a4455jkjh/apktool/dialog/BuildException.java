@@ -5,4 +5,5 @@ public class BuildException extends Exception
 	public BuildException(){}
 	public BuildException(String msg){super(msg);}
 	public BuildException(Exception ex){super(ex);}
+	public BuildException(String msg,Exception e){super(msg,e);}
 }

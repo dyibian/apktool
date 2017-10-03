@@ -3,6 +3,29 @@
 	xmlns:android="http://schemas.android.com/apk/res/android">
 
 	<PreferenceCategory
+		android:title="@string/theme">
+
+		<ListPreference
+			android:title="@string/theme_title"
+			android:key="@string/theme_key"
+			android:summary="@string/theme_summary"
+			android:entries="@array/theme_entry"
+			android:entryValues="@array/theme_entry_value"
+			android:defaultValue="light"/>
+
+	</PreferenceCategory>
+	
+	<PreferenceCategory
+		android:title="@string/encode">
+		
+		<EditTextPreference
+			android:title="@string/keystore_title"
+			android:key="@string/keystore_key"
+			android:summary="@string/keystore_summary" />
+		
+	</PreferenceCategory>
+	
+	<PreferenceCategory
 		android:title="@string/decode">
 		
 		<CheckBoxPreference
