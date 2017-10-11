@@ -3,58 +3,58 @@ brut.androlib.Androlib -> a.a.a:
     brut.androlib.res.data.ResUnknownFiles mResUnknownFiles -> a
     brut.androlib.ApkOptions apkOptions -> b
     int mMinSdkVersion -> d
-    java.util.logging.Logger LOGGER -> e
-    java.lang.String[] APK_RESOURCES_FILENAMES -> f
-    java.lang.String[] APK_RESOURCES_WITHOUT_RES_FILENAMES -> g
-    java.lang.String[] APP_RESOURCES_FILENAMES -> h
-    java.lang.String[] APK_MANIFEST_FILENAMES -> i
-    java.lang.String[] APK_STANDARD_ALL_FILENAMES -> j
-    java.util.regex.Pattern NO_COMPRESS_PATTERN -> k
-    51:59:void <init>(brut.androlib.ApkOptions) -> <init>
-    51:64:void <init>() -> <init>
-    68:68:brut.androlib.res.data.ResTable getResTable(brut.directory.ExtFile) -> a
-    73:73:brut.androlib.res.data.ResTable getResTable(brut.directory.ExtFile,boolean) -> a
-    79:84:void decodeSourcesRaw(brut.directory.ExtFile,java.io.File,java.lang.String) -> a
-    90:102:void decodeSourcesSmali(java.io.File,java.io.File,java.lang.String,boolean,int) -> a
-    107:113:void decodeManifestRaw(brut.directory.ExtFile,java.io.File) -> a
-    117:118:void decodeManifestFull(brut.directory.ExtFile,java.io.File,brut.androlib.res.data.ResTable) -> a
-    123:128:void decodeResourcesRaw(brut.directory.ExtFile,java.io.File) -> b
-    132:133:void decodeResourcesFull(brut.directory.ExtFile,java.io.File,brut.androlib.res.data.ResTable) -> b
-    137:138:void decodeManifestWithResources(brut.directory.ExtFile,java.io.File,brut.androlib.res.data.ResTable) -> c
-    142:163:void decodeRawFiles(brut.directory.ExtFile,java.io.File,short) -> a
-    167:193:void recordUncompressedFiles(brut.directory.ExtFile,java.util.Collection) -> a
-    196:201:boolean isAPKFileNames(java.lang.String) -> a
-    206:226:void decodeUnknownFiles(brut.directory.ExtFile,java.io.File,brut.androlib.res.data.ResTable) -> d
-    230:247:void writeOriginalFiles(brut.directory.ExtFile,java.io.File) -> c
-    252:256:void writeMetaFile(java.io.File,brut.androlib.meta.MetaInfo) -> a
-    261:266:brut.androlib.meta.MetaInfo readMetaFile(brut.directory.ExtFile) -> b
-    271:272:void build() -> a
-    274:275:void build(java.io.File,java.io.File) -> a
-    279:343:void build(brut.directory.ExtFile,java.io.File) -> d
-    347:350:void buildSources(java.io.File) -> a
-    356:382:void buildNonDefaultSources(brut.directory.ExtFile) -> c
-    386:400:boolean buildSourcesRaw(java.io.File,java.lang.String) -> a
-    405:418:boolean buildSourcesSmali(java.io.File,java.lang.String,java.lang.String) -> a
-    423:427:void buildResources(brut.directory.ExtFile,brut.androlib.meta.UsesFramework) -> a
-    432:446:boolean buildResourcesRaw(brut.directory.ExtFile) -> d
-    453:489:boolean buildResourcesFull(java.io.File,brut.androlib.meta.UsesFramework) -> a
-    496:501:boolean buildManifestRaw(brut.directory.ExtFile) -> e
-    508:541:boolean buildManifest(brut.directory.ExtFile,brut.androlib.meta.UsesFramework) -> b
-    546:547:void buildLib(java.io.File) -> b
-    550:551:void buildLibs(java.io.File) -> c
-    554:570:void buildLibrary(java.io.File,java.lang.String) -> b
-    574:593:void buildCopyOriginalFiles(java.io.File) -> d
-    597:621:void buildUnknownFiles(java.io.File,java.io.File,brut.androlib.meta.MetaInfo) -> a
-    625:640:void copyExistingFiles(java.util.zip.ZipFile,java.util.zip.ZipOutputStream) -> a
-    644:671:void copyUnknownFiles(java.io.File,java.util.zip.ZipOutputStream,java.util.Map) -> a
-    674:688:void buildApk(java.io.File,java.io.File) -> b
-    704:709:boolean isFrameworkApk(brut.androlib.res.data.ResTable) -> a
-    713:713:java.lang.String getVersion() -> b
-    718:733:java.io.File[] parseUsesFramework(brut.androlib.meta.UsesFramework) -> a
-    737:737:boolean isModified(java.io.File,java.io.File) -> c
-    741:746:boolean isModified(java.io.File[],java.io.File[]) -> a
-    750:754:java.io.File[] newFiles(java.lang.String[],java.io.File) -> a
-    761:778:void <clinit>() -> <clinit>
+    java.lang.String[] APK_RESOURCES_FILENAMES -> e
+    java.lang.String[] APK_RESOURCES_WITHOUT_RES_FILENAMES -> f
+    java.lang.String[] APP_RESOURCES_FILENAMES -> g
+    java.lang.String[] APK_MANIFEST_FILENAMES -> h
+    java.lang.String[] APK_STANDARD_ALL_FILENAMES -> i
+    java.util.regex.Pattern NO_COMPRESS_PATTERN -> j
+    60:68:void <init>(brut.androlib.ApkOptions) -> <init>
+    60:73:void <init>() -> <init>
+    77:77:brut.androlib.res.data.ResTable getResTable(brut.directory.ExtFile) -> a
+    82:82:brut.androlib.res.data.ResTable getResTable(brut.directory.ExtFile,boolean) -> a
+    88:93:void decodeSourcesRaw(brut.directory.ExtFile,java.io.File,java.lang.String) -> a
+    99:111:void decodeSourcesSmali(java.io.File,java.io.File,java.lang.String,boolean,int) -> a
+    116:122:void decodeManifestRaw(brut.directory.ExtFile,java.io.File) -> a
+    126:127:void decodeManifestFull(brut.directory.ExtFile,java.io.File,brut.androlib.res.data.ResTable) -> a
+    132:137:void decodeResourcesRaw(brut.directory.ExtFile,java.io.File) -> b
+    141:142:void decodeResourcesFull(brut.directory.ExtFile,java.io.File,brut.androlib.res.data.ResTable) -> b
+    146:147:void decodeManifestWithResources(brut.directory.ExtFile,java.io.File,brut.androlib.res.data.ResTable) -> c
+    151:172:void decodeRawFiles(brut.directory.ExtFile,java.io.File,short) -> a
+    176:202:void recordUncompressedFiles(brut.directory.ExtFile,java.util.Collection) -> a
+    205:210:boolean isAPKFileNames(java.lang.String) -> a
+    215:235:void decodeUnknownFiles(brut.directory.ExtFile,java.io.File,brut.androlib.res.data.ResTable) -> d
+    239:256:void writeOriginalFiles(brut.directory.ExtFile,java.io.File) -> c
+    261:265:void writeMetaFile(java.io.File,brut.androlib.meta.MetaInfo) -> a
+    270:275:brut.androlib.meta.MetaInfo readMetaFile(brut.directory.ExtFile) -> b
+    280:281:void build() -> a
+    283:284:void build(java.io.File,java.io.File) -> a
+    288:352:void build(brut.directory.ExtFile,java.io.File) -> d
+    356:359:void buildSources(java.io.File) -> a
+    365:391:void buildNonDefaultSources(brut.directory.ExtFile) -> c
+    395:409:boolean buildSourcesRaw(java.io.File,java.lang.String) -> a
+    414:427:boolean buildSourcesSmali(java.io.File,java.lang.String,java.lang.String) -> a
+    432:436:void buildResources(brut.directory.ExtFile,brut.androlib.meta.UsesFramework) -> a
+    441:455:boolean buildResourcesRaw(brut.directory.ExtFile) -> d
+    462:498:boolean buildResourcesFull(java.io.File,brut.androlib.meta.UsesFramework) -> a
+    505:510:boolean buildManifestRaw(brut.directory.ExtFile) -> e
+    517:550:boolean buildManifest(brut.directory.ExtFile,brut.androlib.meta.UsesFramework) -> b
+    555:556:void buildLib(java.io.File) -> b
+    559:560:void buildLibs(java.io.File) -> c
+    563:579:void buildLibrary(java.io.File,java.lang.String) -> b
+    583:602:void buildCopyOriginalFiles(java.io.File) -> d
+    606:630:void buildUnknownFiles(java.io.File,java.io.File,brut.androlib.meta.MetaInfo) -> a
+    634:649:void copyExistingFiles(java.util.zip.ZipFile,java.util.zip.ZipOutputStream) -> a
+    653:680:void copyUnknownFiles(java.io.File,java.util.zip.ZipOutputStream,java.util.Map) -> a
+    683:697:void buildApk(java.io.File,java.io.File) -> b
+    705:705:java.lang.String installFramework(java.io.File) -> e
+    713:718:boolean isFrameworkApk(brut.androlib.res.data.ResTable) -> a
+    722:722:java.lang.String getVersion() -> b
+    727:742:java.io.File[] parseUsesFramework(brut.androlib.meta.UsesFramework) -> a
+    746:746:boolean isModified(java.io.File,java.io.File) -> c
+    750:755:boolean isModified(java.io.File[],java.io.File[]) -> a
+    759:763:java.io.File[] newFiles(java.lang.String[],java.io.File) -> a
+    773:785:void <clinit>() -> <clinit>
 brut.androlib.AndrolibException -> a.a.b:
     25:26:void <init>() -> <init>
     29:30:void <init>(java.lang.String) -> <init>
@@ -62,21 +62,20 @@ brut.androlib.AndrolibException -> a.a.b:
     37:38:void <init>(java.lang.Throwable) -> <init>
 brut.androlib.ApkDecoder -> a.a.c:
     brut.androlib.Androlib mAndrolib -> a
-    java.util.logging.Logger LOGGER -> b
-    brut.directory.ExtFile mApkFile -> c
-    java.io.File mOutDir -> d
-    brut.androlib.res.data.ResTable mResTable -> e
-    short mDecodeSources -> f
-    short mDecodeResources -> g
-    short mDecodeAssets -> h
-    boolean mForceDelete -> i
-    boolean mKeepBrokenResources -> j
-    boolean mBakDeb -> k
-    java.util.Collection mUncompressedFiles -> l
-    boolean mAnalysisMode -> m
-    int mApi -> n
+    brut.directory.ExtFile mApkFile -> b
+    java.io.File mOutDir -> c
+    brut.androlib.res.data.ResTable mResTable -> d
+    short mDecodeSources -> e
+    short mDecodeResources -> f
+    short mDecodeAssets -> g
+    boolean mForceDelete -> h
+    boolean mKeepBrokenResources -> i
+    boolean mBakDeb -> j
+    java.util.Collection mUncompressedFiles -> k
+    boolean mAnalysisMode -> l
+    int mApi -> m
     46:47:void <init>() -> <init>
-    49:426:void <init>(brut.androlib.Androlib) -> <init>
+    49:424:void <init>(brut.androlib.Androlib) -> <init>
     63:71:void setApkFile(java.io.File) -> a
     74:75:void setOutDir(java.io.File) -> b
     78:79:void setApi(int) -> a
@@ -104,7 +103,6 @@ brut.androlib.ApkDecoder -> a.a.c:
     398:399:void putUnknownInfo(brut.androlib.meta.MetaInfo) -> e
     402:405:void putFileCompressionInfo(brut.androlib.meta.MetaInfo) -> f
     408:409:void putSharedLibraryInfo(brut.androlib.meta.MetaInfo) -> g
-    413:413:void <clinit>() -> <clinit>
 brut.androlib.ApkOptions -> a.a.d:
     boolean forceBuildAll -> a
     boolean forceDeleteFramework -> b
@@ -115,27 +113,26 @@ brut.androlib.ApkOptions -> a.a.d:
     boolean isFramework -> g
     boolean resourcesAreCompressed -> h
     java.util.Collection doNotCompress -> i
-    java.io.File in -> j
-    java.io.File out -> k
-    java.io.File tmp -> l
-    java.lang.String keystore -> m
-    java.lang.String pk8 -> n
-    java.lang.String x509 -> o
-    java.lang.String storepass -> p
-    java.lang.String keypass -> q
-    java.lang.String alias -> r
-    java.lang.String frameworkFolderLocation -> s
-    java.lang.String frameworkTag -> t
-    java.lang.String aaptPath -> u
-    22:42:void <init>() -> <init>
+    int api -> j
+    java.io.File in -> k
+    java.io.File out -> l
+    java.io.File tmp -> m
+    java.lang.String keystore -> n
+    java.lang.String pk8 -> o
+    java.lang.String x509 -> p
+    java.lang.String storepass -> q
+    java.lang.String keypass -> r
+    java.lang.String alias -> s
+    java.lang.String frameworkFolderLocation -> t
+    java.lang.String frameworkTag -> u
+    java.lang.String aaptPath -> v
+    22:43:void <init>() -> <init>
 brut.androlib.ApktoolProperties -> a.a.e:
     java.util.Properties sProps -> a
-    java.util.logging.Logger LOGGER -> b
     27:27:void <init>() -> <init>
     29:29:java.lang.String get(java.lang.String) -> a
     33:36:java.util.Properties get() -> a
     40:84:void loadProps() -> b
-    88:88:void <clinit>() -> <clinit>
 brut.androlib.err.CantFind9PatchChunk -> a.a.a.a:
     31:32:void <init>(java.lang.String,java.lang.Throwable) -> <init>
     38:39:void <init>() -> <init>
@@ -207,46 +204,48 @@ brut.androlib.mod.SmaliMod -> a.a.c.a:
 brut.androlib.res.AndrolibResources -> a.a.d.a:
     brut.androlib.ApkOptions apkOptions -> a
     boolean sKeepBroken -> b
-    java.util.logging.Logger LOGGER -> c
-    java.io.File mFrameworkDirectory -> d
-    brut.directory.ExtFile mFramework -> e
-    java.lang.String mMinSdkVersion -> f
-    java.lang.String mMaxSdkVersion -> g
-    java.lang.String mTargetSdkVersion -> h
-    java.lang.String mVersionCode -> i
-    java.lang.String mVersionName -> j
-    java.lang.String mPackageRenamed -> k
-    java.lang.String mPackageId -> l
-    boolean mSharedLibrary -> m
-    java.lang.String[] IGNORED_PACKAGES -> n
-    java.lang.String[] ALLOWED_PACKAGES -> o
-    56:820:void <init>() -> <init>
-    63:67:brut.androlib.res.data.ResTable getResTable(brut.directory.ExtFile,boolean) -> a
-    72:101:brut.androlib.res.data.ResPackage loadMainPkg(brut.androlib.res.data.ResTable,brut.directory.ExtFile) -> a
-    106:117:brut.androlib.res.data.ResPackage selectPkgWithMostResSpecs(brut.androlib.res.data.ResPackage[]) -> a
-    122:142:brut.androlib.res.data.ResPackage loadFrameworkPkg(brut.androlib.res.data.ResTable,int,java.lang.String) -> a
-    148:169:void decodeManifest(brut.androlib.res.data.ResTable,brut.directory.ExtFile,java.io.File) -> a
-    175:193:void adjustPackageManifest(brut.androlib.res.data.ResTable,java.lang.String) -> a
-    198:229:void decodeManifestWithResources(brut.androlib.res.data.ResTable,brut.directory.ExtFile,java.io.File) -> b
-    233:278:void decode(brut.androlib.res.data.ResTable,brut.directory.ExtFile,java.io.File) -> c
-    281:286:void setSdkInfo(java.util.Map) -> a
-    289:293:void setVersionInfo(brut.androlib.meta.VersionInfo) -> a
-    296:299:void setPackageRenamed(brut.androlib.meta.PackageInfo) -> a
-    302:305:void setPackageId(brut.androlib.meta.PackageInfo) -> b
-    308:309:void setSharedLibrary(boolean) -> a
-    312:319:java.lang.String checkTargetSdkVersionBounds() -> a
-    325:442:void aaptPackage(java.io.File,java.io.File,java.io.File,java.io.File,java.io.File,java.io.File[]) -> a
-    445:450:int getMinSdkVersionFromAndroidCodename(brut.androlib.meta.MetaInfo,java.lang.String) -> a
-    454:462:int mapSdkShorthandToVersion(java.lang.String) -> a
-    497:505:brut.util.Duo getResFileDecoder() -> b
-    509:515:brut.util.Duo getManifestFileDecoder() -> c
-    519:524:brut.androlib.res.util.ExtMXSerializer getResXmlSerializer() -> d
-    530:550:void generateValuesFile(brut.androlib.res.data.ResValuesFile,brut.directory.Directory,brut.androlib.res.util.ExtXmlSerializer) -> a
-    555:575:void generatePublicXml(brut.androlib.res.data.ResPackage,brut.directory.Directory,org.xmlpull.v1.XmlSerializer) -> a
-    580:590:brut.androlib.res.data.ResPackage[] getResPackagesFromApk(brut.directory.ExtFile,brut.androlib.res.data.ResTable,boolean) -> a
-    596:624:java.io.File getFrameworkApk(int,java.lang.String) -> a
-    749:784:java.io.File getFrameworkDir() -> e
-    804:826:void <clinit>() -> <clinit>
+    java.io.File mFrameworkDirectory -> c
+    brut.directory.ExtFile mFramework -> d
+    java.lang.String mMinSdkVersion -> e
+    java.lang.String mMaxSdkVersion -> f
+    java.lang.String mTargetSdkVersion -> g
+    java.lang.String mVersionCode -> h
+    java.lang.String mVersionName -> i
+    java.lang.String mPackageRenamed -> j
+    java.lang.String mPackageId -> k
+    boolean mSharedLibrary -> l
+    java.lang.String[] IGNORED_PACKAGES -> m
+    java.lang.String[] ALLOWED_PACKAGES -> n
+    80:846:void <init>() -> <init>
+    87:91:brut.androlib.res.data.ResTable getResTable(brut.directory.ExtFile,boolean) -> a
+    96:125:brut.androlib.res.data.ResPackage loadMainPkg(brut.androlib.res.data.ResTable,brut.directory.ExtFile) -> a
+    130:141:brut.androlib.res.data.ResPackage selectPkgWithMostResSpecs(brut.androlib.res.data.ResPackage[]) -> a
+    146:166:brut.androlib.res.data.ResPackage loadFrameworkPkg(brut.androlib.res.data.ResTable,int,java.lang.String) -> a
+    172:193:void decodeManifest(brut.androlib.res.data.ResTable,brut.directory.ExtFile,java.io.File) -> a
+    199:217:void adjustPackageManifest(brut.androlib.res.data.ResTable,java.lang.String) -> a
+    222:253:void decodeManifestWithResources(brut.androlib.res.data.ResTable,brut.directory.ExtFile,java.io.File) -> b
+    257:302:void decode(brut.androlib.res.data.ResTable,brut.directory.ExtFile,java.io.File) -> c
+    305:310:void setSdkInfo(java.util.Map) -> a
+    313:317:void setVersionInfo(brut.androlib.meta.VersionInfo) -> a
+    320:323:void setPackageRenamed(brut.androlib.meta.PackageInfo) -> a
+    326:329:void setPackageId(brut.androlib.meta.PackageInfo) -> b
+    332:333:void setSharedLibrary(boolean) -> a
+    336:343:java.lang.String checkTargetSdkVersionBounds() -> a
+    349:468:void aaptPackage(java.io.File,java.io.File,java.io.File,java.io.File,java.io.File,java.io.File[]) -> a
+    471:476:int getMinSdkVersionFromAndroidCodename(brut.androlib.meta.MetaInfo,java.lang.String) -> a
+    480:488:int mapSdkShorthandToVersion(java.lang.String) -> a
+    523:531:brut.util.Duo getResFileDecoder() -> b
+    535:541:brut.util.Duo getManifestFileDecoder() -> c
+    545:550:brut.androlib.res.util.ExtMXSerializer getResXmlSerializer() -> d
+    556:576:void generateValuesFile(brut.androlib.res.data.ResValuesFile,brut.directory.Directory,brut.androlib.res.util.ExtXmlSerializer) -> a
+    581:601:void generatePublicXml(brut.androlib.res.data.ResPackage,brut.directory.Directory,org.xmlpull.v1.XmlSerializer) -> a
+    606:616:brut.androlib.res.data.ResPackage[] getResPackagesFromApk(brut.directory.ExtFile,brut.androlib.res.data.ResTable,boolean) -> a
+    622:650:java.io.File getFrameworkApk(int,java.lang.String) -> a
+    680:680:java.lang.String installFramework(java.io.File) -> a
+    686:741:java.lang.String installFramework(java.io.File,java.lang.String) -> a
+    766:774:void publicizeResources(byte[],brut.androlib.res.decoder.ARSCDecoder$FlagsOffset[]) -> a
+    777:812:java.io.File getFrameworkDir() -> e
+    832:852:void <clinit>() -> <clinit>
 brut.androlib.res.data.ResConfigFlags -> a.a.d.a.a:
     short mcc -> a
     short mnc -> b
@@ -274,18 +273,17 @@ brut.androlib.res.data.ResConfigFlags -> a.a.d.a.a:
     java.lang.String mQualifiers -> x
     int size -> y
     int sErrCounter -> z
-    java.util.logging.Logger LOGGER -> A
-    63:89:void <init>() -> <init>
-    98:166:void <init>(short,short,char[],char[],byte,byte,int,byte,byte,byte,short,short,short,byte,byte,short,short,short,char[],char[],byte,byte,boolean,int) -> <init>
-    169:169:java.lang.String getQualifiers() -> a
-    173:418:java.lang.String generateQualifiers() -> b
-    422:440:short getNaturalSdkVersionRequirement() -> c
-    444:473:java.lang.String getLocaleString() -> d
-    477:481:java.lang.String toUpper(char[]) -> a
-    487:487:java.lang.String toString() -> toString
-    492:499:boolean equals(java.lang.Object) -> equals
-    504:506:int hashCode() -> hashCode
-    511:644:void <clinit>() -> <clinit>
+    64:90:void <init>() -> <init>
+    99:167:void <init>(short,short,char[],char[],byte,byte,int,byte,byte,byte,short,short,short,byte,byte,short,short,short,char[],char[],byte,byte,boolean,int) -> <init>
+    170:170:java.lang.String getQualifiers() -> a
+    174:419:java.lang.String generateQualifiers() -> b
+    423:441:short getNaturalSdkVersionRequirement() -> c
+    445:474:java.lang.String getLocaleString() -> d
+    478:482:java.lang.String toUpper(char[]) -> a
+    488:488:java.lang.String toString() -> toString
+    493:500:boolean equals(java.lang.Object) -> equals
+    505:507:int hashCode() -> hashCode
+    512:512:void <clinit>() -> <clinit>
 brut.androlib.res.data.ResID -> a.a.d.a.b:
     int package_ -> a
     int type -> b
@@ -305,29 +303,27 @@ brut.androlib.res.data.ResPackage -> a.a.d.a.c:
     java.util.Map mTypes -> f
     java.util.Set mSynthesizedRes -> g
     brut.androlib.res.data.value.ResValueFactory mValueFactory -> h
-    java.util.logging.Logger LOGGER -> i
-    35:46:void <init>(brut.androlib.res.data.ResTable,int,java.lang.String) -> <init>
-    49:49:java.util.List listResSpecs() -> a
-    53:53:boolean hasResSpec(brut.androlib.res.data.ResID) -> a
-    57:61:brut.androlib.res.data.ResResSpec getResSpec(brut.androlib.res.data.ResID) -> b
-    81:81:int getResSpecCount() -> b
-    85:90:brut.androlib.res.data.ResType getOrCreateConfig(brut.androlib.res.data.ResConfigFlags) -> a
-    110:118:java.util.Set listFiles() -> c
-    122:138:java.util.Collection listValuesFiles() -> d
-    142:142:brut.androlib.res.data.ResTable getResTable() -> e
-    146:146:int getId() -> f
-    150:150:java.lang.String getName() -> g
-    154:154:boolean isSynthesized(brut.androlib.res.data.ResID) -> c
-    158:159:void removeResSpec(brut.androlib.res.data.ResResSpec) -> a
-    162:165:void addResSpec(brut.androlib.res.data.ResResSpec) -> b
-    174:179:void addType(brut.androlib.res.data.ResTypeSpec) -> a
-    182:182:void addResource(brut.androlib.res.data.ResResource) -> a
-    188:189:void addSynthesizedRes(int) -> a
-    193:193:java.lang.String toString() -> toString
-    198:211:boolean equals(java.lang.Object) -> equals
-    216:219:int hashCode() -> hashCode
-    223:226:brut.androlib.res.data.value.ResValueFactory getValueFactory() -> h
-    229:229:void <clinit>() -> <clinit>
+    42:53:void <init>(brut.androlib.res.data.ResTable,int,java.lang.String) -> <init>
+    56:56:java.util.List listResSpecs() -> a
+    60:60:boolean hasResSpec(brut.androlib.res.data.ResID) -> a
+    64:68:brut.androlib.res.data.ResResSpec getResSpec(brut.androlib.res.data.ResID) -> b
+    88:88:int getResSpecCount() -> b
+    92:97:brut.androlib.res.data.ResType getOrCreateConfig(brut.androlib.res.data.ResConfigFlags) -> a
+    117:125:java.util.Set listFiles() -> c
+    129:145:java.util.Collection listValuesFiles() -> d
+    149:149:brut.androlib.res.data.ResTable getResTable() -> e
+    153:153:int getId() -> f
+    157:157:java.lang.String getName() -> g
+    161:161:boolean isSynthesized(brut.androlib.res.data.ResID) -> c
+    165:166:void removeResSpec(brut.androlib.res.data.ResResSpec) -> a
+    169:172:void addResSpec(brut.androlib.res.data.ResResSpec) -> b
+    181:186:void addType(brut.androlib.res.data.ResTypeSpec) -> a
+    189:189:void addResource(brut.androlib.res.data.ResResource) -> a
+    195:196:void addSynthesizedRes(int) -> a
+    200:200:java.lang.String toString() -> toString
+    205:218:boolean equals(java.lang.Object) -> equals
+    223:226:int hashCode() -> hashCode
+    230:233:brut.androlib.res.data.value.ResValueFactory getValueFactory() -> h
 brut.androlib.res.data.ResResSpec -> a.a.d.a.d:
     brut.androlib.res.data.ResID mId -> a
     java.lang.String mName -> b
@@ -572,10 +568,8 @@ brut.androlib.res.data.value.ResStringValue -> a.a.d.a.a.u:
     74:74:void <clinit>() -> <clinit>
 brut.androlib.res.data.value.ResStyleValue -> a.a.d.a.a.v:
     brut.util.Duo[] mItems -> b
-    java.util.logging.Logger LOGGER -> c
     35:42:void <init>(brut.androlib.res.data.value.ResReferenceValue,brut.util.Duo[],brut.androlib.res.data.value.ResValueFactory) -> <init>
     47:91:void serializeToResValuesXml(org.xmlpull.v1.XmlSerializer,brut.androlib.res.data.ResResource) -> a
-    95:95:void <clinit>() -> <clinit>
 brut.androlib.res.data.value.ResValue -> a.a.d.a.a.w:
     22:22:void <init>() -> <init>
 brut.androlib.res.data.value.ResValueFactory -> a.a.d.a.a.x:
@@ -602,46 +596,48 @@ brut.androlib.res.decoder.ARSCDecoder -> a.a.d.b.a:
     int mResId -> m
     boolean[] mMissingResSpecs -> n
     java.util.HashMap mResTypeSpecs -> o
-    java.util.logging.Logger LOGGER -> p
-    46:52:brut.androlib.res.decoder.ARSCDecoder$ARSCData decode(java.io.InputStream,boolean,boolean,brut.androlib.res.data.ResTable) -> a
-    56:533:void <init>(java.io.InputStream,brut.androlib.res.data.ResTable,boolean,boolean) -> <init>
-    72:82:brut.androlib.res.data.ResPackage[] readTableHeader() -> a
-    86:121:brut.androlib.res.data.ResPackage readTablePackage() -> b
-    125:140:void readLibraryType() -> c
-    143:168:brut.androlib.res.data.ResTypeSpec readTableTypeSpec() -> d
-    172:184:brut.androlib.res.data.ResTypeSpec readSingleTableTypeSpec() -> e
-    188:235:brut.androlib.res.data.ResType readTableType() -> f
-    239:293:void readEntry() -> g
-    296:316:brut.androlib.res.data.value.ResBagValue readComplexEntry() -> h
-    320:327:brut.androlib.res.data.value.ResIntBasedValue readValue() -> i
-    331:425:brut.androlib.res.data.ResConfigFlags readConfigFlags() -> j
-    435:444:char[] unpackLanguageOrRegion(byte,byte,char) -> a
-    448:459:java.lang.String readScriptOrVariantChar(int) -> a
-    463:464:void addTypeSpec(brut.androlib.res.data.ResTypeSpec) -> a
-    467:493:void addMissingResSpecs() -> k
-    496:500:void removeResSpec(brut.androlib.res.data.ResResSpec) -> a
-    503:503:brut.androlib.res.decoder.ARSCDecoder$Header nextChunk() -> l
-    507:511:void checkChunkType(int) -> b
-    514:516:void nextChunkCheckType(int) -> c
-    579:579:void <clinit>() -> <clinit>
+    59:59:brut.androlib.res.decoder.ARSCDecoder$ARSCData decode(java.io.InputStream,boolean,boolean) -> a
+    66:72:brut.androlib.res.decoder.ARSCDecoder$ARSCData decode(java.io.InputStream,boolean,boolean,brut.androlib.res.data.ResTable) -> a
+    76:553:void <init>(java.io.InputStream,brut.androlib.res.data.ResTable,boolean,boolean) -> <init>
+    92:102:brut.androlib.res.data.ResPackage[] readTableHeader() -> a
+    106:141:brut.androlib.res.data.ResPackage readTablePackage() -> b
+    145:160:void readLibraryType() -> c
+    163:188:brut.androlib.res.data.ResTypeSpec readTableTypeSpec() -> d
+    192:204:brut.androlib.res.data.ResTypeSpec readSingleTableTypeSpec() -> e
+    208:255:brut.androlib.res.data.ResType readTableType() -> f
+    259:313:void readEntry() -> g
+    316:336:brut.androlib.res.data.value.ResBagValue readComplexEntry() -> h
+    340:347:brut.androlib.res.data.value.ResIntBasedValue readValue() -> i
+    351:445:brut.androlib.res.data.ResConfigFlags readConfigFlags() -> j
+    455:464:char[] unpackLanguageOrRegion(byte,byte,char) -> a
+    468:479:java.lang.String readScriptOrVariantChar(int) -> a
+    483:484:void addTypeSpec(brut.androlib.res.data.ResTypeSpec) -> a
+    487:513:void addMissingResSpecs() -> k
+    516:520:void removeResSpec(brut.androlib.res.data.ResResSpec) -> a
+    523:523:brut.androlib.res.decoder.ARSCDecoder$Header nextChunk() -> l
+    527:531:void checkChunkType(int) -> b
+    534:536:void nextChunkCheckType(int) -> c
 brut.androlib.res.decoder.ARSCDecoder$ARSCData -> a.a.d.b.b:
     brut.androlib.res.data.ResPackage[] mPackages -> a
     brut.androlib.res.decoder.ARSCDecoder$FlagsOffset[] mFlagsOffsets -> b
     brut.androlib.res.data.ResTable mResTable -> c
-    584:588:void <init>(brut.androlib.res.data.ResPackage[],brut.androlib.res.decoder.ARSCDecoder$FlagsOffset[],brut.androlib.res.data.ResTable) -> <init>
-    595:595:brut.androlib.res.data.ResPackage[] getPackages() -> a
+    603:607:void <init>(brut.androlib.res.data.ResPackage[],brut.androlib.res.decoder.ARSCDecoder$FlagsOffset[],brut.androlib.res.data.ResTable) -> <init>
+    610:610:brut.androlib.res.decoder.ARSCDecoder$FlagsOffset[] getFlagsOffsets() -> a
+    614:614:brut.androlib.res.data.ResPackage[] getPackages() -> b
+    618:627:brut.androlib.res.data.ResPackage getOnePackage() -> c
+    631:640:int findPackageWithMostResSpecs() -> d
 brut.androlib.res.decoder.ARSCDecoder$FlagsOffset -> a.a.d.b.c:
     int offset -> a
     int count -> b
-    573:576:void <init>(int,int) -> <init>
+    593:596:void <init>(int,int) -> <init>
 brut.androlib.res.decoder.ARSCDecoder$Header -> a.a.d.b.d:
     short type -> a
     int headerSize -> b
     int chunkSize -> c
     int startPosition -> d
     int endPosition -> e
-    546:552:void <init>(short,int,int,int) -> <init>
-    556:562:brut.androlib.res.decoder.ARSCDecoder$Header read(brut.util.ExtDataInput,org.apache.commons.io.input.CountingInputStream) -> a
+    566:572:void <init>(short,int,int,int) -> <init>
+    576:582:brut.androlib.res.decoder.ARSCDecoder$Header read(brut.util.ExtDataInput,org.apache.commons.io.input.CountingInputStream) -> a
 brut.androlib.res.decoder.AXmlResourceParser -> a.a.d.b.e:
     brut.util.ExtDataInput m_reader -> a
     brut.androlib.res.decoder.ResAttrDecoder mAttrDecoder -> b
@@ -660,7 +656,6 @@ brut.androlib.res.decoder.AXmlResourceParser -> a.a.d.b.e:
     int m_idAttribute -> o
     int m_classAttribute -> p
     int m_styleAttribute -> q
-    java.util.logging.Logger LOGGER -> r
     50:966:void <init>() -> <init>
     60:60:brut.androlib.AndrolibException getFirstError() -> a
     64:64:brut.androlib.res.decoder.ResAttrDecoder getAttrDecoder() -> b
@@ -726,7 +721,6 @@ brut.androlib.res.decoder.AXmlResourceParser -> a.a.d.b.e:
     819:827:void resetEventInfo() -> c
     831:945:void doNext() -> d
     948:951:void setFirstError(brut.androlib.AndrolibException) -> a
-    977:977:void <clinit>() -> <clinit>
 brut.androlib.res.decoder.AXmlResourceParser$NamespaceStack -> a.a.d.b.f:
     int[] m_data -> a
     int m_dataLength -> b
@@ -780,13 +774,11 @@ brut.androlib.res.decoder.ResAttrDecoder -> a.a.d.b.j:
     72:73:void setCurrentPackage(brut.androlib.res.data.ResPackage) -> a
 brut.androlib.res.decoder.ResFileDecoder -> a.a.d.b.k:
     brut.androlib.res.decoder.ResStreamDecoderContainer mDecoders -> a
-    java.util.logging.Logger LOGGER -> b
-    38:40:void <init>(brut.androlib.res.decoder.ResStreamDecoderContainer) -> <init>
-    45:112:void decode(brut.androlib.res.data.ResResource,brut.directory.Directory,brut.directory.Directory) -> a
-    117:125:void decode(brut.directory.Directory,java.lang.String,brut.directory.Directory,java.lang.String,java.lang.String) -> a
-    129:133:void copyRaw(brut.directory.Directory,brut.directory.Directory,java.lang.String) -> a
-    138:146:void decodeManifest(brut.directory.Directory,java.lang.String,brut.directory.Directory,java.lang.String) -> a
-    148:148:void <clinit>() -> <clinit>
+    39:41:void <init>(brut.androlib.res.decoder.ResStreamDecoderContainer) -> <init>
+    46:113:void decode(brut.androlib.res.data.ResResource,brut.directory.Directory,brut.directory.Directory) -> a
+    118:126:void decode(brut.directory.Directory,java.lang.String,brut.directory.Directory,java.lang.String,java.lang.String) -> a
+    130:134:void copyRaw(brut.directory.Directory,brut.directory.Directory,java.lang.String) -> a
+    139:147:void decodeManifest(brut.directory.Directory,java.lang.String,brut.directory.Directory,java.lang.String) -> a
 brut.androlib.res.decoder.ResRawStreamDecoder -> a.a.d.b.l:
     28:28:void <init>() -> <init>
     33:37:void decode(java.io.InputStream,java.io.OutputStream) -> a
@@ -807,27 +799,23 @@ brut.androlib.res.decoder.StringBlock -> a.a.d.b.o:
     int[] m_stringOwns -> f
     java.nio.charset.CharsetDecoder UTF16LE_DECODER -> g
     java.nio.charset.CharsetDecoder UTF8_DECODER -> h
-    java.util.logging.Logger LOGGER -> i
-    44:81:brut.androlib.res.decoder.StringBlock read(brut.util.ExtDataInput) -> a
-    95:110:java.lang.String getString(int) -> a
-    126:186:java.lang.String getHTML(int) -> b
-    190:229:void outputStyleTag(java.lang.String,java.lang.StringBuilder,boolean) -> a
-    235:255:int find(java.lang.String) -> a
-    258:360:void <init>() -> <init>
-    267:291:int[] getStyle(int) -> c
-    296:300:java.lang.String decodeString(int,int) -> a
-    305:305:int getShort(byte[],int) -> a
-    318:336:int[] getUtf8(byte[],int) -> b
-    340:349:int[] getUtf16(byte[],int) -> c
-    361:361:void <clinit>() -> <clinit>
+    45:82:brut.androlib.res.decoder.StringBlock read(brut.util.ExtDataInput) -> a
+    96:111:java.lang.String getString(int) -> a
+    127:187:java.lang.String getHTML(int) -> b
+    191:230:void outputStyleTag(java.lang.String,java.lang.StringBuilder,boolean) -> a
+    236:256:int find(java.lang.String) -> a
+    259:361:void <init>() -> <init>
+    268:292:int[] getStyle(int) -> c
+    297:301:java.lang.String decodeString(int,int) -> a
+    306:306:int getShort(byte[],int) -> a
+    319:337:int[] getUtf8(byte[],int) -> b
+    341:350:int[] getUtf16(byte[],int) -> c
 brut.androlib.res.decoder.XmlPullStreamDecoder -> a.a.d.b.p:
     org.xmlpull.v1.XmlPullParser mParser -> a
     brut.androlib.res.util.ExtXmlSerializer mSerial -> b
-    java.util.logging.Logger LOGGER -> c
     40:43:void <init>(org.xmlpull.v1.XmlPullParser,brut.androlib.res.util.ExtXmlSerializer) -> <init>
     49:149:void decode(java.io.InputStream,java.io.OutputStream) -> a
     153:154:void decodeManifest(java.io.InputStream,java.io.OutputStream) -> b
-    159:159:void <clinit>() -> <clinit>
 brut.androlib.res.decoder.XmlPullStreamDecoder$1 -> a.a.d.b.q:
     boolean hideSdkInfo -> a
     boolean hidePackageInfo -> b
@@ -861,27 +849,22 @@ brut.androlib.res.xml.ResXmlEncoders -> a.a.d.d.b:
     174:212:brut.util.Duo findSubstitutions(java.lang.String,int) -> a
     216:217:boolean isPrintableChar(char) -> a
 brut.androlib.res.xml.ResXmlPatcher -> a.a.d.d.c:
-    java.util.logging.Logger LOGGER -> a
-    49:49:void <init>() -> <init>
-    58:77:void removeApplicationDebugTag(java.io.File) -> a
-    92:143:void fixingPublicAttrsInProviderAttributes(java.io.File) -> b
-    155:162:boolean isSaved(java.io.File,boolean,org.w3c.dom.Node) -> a
-    174:197:java.lang.String pullValueFromStrings(java.io.File,java.lang.String) -> a
-    207:226:void removeManifestVersions(java.io.File) -> c
-    237:250:void renameManifestPackage(java.io.File,java.lang.String) -> b
-    263:281:org.w3c.dom.Document loadDocument(java.io.File) -> d
-    297:302:void saveDocument(java.io.File,org.w3c.dom.Document) -> a
-    309:309:void <clinit>() -> <clinit>
+    55:74:void removeApplicationDebugTag(java.io.File) -> a
+    89:140:void fixingPublicAttrsInProviderAttributes(java.io.File) -> b
+    152:159:boolean isSaved(java.io.File,boolean,org.w3c.dom.Node) -> a
+    171:194:java.lang.String pullValueFromStrings(java.io.File,java.lang.String) -> a
+    204:223:void removeManifestVersions(java.io.File) -> c
+    234:247:void renameManifestPackage(java.io.File,java.lang.String) -> b
+    260:278:org.w3c.dom.Document loadDocument(java.io.File) -> d
+    294:299:void saveDocument(java.io.File,org.w3c.dom.Document) -> a
 brut.androlib.src.SmaliBuilder -> a.a.e.a:
     brut.directory.ExtFile mSmaliDir -> a
     java.io.File mDexFile -> b
     int mApiLevel -> c
-    java.util.logging.Logger LOGGER -> d
-    36:37:void build(brut.directory.ExtFile,java.io.File,int) -> a
-    43:88:void <init>(brut.directory.ExtFile,java.io.File,int) -> <init>
-    52:65:void build() -> a
-    69:84:void buildFile(java.lang.String,org.jf.dexlib2.writer.builder.DexBuilder) -> a
-    90:90:void <clinit>() -> <clinit>
+    38:39:void build(brut.directory.ExtFile,java.io.File,int) -> a
+    45:90:void <init>(brut.directory.ExtFile,java.io.File,int) -> <init>
+    54:67:void build() -> a
+    71:86:void buildFile(java.lang.String,org.jf.dexlib2.writer.builder.DexBuilder) -> a
 brut.androlib.src.SmaliDecoder -> a.a.e.b:
     java.io.File mApkFile -> a
     java.io.File mOutDir -> b
@@ -1056,184 +1039,202 @@ brut.util.ExtDataInput -> a.d.d:
     70:77:void skipCheckChunkTypeInt(int,int) -> a
     85:92:int skipBytes(int) -> skipBytes
     97:109:java.lang.String readNullEndedString(int,boolean) -> a
-brut.util.OS -> a.d.e:
-    java.util.logging.Logger LOGGER -> a
-    34:47:void rmdir(java.io.File) -> a
-    59:79:void cpdir(java.io.File,java.io.File) -> a
-    86:101:void exec(java.lang.String[]) -> a
-    29:29:java.util.logging.Logger access$000() -> a
-    31:31:void <clinit>() -> <clinit>
-brut.util.OS$StreamForwarder -> a.d.f:
+brut.util.Log -> a.d.e:
+    brut.util.Log$LogCallback callback -> a
+    9:9:void log(brut.util.Log$LogLevel,java.lang.String,java.lang.Exception) -> a
+    12:13:void severe(java.lang.String) -> a
+    16:17:void setCallback(brut.util.Log$LogCallback) -> a
+    23:24:void reset() -> a
+    26:27:void info(java.lang.String) -> b
+    29:30:void warning(java.lang.String) -> c
+    35:36:void fatal(java.lang.String) -> d
+    38:39:void fine(java.lang.String) -> e
+    41:42:void infoResources(int,java.lang.Object[]) -> a
+    44:45:void warnResources(int,java.lang.Object[]) -> b
+brut.util.Log$1 -> a.d.f:
+brut.util.Log$DefaultCallback -> a.d.g:
+    74:74:void <init>() -> <init>
+    79:79:void log(brut.util.Log$LogLevel,java.lang.CharSequence) -> a
+    84:84:void logResources(brut.util.Log$LogLevel,int,java.lang.Object[]) -> a
+    74:74:void <init>(brut.util.Log$1) -> <init>
+brut.util.Log$LogCallback -> a.d.h:
+    void log(brut.util.Log$LogLevel,java.lang.CharSequence) -> a
+    void logResources(brut.util.Log$LogLevel,int,java.lang.Object[]) -> a
+brut.util.Log$LogLevel -> a.d.i:
+    brut.util.Log$LogLevel INFO -> a
+    brut.util.Log$LogLevel WARN -> b
+    brut.util.Log$LogLevel ERROR -> c
+    brut.util.Log$LogLevel FATAL -> d
+    brut.util.Log$LogLevel FINE -> e
+    brut.util.Log$LogLevel DEBUG -> f
+    brut.util.Log$LogLevel VERBOSE -> g
+    int code -> h
+    brut.util.Log$LogLevel[] $VALUES -> i
+    60:60:brut.util.Log$LogLevel[] values() -> values
+    60:60:brut.util.Log$LogLevel valueOf(java.lang.String) -> valueOf
+    70:72:void <init>(java.lang.String,int,int) -> <init>
+    60:67:void <clinit>() -> <clinit>
+brut.util.OS -> a.d.j:
+    32:45:void rmdir(java.io.File) -> a
+    57:77:void cpdir(java.io.File,java.io.File) -> a
+    84:99:void exec(java.lang.String[]) -> a
+brut.util.OS$StreamForwarder -> a.d.k:
     java.io.InputStream mIn -> a
     java.lang.String mType -> b
-    120:123:void <init>(java.io.InputStream,java.lang.String) -> <init>
-    128:140:void run() -> run
+    118:121:void <init>(java.io.InputStream,java.lang.String) -> <init>
+    126:138:void run() -> run
 com.a4455jkjh.apktool.App -> com.a4455jkjh.apktool.App:
     java.lang.String pk8 -> a
     java.lang.String x509 -> b
     18:18:void <init>() -> <init>
-    25:37:void onCreate() -> onCreate
-    40:46:void copyData() -> a
-    50:65:void copy_aapt(android.content.res.AssetManager,java.io.File) -> a
-    68:86:void copyKey(android.content.res.AssetManager,java.io.File) -> b
-    89:97:void copyFramework(android.content.res.AssetManager,java.io.File) -> c
+    25:36:void onCreate() -> onCreate
+    39:45:void copyData() -> a
+    49:64:void copy_aapt(android.content.res.AssetManager,java.io.File) -> a
+    67:85:void copyKey(android.content.res.AssetManager,java.io.File) -> b
+    88:98:void copyFramework(android.content.res.AssetManager,java.lang.String) -> a
 com.a4455jkjh.apktool.MainActivity -> com.a4455jkjh.apktool.MainActivity:
     java.util.List FileList -> a
     java.io.File cur_dir -> b
     com.a4455jkjh.apktool.MainActivity$Adapter adapter -> c
-    com.a4455jkjh.apktool.util.Settings settings -> d
+    com.a4455jkjh.apktool.util.FileUtils fileUtils -> d
     android.widget.TextView path -> e
     java.lang.String[] formats -> f
     java.lang.String theme -> g
     java.lang.String theme_key -> h
     int theme_id -> i
-    48:48:void <init>() -> <init>
-    60:89:void onCreate(android.os.Bundle) -> onCreate
-    91:100:void refresh(java.io.File) -> a
-    103:104:void refresh() -> a
-    107:112:int compare(java.io.File,java.io.File) -> a
-    117:117:boolean accept(java.io.File,java.lang.String) -> accept
-    122:126:void onBackPressed() -> onBackPressed
-    130:135:void onListItemClick(android.widget.ListView,android.view.View,int,long) -> onListItemClick
-    138:148:void processFile(java.io.File) -> b
-    150:184:void processApk(java.io.File,android.app.AlertDialog$Builder) -> a
-    186:218:void showInfo(java.io.File,android.app.AlertDialog$Builder) -> b
-    220:223:void decode(brut.androlib.ApkDecoder) -> a
-    225:239:void build(java.io.File,brut.androlib.ApkOptions) -> a
-    242:270:void getPassword(brut.androlib.ApkOptions) -> a
-    274:275:boolean onCreateOptionsMenu(android.view.Menu) -> onCreateOptionsMenu
-    280:297:boolean onOptionsItemSelected(android.view.MenuItem) -> onOptionsItemSelected
-    302:308:void onResume() -> onResume
-    310:316:void setKeystore(java.lang.String) -> a
-    318:335:void generateDone(boolean,java.lang.String) -> a
-    338:340:void onStop() -> onStop
-    407:408:void onConfigurationChanged(android.content.res.Configuration) -> onConfigurationChanged
-    411:413:void help() -> b
-    48:48:int compare(java.lang.Object,java.lang.Object) -> compare
-    48:48:com.a4455jkjh.apktool.util.Settings access$000(com.a4455jkjh.apktool.MainActivity) -> a
-    48:48:void access$100(com.a4455jkjh.apktool.MainActivity,brut.androlib.ApkOptions) -> a
-    48:48:void access$200(com.a4455jkjh.apktool.MainActivity,java.io.File,brut.androlib.ApkOptions) -> a
-    48:48:void access$300(com.a4455jkjh.apktool.MainActivity,brut.androlib.ApkDecoder) -> a
-    48:48:void access$400(com.a4455jkjh.apktool.MainActivity,java.io.File,android.app.AlertDialog$Builder) -> a
-    48:48:int access$500(com.a4455jkjh.apktool.MainActivity) -> b
-    48:48:void access$600(com.a4455jkjh.apktool.MainActivity,java.lang.String) -> a
-    48:48:java.lang.String[] access$700(com.a4455jkjh.apktool.MainActivity) -> c
-    48:48:java.util.List access$800(com.a4455jkjh.apktool.MainActivity) -> d
-    51:51:void <clinit>() -> <clinit>
+    35:35:void <init>() -> <init>
+    47:77:void onCreate(android.os.Bundle) -> onCreate
+    79:88:void refresh(java.io.File) -> b
+    91:92:void refresh() -> a
+    95:100:int compare(java.io.File,java.io.File) -> a
+    105:105:boolean accept(java.io.File,java.lang.String) -> accept
+    110:114:void onBackPressed() -> onBackPressed
+    118:123:void onListItemClick(android.widget.ListView,android.view.View,int,long) -> onListItemClick
+    127:129:boolean onItemLongClick(android.widget.AdapterView,android.view.View,int,long) -> onItemLongClick
+    133:137:void install(java.io.File) -> a
+    142:143:boolean onCreateOptionsMenu(android.view.Menu) -> onCreateOptionsMenu
+    148:167:boolean onOptionsItemSelected(android.view.MenuItem) -> onOptionsItemSelected
+    172:178:void onResume() -> onResume
+    180:187:void setKey(java.lang.String) -> a
+    189:206:void generateDone(boolean,java.lang.String) -> a
+    273:274:void onConfigurationChanged(android.content.res.Configuration) -> onConfigurationChanged
+    35:35:int compare(java.lang.Object,java.lang.Object) -> compare
+    35:35:java.lang.String[] access$000(com.a4455jkjh.apktool.MainActivity) -> a
+    35:35:java.util.List access$100(com.a4455jkjh.apktool.MainActivity) -> b
+    38:38:void <clinit>() -> <clinit>
 com.a4455jkjh.apktool.MainActivity$1 -> com.a4455jkjh.apktool.a:
-    java.io.File val$apk -> a
-    com.a4455jkjh.apktool.MainActivity this$0 -> b
-    150:150:void <init>(com.a4455jkjh.apktool.MainActivity,java.io.File) -> <init>
-    153:180:void onClick(android.content.DialogInterface,int) -> onClick
-com.a4455jkjh.apktool.MainActivity$2 -> com.a4455jkjh.apktool.b:
-    android.widget.EditText val$store -> a
-    java.io.File val$keyStore -> b
-    android.app.AlertDialog$Builder val$builder -> c
-    android.widget.EditText val$key -> d
-    com.a4455jkjh.apktool.MainActivity this$0 -> e
-    192:192:void <init>(com.a4455jkjh.apktool.MainActivity,android.widget.EditText,java.io.File,android.app.AlertDialog$Builder,android.widget.EditText) -> <init>
-    195:210:void onClick(android.content.DialogInterface,int) -> onClick
-com.a4455jkjh.apktool.MainActivity$3 -> com.a4455jkjh.apktool.c:
-    android.widget.EditText val$store -> a
-    brut.androlib.ApkOptions val$option -> b
-    android.widget.EditText val$key -> c
-    android.widget.EditText val$alias -> d
-    com.a4455jkjh.apktool.MainActivity this$0 -> e
-    247:247:void <init>(com.a4455jkjh.apktool.MainActivity,android.widget.EditText,brut.androlib.ApkOptions,android.widget.EditText,android.widget.EditText) -> <init>
-    250:262:void onClick(android.content.DialogInterface,int) -> onClick
-com.a4455jkjh.apktool.MainActivity$4 -> com.a4455jkjh.apktool.d:
     java.lang.String val$msg -> a
     com.a4455jkjh.apktool.MainActivity this$0 -> b
-    323:323:void <init>(com.a4455jkjh.apktool.MainActivity,java.lang.String) -> <init>
-    326:327:void onClick(android.content.DialogInterface,int) -> onClick
-com.a4455jkjh.apktool.MainActivity$Adapter -> com.a4455jkjh.apktool.e:
+    194:194:void <init>(com.a4455jkjh.apktool.MainActivity,java.lang.String) -> <init>
+    197:198:void onClick(android.content.DialogInterface,int) -> onClick
+com.a4455jkjh.apktool.MainActivity$Adapter -> com.a4455jkjh.apktool.b:
     com.a4455jkjh.apktool.MainActivity this$0 -> a
-    371:371:void <init>(com.a4455jkjh.apktool.MainActivity) -> <init>
-    375:375:int getCount() -> getCount
-    380:380:java.io.File getItem(int) -> a
-    385:385:long getItemId(int) -> getItemId
-    390:401:android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
-    371:371:java.lang.Object getItem(int) -> getItem
-com.a4455jkjh.apktool.MainActivity$FormatAdapter -> com.a4455jkjh.apktool.f:
+    237:237:void <init>(com.a4455jkjh.apktool.MainActivity) -> <init>
+    241:241:int getCount() -> getCount
+    246:246:java.io.File getItem(int) -> a
+    251:251:long getItemId(int) -> getItemId
+    256:267:android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
+    237:237:java.lang.Object getItem(int) -> getItem
+com.a4455jkjh.apktool.MainActivity$FormatAdapter -> com.a4455jkjh.apktool.c:
     com.a4455jkjh.apktool.MainActivity this$0 -> a
-    342:342:void <init>(com.a4455jkjh.apktool.MainActivity) -> <init>
-    346:346:int getCount() -> getCount
-    351:351:java.lang.String getItem(int) -> a
-    356:356:long getItemId(int) -> getItemId
-    361:368:android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
-    342:342:java.lang.Object getItem(int) -> getItem
+    208:208:void <init>(com.a4455jkjh.apktool.MainActivity) -> <init>
+    212:212:int getCount() -> getCount
+    217:217:java.lang.String getItem(int) -> a
+    222:222:long getItemId(int) -> getItemId
+    227:234:android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
+    208:208:java.lang.Object getItem(int) -> getItem
+com.a4455jkjh.apktool.R -> com.a4455jkjh.apktool.d:
+com.a4455jkjh.apktool.R$styleable -> com.a4455jkjh.apktool.e:
+    int[] colors -> colors
+    int colors_fatalBackColor -> colors_fatalBackColor
+    int colors_fatalForeColor -> colors_fatalForeColor
+    int colors_fineBackColor -> colors_fineBackColor
+    int colors_fineForeColor -> colors_fineForeColor
+    int colors_infoBackColor -> colors_infoBackColor
+    int colors_infoForeColor -> colors_infoForeColor
+    int colors_warnBackColor -> colors_warnBackColor
+    int colors_warnForeColor -> colors_warnForeColor
+    int[] infoColor -> infoColor
+    int infoColor_infoColor -> infoColor_infoColor
+    271:405:void <clinit>() -> <clinit>
 com.a4455jkjh.apktool.SettingsActivity -> com.a4455jkjh.apktool.SettingsActivity:
-    11:11:void <init>() -> <init>
-    17:34:void onCreate(android.os.Bundle) -> onCreate
+    12:12:void <init>() -> <init>
+    16:35:void onCreate(android.os.Bundle) -> onCreate
+com.a4455jkjh.apktool.SettingsActivity$1 -> com.a4455jkjh.apktool.f:
+com.a4455jkjh.apktool.SettingsActivity$SettingsFragment -> com.a4455jkjh.apktool.g:
+    38:38:void <init>() -> <init>
+    41:44:void onCreate(android.os.Bundle) -> onCreate
+    38:38:void <init>(com.a4455jkjh.apktool.SettingsActivity$1) -> <init>
 com.a4455jkjh.apktool.dialog.BuildDialog -> com.a4455jkjh.apktool.a.a:
-    java.util.logging.Logger LOGGER -> a
-    21:22:void <init>(com.a4455jkjh.apktool.MainActivity,int) -> <init>
-    26:28:void show() -> show
-    32:63:void start() -> a
-    64:64:void <clinit>() -> <clinit>
+    16:17:void <init>(com.a4455jkjh.apktool.MainActivity,int) -> <init>
+    21:26:void show() -> show
+    30:61:void start() -> a
+    65:67:void select() -> b
 com.a4455jkjh.apktool.dialog.BuildException -> com.a4455jkjh.apktool.a.b:
     5:5:void <init>() -> <init>
     6:6:void <init>(java.lang.String) -> <init>
     7:7:void <init>(java.lang.Exception) -> <init>
+    8:8:void <init>(java.lang.String,java.lang.Exception) -> <init>
 com.a4455jkjh.apktool.dialog.DecodeDialog -> com.a4455jkjh.apktool.a.c:
-    java.util.logging.Logger LOGGER -> a
-    13:14:void <init>(com.a4455jkjh.apktool.MainActivity,int) -> <init>
-    19:21:void show() -> show
-    27:41:void start() -> a
-    43:43:void <clinit>() -> <clinit>
+    12:13:void <init>(com.a4455jkjh.apktool.MainActivity,int) -> <init>
+    18:20:void show() -> show
+    26:40:void start() -> a
 com.a4455jkjh.apktool.dialog.DialogCommon -> com.a4455jkjh.apktool.a.d:
-    java.lang.String time -> a
-    java.lang.Object input -> b
-    java.text.SimpleDateFormat sdf -> f
-    com.a4455jkjh.apktool.MainActivity main -> c
-    android.widget.TextView out -> d
-    java.util.logging.Logger LOGGER -> e
+    java.lang.String time -> d
+    java.lang.Object input -> a
+    java.text.SimpleDateFormat sdf -> e
+    com.a4455jkjh.apktool.MainActivity main -> b
+    android.widget.TextView out -> c
+    com.a4455jkjh.apktool.util.PrintHandler handler -> f
+    com.a4455jkjh.apktool.util.PrintHandler$TextColor color -> g
     void start() -> a
-    25:124:void <init>(com.a4455jkjh.apktool.MainActivity,int) -> <init>
-    34:35:void setInput(java.lang.Object) -> a
-    38:39:void onCreate1(android.os.Bundle) -> a
-    43:49:void onCreate(android.os.Bundle) -> onCreate
-    54:57:void show() -> show
-    60:61:void show1() -> b
-    64:74:void Done() -> c
-    78:80:void setTitle(java.lang.CharSequence) -> setTitle
-    85:95:void Err() -> d
-    100:119:void run() -> run
-    122:123:void long2time(long) -> a
-    14:14:java.lang.String access$000(com.a4455jkjh.apktool.dialog.DialogCommon) -> a
+    27:44:void <init>(com.a4455jkjh.apktool.MainActivity,int) -> <init>
+    50:51:void setInput(java.lang.Object) -> a
+    53:54:void onCreate1(android.os.Bundle) -> a
+    57:67:void onCreate(android.os.Bundle) -> onCreate
+    71:74:void show() -> show
+    77:78:void show1() -> c
+    80:90:void Done() -> d
+    94:96:void setTitle(java.lang.CharSequence) -> setTitle
+    100:110:void Err() -> e
+    114:129:void run() -> run
+    133:142:void onClick(android.view.View) -> onClick
+    145:145:void select() -> b
+    147:148:void long2time(long) -> a
+    15:15:java.lang.String access$000(com.a4455jkjh.apktool.dialog.DialogCommon) -> a
     19:19:void <clinit>() -> <clinit>
 com.a4455jkjh.apktool.dialog.DialogCommon$1 -> com.a4455jkjh.apktool.a.e:
     com.a4455jkjh.apktool.dialog.DialogCommon this$0 -> a
-    64:64:void <init>(com.a4455jkjh.apktool.dialog.DialogCommon) -> <init>
-    68:72:void run() -> run
+    80:80:void <init>(com.a4455jkjh.apktool.dialog.DialogCommon) -> <init>
+    83:88:void run() -> run
 com.a4455jkjh.apktool.dialog.DialogCommon$2 -> com.a4455jkjh.apktool.a.f:
     com.a4455jkjh.apktool.dialog.DialogCommon this$0 -> a
-    85:85:void <init>(com.a4455jkjh.apktool.dialog.DialogCommon) -> <init>
-    89:93:void run() -> run
+    100:100:void <init>(com.a4455jkjh.apktool.dialog.DialogCommon) -> <init>
+    103:108:void run() -> run
 com.a4455jkjh.apktool.dialog.HelpDialog -> com.a4455jkjh.apktool.a.g:
     android.app.Activity activity -> a
-    22:24:void <init>(android.app.Activity,int) -> <init>
-    28:50:void onCreate(android.os.Bundle) -> onCreate
-    54:55:void onClick(android.view.View) -> onClick
+    21:23:void <init>(android.app.Activity,int) -> <init>
+    27:56:void onCreate(android.os.Bundle) -> onCreate
+    60:61:void onClick(android.view.View) -> onClick
 com.a4455jkjh.apktool.dialog.KeyDialog -> com.a4455jkjh.apktool.a.h:
-    android.widget.EditText path -> a
-    android.widget.EditText alias -> f
-    android.widget.EditText storePass -> g
-    android.widget.EditText keyPass -> h
-    android.widget.EditText commonName -> i
-    android.widget.EditText organizationUnit -> j
-    android.widget.EditText organizationName -> k
-    android.widget.EditText localityName -> l
-    android.widget.EditText stateName -> m
-    android.widget.EditText country -> n
-    android.widget.EditText date -> o
-    android.widget.Spinner format -> p
-    android.widget.BaseAdapter adapter -> q
-    int type -> r
+    android.widget.EditText path -> d
+    android.widget.EditText alias -> e
+    android.widget.EditText storePass -> f
+    android.widget.EditText keyPass -> g
+    android.widget.EditText commonName -> h
+    android.widget.EditText organizationUnit -> i
+    android.widget.EditText organizationName -> j
+    android.widget.EditText localityName -> k
+    android.widget.EditText stateName -> l
+    android.widget.EditText country -> m
+    android.widget.EditText date -> n
+    android.widget.Spinner format -> o
+    android.widget.BaseAdapter adapter -> p
+    int type -> q
     34:37:void <init>(com.a4455jkjh.apktool.MainActivity,int,android.widget.BaseAdapter) -> <init>
     39:42:void onCreate(android.os.Bundle) -> onCreate
     46:48:void show() -> show
-    52:75:void init() -> e
+    52:75:void init() -> f
     77:77:android.widget.EditText getEditText(int) -> a
     81:81:void start() -> a
     85:151:void onClick(android.view.View) -> onClick
@@ -1241,35 +1242,46 @@ com.a4455jkjh.apktool.dialog.KeyDialog -> com.a4455jkjh.apktool.a.h:
     160:161:void onTextChanged(java.lang.CharSequence,int,int,int) -> onTextChanged
     165:177:void onItemSelected(android.widget.AdapterView,android.view.View,int,long) -> onItemSelected
     181:182:void onNothingSelected(android.widget.AdapterView) -> onNothingSelected
-    186:186:void empty() -> f
+    186:186:void empty() -> g
     190:241:void afterTextChanged(android.text.Editable) -> afterTextChanged
 com.a4455jkjh.apktool.dialog.KeystoreDialog -> com.a4455jkjh.apktool.a.i:
-    19:20:void <init>(com.a4455jkjh.apktool.MainActivity,int) -> <init>
-    23:23:void start() -> a
-    25:63:void show() -> show
+    java.lang.String key -> d
+    27:28:void <init>(com.a4455jkjh.apktool.MainActivity,int) -> <init>
+    32:32:void start() -> a
+    35:85:void show() -> show
+    88:114:void readPk8(java.lang.String) -> a
+    118:119:void select() -> b
+    127:132:byte[] read(java.io.InputStream) -> a
+    135:137:void printKey(java.security.Key) -> a
 com.a4455jkjh.apktool.dialog.KeystoreDialog$KeyStoreParam -> com.a4455jkjh.apktool.a.j:
     java.lang.String path -> a
     char[] storePass -> b
     char[] keyPass -> c
-    64:64:void <init>() -> <init>
+    121:121:void <init>() -> <init>
+com.a4455jkjh.apktool.dialog.VerifyDialog -> com.a4455jkjh.apktool.a.k:
+    16:17:void <init>(com.a4455jkjh.apktool.MainActivity,int) -> <init>
+    21:23:void show() -> show
+    28:42:void start() -> a
 com.a4455jkjh.apktool.util.ApkFile -> com.a4455jkjh.apktool.b.a:
-    java.security.MessageDigest sha1 -> a
+    java.security.MessageDigest sha -> a
     java.security.PrivateKey prik -> b
     java.util.List certs -> c
-    java.util.logging.Logger LOGGER -> d
-    sun1.misc.BASE64Encoder encoder -> e
-    48:48:void <init>() -> <init>
-    66:68:void reset() -> a
-    72:93:void init_kety_from_keystore(java.lang.String,java.lang.String,java.lang.String,java.lang.String) -> a
-    95:96:void init_kety_from_keyfile(java.lang.String,java.lang.String) -> a
-    99:108:void init_kety_from_keyfile(java.io.File,java.io.File) -> a
-    110:131:void build(java.lang.String,java.lang.String) -> b
-    135:167:java.util.jar.Manifest writeSf(java.util.jar.Manifest,java.util.jar.JarOutputStream) -> a
-    171:199:void writeKey(java.util.jar.JarOutputStream,java.util.jar.Manifest) -> a
-    201:223:void copyFile(java.util.jar.JarOutputStream,java.util.zip.ZipFile,java.util.Map) -> a
-    225:229:byte[] readFully(java.io.File) -> a
-    232:237:void drain(java.io.InputStream,java.io.OutputStream) -> a
-    52:64:void <clinit>() -> <clinit>
+    sun1.misc.BASE64Encoder encoder -> d
+    java.lang.String Digest -> e
+    java.lang.String Digest_Manifest -> f
+    java.lang.String sig -> g
+    java.lang.String alg -> h
+    60:62:void reset() -> a
+    66:87:void init_kety_from_keystore(java.lang.String,java.lang.String,java.lang.String,java.lang.String) -> a
+    89:90:void init_kety_from_keyfile(java.lang.String,java.lang.String) -> a
+    93:102:void init_kety_from_keyfile(java.io.File,java.io.File) -> a
+    104:141:void build(java.lang.String,java.lang.String,int) -> a
+    145:177:java.util.jar.Manifest writeSf(java.util.jar.Manifest,java.util.jar.JarOutputStream) -> a
+    181:209:void writeKey(java.util.jar.JarOutputStream,java.util.jar.Manifest) -> a
+    211:238:void copyFile(java.util.jar.JarOutputStream,java.util.zip.ZipFile,java.util.Map) -> a
+    240:244:byte[] readFully(java.io.File) -> a
+    247:252:void drain(java.io.InputStream,java.io.OutputStream) -> a
+    52:58:void <clinit>() -> <clinit>
 com.a4455jkjh.apktool.util.CertAndKeyGen -> com.a4455jkjh.apktool.b.b:
     java.security.SecureRandom prng -> a
     java.lang.String sigAlg -> b
@@ -1283,38 +1295,77 @@ com.a4455jkjh.apktool.util.CertAndKeyGen -> com.a4455jkjh.apktool.b.b:
     177:177:java.security.PrivateKey getPrivateKey() -> b
     213:268:void generate(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,long,char[],char[],int) -> a
     277:302:java.security.cert.X509Certificate getSelfCertificate(sun1.security.x509.X500Name,java.util.Date,java.util.Date,sun1.security.x509.CertificateExtensions) -> a
-com.a4455jkjh.apktool.util.PrintHandler -> com.a4455jkjh.apktool.b.c:
+com.a4455jkjh.apktool.util.FileUtils -> com.a4455jkjh.apktool.b.c:
+    com.a4455jkjh.apktool.util.Settings settings -> a
+    com.a4455jkjh.apktool.MainActivity main -> b
+    int theme_id -> c
+    30:34:void <init>(com.a4455jkjh.apktool.MainActivity,int) -> <init>
+    36:37:void updateSettings(android.content.SharedPreferences) -> a
+    39:43:void processFileLong(java.io.File) -> a
+    49:60:void processFile(java.io.File) -> b
+    63:95:void showInfo(java.io.File,android.app.AlertDialog$Builder) -> a
+    97:102:void showInfo(java.io.File) -> c
+    104:148:void processApk(java.io.File,android.app.AlertDialog$Builder) -> b
+    150:167:void importFranework(java.io.File) -> d
+    170:173:void decode(brut.androlib.ApkDecoder) -> a
+    175:189:void build(java.io.File,brut.androlib.ApkOptions) -> a
+    191:219:void getPassword(brut.androlib.ApkOptions) -> a
+    221:224:void verify(java.io.File) -> e
+    226:228:void help() -> a
+    230:232:void generateKey(android.widget.BaseAdapter) -> a
+    25:25:void access$000(com.a4455jkjh.apktool.util.FileUtils,java.io.File,android.app.AlertDialog$Builder) -> a
+    25:25:com.a4455jkjh.apktool.MainActivity access$100(com.a4455jkjh.apktool.util.FileUtils) -> a
+    25:25:int access$200(com.a4455jkjh.apktool.util.FileUtils) -> b
+    25:25:com.a4455jkjh.apktool.util.Settings access$300(com.a4455jkjh.apktool.util.FileUtils) -> c
+    25:25:void access$400(com.a4455jkjh.apktool.util.FileUtils,brut.androlib.ApkOptions) -> a
+    25:25:void access$500(com.a4455jkjh.apktool.util.FileUtils,java.io.File,brut.androlib.ApkOptions) -> a
+    25:25:void access$600(com.a4455jkjh.apktool.util.FileUtils,java.io.File) -> a
+    25:25:void access$700(com.a4455jkjh.apktool.util.FileUtils,java.io.File) -> b
+    25:25:void access$800(com.a4455jkjh.apktool.util.FileUtils,brut.androlib.ApkDecoder) -> a
+com.a4455jkjh.apktool.util.FileUtils$1 -> com.a4455jkjh.apktool.b.d:
+    android.widget.EditText val$store -> a
+    java.io.File val$keyStore -> b
+    android.app.AlertDialog$Builder val$builder -> c
+    android.widget.EditText val$key -> d
+    com.a4455jkjh.apktool.util.FileUtils this$0 -> e
+    69:69:void <init>(com.a4455jkjh.apktool.util.FileUtils,android.widget.EditText,java.io.File,android.app.AlertDialog$Builder,android.widget.EditText) -> <init>
+    72:87:void onClick(android.content.DialogInterface,int) -> onClick
+com.a4455jkjh.apktool.util.FileUtils$2 -> com.a4455jkjh.apktool.b.e:
+    java.io.File val$apk -> a
+    com.a4455jkjh.apktool.util.FileUtils this$0 -> b
+    104:104:void <init>(com.a4455jkjh.apktool.util.FileUtils,java.io.File) -> <init>
+    108:142:void onClick(android.content.DialogInterface,int) -> onClick
+com.a4455jkjh.apktool.util.FileUtils$3 -> com.a4455jkjh.apktool.b.f:
+    android.widget.EditText val$store -> a
+    brut.androlib.ApkOptions val$option -> b
+    android.widget.EditText val$key -> c
+    android.widget.EditText val$alias -> d
+    com.a4455jkjh.apktool.util.FileUtils this$0 -> e
+    196:196:void <init>(com.a4455jkjh.apktool.util.FileUtils,android.widget.EditText,brut.androlib.ApkOptions,android.widget.EditText,android.widget.EditText) -> <init>
+    199:211:void onClick(android.content.DialogInterface,int) -> onClick
+com.a4455jkjh.apktool.util.PrintHandler -> com.a4455jkjh.apktool.b.g:
     android.widget.TextView out -> a
     android.widget.ScrollView scroll -> b
-    com.a4455jkjh.apktool.util.PrintHandler handler -> c
-    14:14:void <init>() -> <init>
-    22:25:void init() -> a
-    28:30:void setOut(android.widget.TextView,android.widget.ScrollView) -> a
-    33:34:void reset() -> b
-    39:40:void run() -> run
-    44:45:void post1(java.lang.Runnable) -> a
-    49:54:void handleMessage(android.os.Message) -> handleMessage
-    57:111:void setupLogging(com.a4455jkjh.apktool.util.PrintHandler$Verbosity) -> a
-    14:14:com.a4455jkjh.apktool.util.PrintHandler access$000() -> c
-    16:17:void <clinit>() -> <clinit>
-com.a4455jkjh.apktool.util.PrintHandler$1 -> com.a4455jkjh.apktool.b.d:
-    69:69:void <init>() -> <init>
-    73:82:void publish(java.util.logging.LogRecord) -> publish
-    85:85:void close() -> close
-    88:88:void flush() -> flush
-com.a4455jkjh.apktool.util.PrintHandler$2 -> com.a4455jkjh.apktool.b.e:
-    100:100:void <init>() -> <init>
-    104:106:java.lang.String format(java.util.logging.LogRecord) -> format
-com.a4455jkjh.apktool.util.PrintHandler$Verbosity -> com.a4455jkjh.apktool.b.f:
-    com.a4455jkjh.apktool.util.PrintHandler$Verbosity NORMAL -> a
-    com.a4455jkjh.apktool.util.PrintHandler$Verbosity VERBOSE -> b
-    com.a4455jkjh.apktool.util.PrintHandler$Verbosity QUIET -> c
-    com.a4455jkjh.apktool.util.PrintHandler$Verbosity[] $VALUES -> d
-    112:112:com.a4455jkjh.apktool.util.PrintHandler$Verbosity[] values() -> values
-    112:112:com.a4455jkjh.apktool.util.PrintHandler$Verbosity valueOf(java.lang.String) -> valueOf
-    112:112:void <init>(java.lang.String,int) -> <init>
-    112:114:void <clinit>() -> <clinit>
-com.a4455jkjh.apktool.util.Settings -> com.a4455jkjh.apktool.b.g:
+    android.content.Context context -> c
+    com.a4455jkjh.apktool.util.PrintHandler$TextColor color -> d
+    16:26:void <init>(android.widget.TextView,android.widget.ScrollView,com.a4455jkjh.apktool.util.PrintHandler$TextColor,android.content.Context) -> <init>
+    47:97:void log(brut.util.Log$LogLevel,java.lang.CharSequence) -> a
+    101:105:void logResources(brut.util.Log$LogLevel,int,java.lang.Object[]) -> a
+    109:115:void handleMessage(android.os.Message) -> handleMessage
+com.a4455jkjh.apktool.util.PrintHandler$1 -> com.a4455jkjh.apktool.b.h:
+    int[] $SwitchMap$brut$util$Log$LogLevel -> a
+    52:52:void <clinit>() -> <clinit>
+com.a4455jkjh.apktool.util.PrintHandler$TextColor -> com.a4455jkjh.apktool.b.i:
+    int infoForeColor -> a
+    int infoBackColor -> b
+    int warnForeColor -> c
+    int warnBackColor -> d
+    int fatalForeColor -> e
+    int fatalBackColor -> f
+    int fineForeColor -> g
+    int fineBackColor -> h
+    116:116:void <init>() -> <init>
+com.a4455jkjh.apktool.util.Settings -> com.a4455jkjh.apktool.b.j:
     boolean Build_forceBuildAll -> c
     boolean Build_debugMode -> d
     boolean Build_verbose -> e
@@ -1330,13 +1381,42 @@ com.a4455jkjh.apktool.util.Settings -> com.a4455jkjh.apktool.b.g:
     java.lang.String no_debug_key -> m
     java.lang.String keep_broken_key -> n
     java.lang.String keystore_key -> o
-    14:36:void <init>(android.content.Context) -> <init>
-    38:48:brut.androlib.ApkOptions buildApkOptions() -> a
-    51:52:void setDecoder(brut.androlib.ApkDecoder,java.io.File) -> a
-    54:55:void setDecoderSource(brut.androlib.ApkDecoder,java.io.File) -> b
-    57:58:void setDecoderResources(brut.androlib.ApkDecoder,java.io.File) -> c
-    60:81:void setDecoder(brut.androlib.ApkDecoder,java.io.File,boolean,boolean,boolean) -> a
-    83:98:void update(android.content.SharedPreferences) -> a
+    java.lang.String api_key -> p
+    14:37:void <init>(android.content.Context) -> <init>
+    39:50:brut.androlib.ApkOptions buildApkOptions() -> a
+    53:54:void setDecoder(brut.androlib.ApkDecoder,java.io.File) -> a
+    56:57:void setDecoderSource(brut.androlib.ApkDecoder,java.io.File) -> b
+    59:60:void setDecoderResources(brut.androlib.ApkDecoder,java.io.File) -> c
+    62:83:void setDecoder(brut.androlib.ApkDecoder,java.io.File,boolean,boolean,boolean) -> a
+    85:101:void update(android.content.SharedPreferences) -> a
+com.a4455jkjh.apktool.util.Verify -> com.a4455jkjh.apktool.b.k:
+    java.util.jar.JarFile jar -> a
+    java.security.MessageDigest sha1 -> b
+    java.security.MessageDigest sha256 -> c
+    java.security.MessageDigest md5 -> d
+    sun1.misc.BASE64Encoder encoder -> e
+    java.util.Map keys -> f
+    java.util.jar.JarEntry MF -> g
+    java.lang.String F -> h
+    java.lang.String SF -> i
+    java.lang.String KEY -> j
+    33:34:void <init>(java.io.File) -> <init>
+    35:57:void <init>(java.util.jar.JarFile) -> <init>
+    44:53:boolean check() -> a
+    59:77:void setKey(java.util.jar.JarEntry,java.lang.String) -> a
+    79:117:boolean checkMF(java.util.Map) -> a
+    120:128:boolean checkSF(java.util.jar.Manifest) -> a
+    131:207:boolean checkKey(com.a4455jkjh.apktool.util.Verify$Keys,java.util.jar.Manifest,int) -> a
+    210:239:boolean checkSignature(com.a4455jkjh.apktool.util.Verify$Keys,int) -> a
+    242:248:void print(java.lang.String,byte[]) -> a
+    250:257:byte[] read(java.io.InputStream) -> a
+com.a4455jkjh.apktool.util.Verify$1 -> com.a4455jkjh.apktool.b.l:
+com.a4455jkjh.apktool.util.Verify$Keys -> com.a4455jkjh.apktool.b.m:
+    java.util.jar.JarEntry SF -> a
+    java.util.jar.JarEntry CERT -> b
+    259:259:void <init>() -> <init>
+    265:266:java.lang.String toString() -> toString
+    259:259:void <init>(com.a4455jkjh.apktool.util.Verify$1) -> <init>
 com.google.common.base.Ascii -> com.a.a.a.a:
     438:451:java.lang.String toLowerCase(java.lang.String) -> a
     547:547:boolean isUpperCase(char) -> a
@@ -15131,7 +15211,14 @@ sun1.security.pkcs.ContentInfo -> b.b.b.a:
     181:197:void encode(sun1.security.util.DerOutputStream) -> a
     212:216:java.lang.String toString() -> toString
     41:84:void <clinit>() -> <clinit>
-sun1.security.pkcs.EncryptedPrivateKeyInfo -> b.b.b.b:
+sun1.security.pkcs.ESSCertId -> b.b.b.b:
+    sun1.misc.HexDumpEncoder hexDumper -> a
+    byte[] certHash -> b
+    sun1.security.x509.GeneralNames issuer -> c
+    sun1.security.x509.SerialNumber serialNumber -> d
+    139:151:void <init>(sun1.security.util.DerValue) -> <init>
+    154:165:java.lang.String toString() -> toString
+sun1.security.pkcs.EncryptedPrivateKeyInfo -> b.b.b.c:
     sun1.security.x509.AlgorithmId algid -> a
     byte[] encryptedData -> b
     byte[] encoded -> c
@@ -15142,19 +15229,28 @@ sun1.security.pkcs.EncryptedPrivateKeyInfo -> b.b.b.b:
     121:136:byte[] getEncoded() -> c
     140:156:boolean equals(java.lang.Object) -> equals
     166:170:int hashCode() -> hashCode
-sun1.security.pkcs.PKCS7 -> b.b.b.c:
-    java.math.BigInteger version -> a
-    sun1.security.x509.AlgorithmId[] digestAlgorithmIds -> b
-    sun1.security.pkcs.ContentInfo contentInfo -> c
-    java.security.cert.X509Certificate[] certificates -> d
-    java.security.cert.X509CRL[] crls -> e
-    sun1.security.pkcs.SignerInfo[] signerInfos -> f
-    boolean oldStyle -> g
+sun1.security.pkcs.PKCS7 -> b.b.b.d:
+    sun1.security.util.ObjectIdentifier contentType -> a
+    java.math.BigInteger version -> b
+    sun1.security.x509.AlgorithmId[] digestAlgorithmIds -> c
+    sun1.security.pkcs.ContentInfo contentInfo -> d
+    java.security.cert.X509Certificate[] certificates -> e
+    java.security.cert.X509CRL[] crls -> f
+    sun1.security.pkcs.SignerInfo[] signerInfos -> g
+    boolean oldStyle -> h
+    63:115:void <init>(java.io.InputStream) -> <init>
+    154:170:void parse(sun1.security.util.DerInputStream) -> a
+    182:198:void parse(sun1.security.util.DerInputStream,boolean) -> a
     63:218:void <init>(sun1.security.x509.AlgorithmId[],sun1.security.pkcs.ContentInfo,java.security.cert.X509Certificate[],sun1.security.pkcs.SignerInfo[]) -> <init>
+    222:259:void parseNetscapeCertChain(sun1.security.util.DerValue) -> a
+    264:375:void parseSignedData(sun1.security.util.DerValue) -> b
+    384:455:void parseOldSignedData(sun1.security.util.DerValue) -> c
     464:467:void encodeSignedData(java.io.OutputStream) -> a
     478:526:void encodeSignedData(sun1.security.util.DerOutputStream) -> a
+    612:615:java.security.cert.X509Certificate[] getCertificates() -> a
+    636:636:sun1.security.pkcs.SignerInfo[] getSignerInfos() -> b
     700:725:java.lang.String toString() -> toString
-sun1.security.pkcs.PKCS8Key -> b.b.b.d:
+sun1.security.pkcs.PKCS8Key -> b.b.b.e:
     sun1.security.x509.AlgorithmId algid -> a
     byte[] key -> b
     byte[] encodedKey -> c
@@ -15172,7 +15268,7 @@ sun1.security.pkcs.PKCS8Key -> b.b.b.d:
     394:414:boolean equals(java.lang.Object) -> equals
     422:428:int hashCode() -> hashCode
     68:68:void <clinit>() -> <clinit>
-sun1.security.pkcs.PKCS9Attribute -> b.b.b.e:
+sun1.security.pkcs.PKCS9Attribute -> b.b.b.f:
     sun1.security.util.Debug debug -> p
     sun1.security.util.ObjectIdentifier[] PKCS9_OIDS -> a
     sun1.security.util.ObjectIdentifier EMAIL_ADDRESS_OID -> b
@@ -15196,18 +15292,32 @@ sun1.security.pkcs.PKCS9Attribute -> b.b.b.e:
     boolean[] SINGLE_VALUED -> u
     int index -> v
     java.lang.Object value -> w
+    475:588:void <init>(sun1.security.util.DerValue) -> <init>
     600:724:void derEncode(java.io.OutputStream) -> a
     754:754:sun1.security.util.ObjectIdentifier getOID() -> a
+    762:762:java.lang.String getName() -> b
     788:823:java.lang.String toString() -> toString
+    835:839:int indexOf(java.lang.Object,java.lang.Object[],int) -> a
+    848:849:void throwSingleValuedException() -> c
+    860:878:void throwTagException(java.lang.Byte) -> a
     182:365:void <clinit>() -> <clinit>
-sun1.security.pkcs.PKCS9Attributes -> b.b.b.f:
+sun1.security.pkcs.PKCS9Attributes -> b.b.b.g:
     java.util.Hashtable attributes -> a
-    byte[] derEncoding -> b
+    java.util.Hashtable permittedAttributes -> b
+    byte[] derEncoding -> c
+    boolean ignoreUnsupportedAttributes -> d
+    116:117:void <init>(sun1.security.util.DerInputStream) -> <init>
+    46:142:void <init>(sun1.security.util.DerInputStream,boolean) -> <init>
+    188:226:byte[] decode(sun1.security.util.DerInputStream) -> a
     239:241:void encode(byte,java.io.OutputStream) -> a
+    244:249:byte[] generateDerEncoding() -> a
     265:265:sun1.security.pkcs.PKCS9Attribute getAttribute(sun1.security.util.ObjectIdentifier) -> a
     326:349:java.lang.String toString() -> toString
-sun1.security.pkcs.ParsingException -> b.b.b.g:
-sun1.security.pkcs.SignerInfo -> b.b.b.h:
+    358:363:sun1.security.util.DerEncoder[] castToDerEncoder(java.lang.Object[]) -> a
+sun1.security.pkcs.ParsingException -> b.b.b.h:
+    41:42:void <init>() -> <init>
+    45:46:void <init>(java.lang.String) -> <init>
+sun1.security.pkcs.SignerInfo -> b.b.b.i:
     java.util.Set DIGEST_PRIMITIVE_SET -> i
     java.util.Set SIG_PRIMITIVE_SET -> j
     sun1.security.util.DisabledAlgorithmConstraints JAR_DISABLED_CHECK -> k
@@ -15222,9 +15332,20 @@ sun1.security.pkcs.SignerInfo -> b.b.b.h:
     sun1.security.pkcs.PKCS9Attributes authenticatedAttributes -> g
     sun1.security.pkcs.PKCS9Attributes unauthenticatedAttributes -> h
     89:106:void <init>(sun1.security.x509.X500Name,java.math.BigInteger,sun1.security.x509.AlgorithmId,sun1.security.x509.AlgorithmId,byte[]) -> <init>
+    131:132:void <init>(sun1.security.util.DerInputStream) -> <init>
+    89:203:void <init>(sun1.security.util.DerInputStream,boolean) -> <init>
     220:245:void derEncode(java.io.OutputStream) -> a
+    483:483:sun1.security.x509.AlgorithmId getDigestAlgorithmId() -> a
+    491:491:sun1.security.x509.AlgorithmId getDigestEncryptionAlgorithmId() -> b
+    495:495:byte[] getEncryptedDigest() -> c
     606:628:java.lang.String toString() -> toString
     72:90:void <clinit>() -> <clinit>
+sun1.security.pkcs.SigningCertificateInfo -> b.b.b.j:
+    byte[] ber -> a
+    sun1.security.pkcs.ESSCertId[] certId -> b
+    86:92:void <init>(byte[]) -> <init>
+    95:103:java.lang.String toString() -> toString
+    109:128:void parse(byte[]) -> a
 sun1.security.pkcs12.MacData -> b.b.c.a:
     java.lang.String digestAlgorithmName -> a
     java.security.AlgorithmParameters digestAlgorithmParams -> b
@@ -15473,6 +15594,7 @@ sun1.security.util.DerInputBuffer -> b.b.e.k:
     46:61:void <init>(byte[],int,int,boolean) -> <init>
     65:69:sun1.security.util.DerInputBuffer dup() -> a
     74:80:byte[] toByteArray() -> b
+    84:87:int peek() -> c
     95:98:boolean equals(java.lang.Object) -> equals
     102:113:boolean equals(sun1.security.util.DerInputBuffer) -> a
     122:129:int hashCode() -> hashCode
@@ -15480,8 +15602,8 @@ sun1.security.util.DerInputBuffer -> b.b.e.k:
     147:167:java.math.BigInteger getBigInteger(int,boolean) -> a
     182:189:int getInteger(int) -> b
     197:216:byte[] getBitString(int) -> c
-    223:223:byte[] getBitString() -> c
-    231:250:sun1.security.util.BitArray getUnalignedBitString() -> d
+    223:223:byte[] getBitString() -> d
+    231:250:sun1.security.util.BitArray getUnalignedBitString() -> e
     259:265:java.util.Date getUTCTime(int) -> d
     274:280:java.util.Date getGeneralizedTime(int) -> e
     311:444:java.util.Date getTime(int,boolean) -> b
@@ -15508,12 +15630,13 @@ sun1.security.util.DerInputStream -> b.b.e.l:
     530:532:java.util.Date getUTCTime() -> h
     539:541:java.util.Date getGeneralizedTime() -> i
     549:549:int getByte() -> j
-    558:558:int getLength() -> k
+    553:553:int peekByte() -> k
+    558:558:int getLength() -> l
     569:569:int getLength(java.io.InputStream) -> a
     581:618:int getLength(int,java.io.InputStream) -> a
     625:625:void mark(int) -> d
-    633:633:void reset() -> l
-    641:641:int available() -> m
+    633:633:void reset() -> m
+    641:641:int available() -> n
 sun1.security.util.DerOutputStream -> b.b.e.m:
     sun1.security.util.ByteArrayLexOrder lexOrder -> a
     sun1.security.util.ByteArrayTagOrder tagOrder -> b
@@ -15848,7 +15971,24 @@ sun1.security.x509.CRLDistributionPointsExtension -> b.b.f.i:
     213:221:void encode(java.io.OutputStream,sun1.security.util.ObjectIdentifier,boolean) -> a
     281:292:void encodeThis() -> b
     298:298:java.lang.String toString() -> toString
-sun1.security.x509.CRLNumberExtension -> b.b.f.j:
+sun1.security.x509.CRLExtensions -> b.b.f.j:
+    java.util.Map map -> a
+    boolean unsupportedCritExt -> b
+    java.lang.Class[] PARAMS -> c
+    66:73:void <init>() -> <init>
+    66:84:void <init>(sun1.security.util.DerInputStream) -> <init>
+    89:107:void init(sun1.security.util.DerInputStream) -> a
+    114:134:void parseExtension(sun1.security.x509.Extension) -> a
+    147:176:void encode(java.io.OutputStream,boolean) -> a
+    184:192:sun1.security.x509.Extension get(java.lang.String) -> a
+    220:220:java.util.Enumeration getElements() -> a
+    228:228:java.util.Collection getAllExtensions() -> b
+    236:236:boolean hasUnsupportedCriticalExtension() -> c
+    250:276:boolean equals(java.lang.Object) -> equals
+    285:285:int hashCode() -> hashCode
+    297:297:java.lang.String toString() -> toString
+    109:109:void <clinit>() -> <clinit>
+sun1.security.x509.CRLNumberExtension -> b.b.f.k:
     java.math.BigInteger crlNumber -> d
     java.lang.String extensionName -> e
     java.lang.String extensionLabel -> f
@@ -15862,7 +16002,7 @@ sun1.security.x509.CRLNumberExtension -> b.b.f.j:
     197:199:void encode(java.io.OutputStream) -> a
     208:217:void encode(java.io.OutputStream,sun1.security.util.ObjectIdentifier,boolean) -> a
     233:233:java.lang.String getName() -> a
-sun1.security.x509.CRLReasonCodeExtension -> b.b.f.k:
+sun1.security.x509.CRLReasonCodeExtension -> b.b.f.l:
     int reasonCode -> d
     86:93:void encodeThis() -> b
     102:103:void <init>(int) -> <init>
@@ -15871,10 +16011,10 @@ sun1.security.x509.CRLReasonCodeExtension -> b.b.f.k:
     181:196:java.lang.String toString() -> toString
     206:215:void encode(java.io.OutputStream) -> a
     232:232:java.lang.String getName() -> a
-sun1.security.x509.CertAttrSet -> b.b.f.l:
+sun1.security.x509.CertAttrSet -> b.b.f.m:
     void encode(java.io.OutputStream) -> a
     java.lang.String getName() -> a
-sun1.security.x509.CertificateAlgorithmId -> b.b.f.m:
+sun1.security.x509.CertificateAlgorithmId -> b.b.f.n:
     sun1.security.x509.AlgorithmId algId -> a
     67:69:void <init>(sun1.security.x509.AlgorithmId) -> <init>
     77:80:void <init>(sun1.security.util.DerInputStream) -> <init>
@@ -15883,7 +16023,7 @@ sun1.security.x509.CertificateAlgorithmId -> b.b.f.m:
     119:128:void set(java.lang.String,java.lang.Object) -> a
     134:137:sun1.security.x509.AlgorithmId get(java.lang.String) -> a
     168:168:java.lang.String getName() -> a
-sun1.security.x509.CertificateExtensions -> b.b.f.n:
+sun1.security.x509.CertificateExtensions -> b.b.f.o:
     sun1.security.util.Debug debug -> a
     java.util.Map map -> b
     boolean unsupportedCritExt -> c
@@ -15906,15 +16046,16 @@ sun1.security.x509.CertificateExtensions -> b.b.f.n:
     329:329:int hashCode() -> hashCode
     341:341:java.lang.String toString() -> toString
     58:92:void <clinit>() -> <clinit>
-sun1.security.x509.CertificateIssuerExtension -> b.b.f.o:
+sun1.security.x509.CertificateIssuerExtension -> b.b.f.p:
     sun1.security.x509.GeneralNames names -> d
     78:85:void encodeThis() -> b
     94:99:void <init>(sun1.security.x509.GeneralNames) -> <init>
     111:118:void <init>(java.lang.Boolean,java.lang.Object) -> <init>
+    145:148:sun1.security.x509.GeneralNames get(java.lang.String) -> a
     172:173:java.lang.String toString() -> toString
     183:191:void encode(java.io.OutputStream) -> a
     207:207:java.lang.String getName() -> a
-sun1.security.x509.CertificateIssuerName -> b.b.f.p:
+sun1.security.x509.CertificateIssuerName -> b.b.f.q:
     sun1.security.x509.X500Name dnName -> a
     javax.security.auth.x500.X500Principal dnPrincipal -> b
     71:73:void <init>(sun1.security.x509.X500Name) -> <init>
@@ -15924,7 +16065,7 @@ sun1.security.x509.CertificateIssuerName -> b.b.f.p:
     121:131:void set(java.lang.String,java.lang.Object) -> a
     137:145:java.lang.Object get(java.lang.String) -> a
     178:178:java.lang.String getName() -> a
-sun1.security.x509.CertificateIssuerUniqueIdentity -> b.b.f.q:
+sun1.security.x509.CertificateIssuerUniqueIdentity -> b.b.f.r:
     sun1.security.x509.UniqueIdentity id -> a
     96:98:void <init>(sun1.security.util.DerValue) -> <init>
     104:105:java.lang.String toString() -> toString
@@ -15932,7 +16073,7 @@ sun1.security.x509.CertificateIssuerUniqueIdentity -> b.b.f.q:
     125:134:void set(java.lang.String,java.lang.Object) -> a
     140:143:sun1.security.x509.UniqueIdentity get(java.lang.String) -> a
     175:175:java.lang.String getName() -> a
-sun1.security.x509.CertificatePoliciesExtension -> b.b.f.r:
+sun1.security.x509.CertificatePoliciesExtension -> b.b.f.s:
     java.util.List certPolicies -> d
     89:102:void encodeThis() -> b
     112:113:void <init>(java.util.List) -> <init>
@@ -15941,7 +16082,7 @@ sun1.security.x509.CertificatePoliciesExtension -> b.b.f.r:
     160:169:java.lang.String toString() -> toString
     179:187:void encode(java.io.OutputStream) -> a
     250:250:java.lang.String getName() -> a
-sun1.security.x509.CertificatePolicyId -> b.b.f.s:
+sun1.security.x509.CertificatePolicyId -> b.b.f.t:
     sun1.security.util.ObjectIdentifier id -> a
     55:57:void <init>(sun1.security.util.DerValue) -> <init>
     63:63:sun1.security.util.ObjectIdentifier getIdentifier() -> a
@@ -15949,13 +16090,13 @@ sun1.security.x509.CertificatePolicyId -> b.b.f.s:
     84:85:void encode(sun1.security.util.DerOutputStream) -> a
     95:99:boolean equals(java.lang.Object) -> equals
     108:108:int hashCode() -> hashCode
-sun1.security.x509.CertificatePolicyMap -> b.b.f.t:
+sun1.security.x509.CertificatePolicyMap -> b.b.f.u:
     sun1.security.x509.CertificatePolicyId issuerDomain -> a
     sun1.security.x509.CertificatePolicyId subjectDomain -> b
     59:65:void <init>(sun1.security.util.DerValue) -> <init>
     85:90:java.lang.String toString() -> toString
     100:105:void encode(sun1.security.util.DerOutputStream) -> a
-sun1.security.x509.CertificateSerialNumber -> b.b.f.u:
+sun1.security.x509.CertificateSerialNumber -> b.b.f.v:
     sun1.security.x509.SerialNumber serial -> a
     71:73:void <init>(int) -> <init>
     101:103:void <init>(sun1.security.util.DerValue) -> <init>
@@ -15964,7 +16105,7 @@ sun1.security.x509.CertificateSerialNumber -> b.b.f.u:
     130:139:void set(java.lang.String,java.lang.Object) -> a
     145:148:sun1.security.x509.SerialNumber get(java.lang.String) -> a
     180:180:java.lang.String getName() -> a
-sun1.security.x509.CertificateSubjectName -> b.b.f.v:
+sun1.security.x509.CertificateSubjectName -> b.b.f.w:
     sun1.security.x509.X500Name dnName -> a
     javax.security.auth.x500.X500Principal dnPrincipal -> b
     71:73:void <init>(sun1.security.x509.X500Name) -> <init>
@@ -15974,7 +16115,7 @@ sun1.security.x509.CertificateSubjectName -> b.b.f.v:
     121:131:void set(java.lang.String,java.lang.Object) -> a
     137:145:java.lang.Object get(java.lang.String) -> a
     178:178:java.lang.String getName() -> a
-sun1.security.x509.CertificateSubjectUniqueIdentity -> b.b.f.w:
+sun1.security.x509.CertificateSubjectUniqueIdentity -> b.b.f.x:
     sun1.security.x509.UniqueIdentity id -> a
     95:97:void <init>(sun1.security.util.DerValue) -> <init>
     103:104:java.lang.String toString() -> toString
@@ -15982,7 +16123,7 @@ sun1.security.x509.CertificateSubjectUniqueIdentity -> b.b.f.w:
     124:133:void set(java.lang.String,java.lang.Object) -> a
     139:142:sun1.security.x509.UniqueIdentity get(java.lang.String) -> a
     174:174:java.lang.String getName() -> a
-sun1.security.x509.CertificateValidity -> b.b.f.x:
+sun1.security.x509.CertificateValidity -> b.b.f.y:
     java.util.Date notBefore -> a
     java.util.Date notAfter -> b
     62:62:java.util.Date getNotBefore() -> b
@@ -15997,7 +16138,7 @@ sun1.security.x509.CertificateValidity -> b.b.f.x:
     194:199:java.util.Date get(java.lang.String) -> a
     234:234:java.lang.String getName() -> a
     268:276:void valid(java.util.Date) -> a
-sun1.security.x509.CertificateVersion -> b.b.f.y:
+sun1.security.x509.CertificateVersion -> b.b.f.z:
     int version -> a
     72:72:int getVersion() -> b
     77:84:void construct(sun1.security.util.DerValue) -> a
@@ -16010,7 +16151,7 @@ sun1.security.x509.CertificateVersion -> b.b.f.y:
     196:199:java.lang.Integer get(java.lang.String) -> a
     231:231:java.lang.String getName() -> a
     238:238:int compare(int) -> a
-sun1.security.x509.CertificateX509Key -> b.b.f.z:
+sun1.security.x509.CertificateX509Key -> b.b.f.aa:
     java.security.PublicKey key -> a
     63:65:void <init>(java.security.PublicKey) -> <init>
     73:76:void <init>(sun1.security.util.DerInputStream) -> <init>
@@ -16019,7 +16160,7 @@ sun1.security.x509.CertificateX509Key -> b.b.f.z:
     114:120:void set(java.lang.String,java.lang.Object) -> a
     126:129:java.security.PublicKey get(java.lang.String) -> a
     161:161:java.lang.String getName() -> a
-sun1.security.x509.DNSName -> b.b.f.aa:
+sun1.security.x509.DNSName -> b.b.f.ab:
     java.lang.String name -> a
     64:66:void <init>(sun1.security.util.DerValue) -> <init>
     74:103:void <init>(java.lang.String) -> <init>
@@ -16030,12 +16171,12 @@ sun1.security.x509.DNSName -> b.b.f.aa:
     143:153:boolean equals(java.lang.Object) -> equals
     162:162:int hashCode() -> hashCode
     197:223:int constrains(sun1.security.x509.GeneralNameInterface) -> a
-sun1.security.x509.DeltaCRLIndicatorExtension -> b.b.f.ab:
+sun1.security.x509.DeltaCRLIndicatorExtension -> b.b.f.ac:
     78:80:void <init>(int) -> <init>
     89:90:void <init>(java.math.BigInteger) -> <init>
     102:104:void <init>(java.lang.Boolean,java.lang.Object) -> <init>
     113:115:void encode(java.io.OutputStream) -> a
-sun1.security.x509.DistributionPoint -> b.b.f.ac:
+sun1.security.x509.DistributionPoint -> b.b.f.ad:
     java.lang.String[] REASON_STRINGS -> a
     sun1.security.x509.GeneralNames fullName -> b
     sun1.security.x509.RDN relativeName -> c
@@ -16050,7 +16191,7 @@ sun1.security.x509.DistributionPoint -> b.b.f.ac:
     379:382:java.lang.String reasonToString(int) -> a
     389:408:java.lang.String toString() -> toString
     109:109:void <clinit>() -> <clinit>
-sun1.security.x509.DistributionPointName -> b.b.f.ad:
+sun1.security.x509.DistributionPointName -> b.b.f.ae:
     sun1.security.x509.GeneralNames fullName -> a
     sun1.security.x509.RDN relativeName -> b
     int hashCode -> c
@@ -16060,7 +16201,7 @@ sun1.security.x509.DistributionPointName -> b.b.f.ad:
     214:225:int hashCode() -> hashCode
     232:240:java.lang.String toString() -> toString
     247:247:boolean equals(java.lang.Object,java.lang.Object) -> a
-sun1.security.x509.EDIPartyName -> b.b.f.ae:
+sun1.security.x509.EDIPartyName -> b.b.f.af:
     java.lang.String assigner -> a
     java.lang.String party -> b
     int myhash -> c
@@ -16071,7 +16212,7 @@ sun1.security.x509.EDIPartyName -> b.b.f.ae:
     199:205:int hashCode() -> hashCode
     212:212:java.lang.String toString() -> toString
     235:242:int constrains(sun1.security.x509.GeneralNameInterface) -> a
-sun1.security.x509.ExtendedKeyUsageExtension -> b.b.f.af:
+sun1.security.x509.ExtendedKeyUsageExtension -> b.b.f.ag:
     java.util.Map map -> d
     int[] anyExtendedKeyUsageOidData -> e
     int[] serverAuthOidData -> f
@@ -16093,7 +16234,7 @@ sun1.security.x509.ExtendedKeyUsageExtension -> b.b.f.af:
     302:302:java.lang.String getName() -> a
     306:310:java.util.List getExtendedKeyUsage() -> b
     99:124:void <clinit>() -> <clinit>
-sun1.security.x509.Extension -> b.b.f.ag:
+sun1.security.x509.Extension -> b.b.f.ah:
     sun1.security.util.ObjectIdentifier extensionId -> a
     boolean critical -> b
     byte[] extensionValue -> c
@@ -16108,11 +16249,11 @@ sun1.security.x509.Extension -> b.b.f.ag:
     177:183:java.lang.String toString() -> toString
     195:204:int hashCode() -> hashCode
     220:229:boolean equals(java.lang.Object) -> equals
-sun1.security.x509.FreshestCRLExtension -> b.b.f.ah:
+sun1.security.x509.FreshestCRLExtension -> b.b.f.ai:
     74:75:void <init>(java.util.List) -> <init>
     86:88:void <init>(java.lang.Boolean,java.lang.Object) -> <init>
     97:98:void encode(java.io.OutputStream) -> a
-sun1.security.x509.GeneralName -> b.b.f.ai:
+sun1.security.x509.GeneralName -> b.b.f.aj:
     sun1.security.x509.GeneralNameInterface name -> a
     76:77:void <init>(sun1.security.util.DerValue) -> <init>
     55:168:void <init>(sun1.security.util.DerValue,boolean) -> <init>
@@ -16121,22 +16262,23 @@ sun1.security.x509.GeneralName -> b.b.f.ai:
     199:208:boolean equals(java.lang.Object) -> equals
     218:218:int hashCode() -> hashCode
     228:248:void encode(sun1.security.util.DerOutputStream) -> a
-sun1.security.x509.GeneralNameInterface -> b.b.f.aj:
+sun1.security.x509.GeneralNameInterface -> b.b.f.ak:
     int getType() -> a
     void encode(sun1.security.util.DerOutputStream) -> a
     int constrains(sun1.security.x509.GeneralNameInterface) -> a
-sun1.security.x509.GeneralNames -> b.b.f.ak:
+sun1.security.x509.GeneralNames -> b.b.f.al:
     java.util.List names -> a
     56:71:void <init>(sun1.security.util.DerValue) -> <init>
     76:78:void <init>() -> <init>
     81:85:sun1.security.x509.GeneralNames add(sun1.security.x509.GeneralName) -> a
+    89:89:sun1.security.x509.GeneralName get(int) -> a
     93:93:boolean isEmpty() -> a
     105:105:java.util.List names() -> b
     115:124:void encode(sun1.security.util.DerOutputStream) -> a
     132:139:boolean equals(java.lang.Object) -> equals
     143:143:int hashCode() -> hashCode
     147:147:java.lang.String toString() -> toString
-sun1.security.x509.GeneralSubtree -> b.b.f.al:
+sun1.security.x509.GeneralSubtree -> b.b.f.am:
     sun1.security.x509.GeneralName name -> a
     int minimum -> b
     int maximum -> c
@@ -16146,7 +16288,7 @@ sun1.security.x509.GeneralSubtree -> b.b.f.al:
     148:163:boolean equals(java.lang.Object) -> equals
     172:184:int hashCode() -> hashCode
     193:210:void encode(sun1.security.util.DerOutputStream) -> a
-sun1.security.x509.GeneralSubtrees -> b.b.f.am:
+sun1.security.x509.GeneralSubtrees -> b.b.f.an:
     java.util.List trees -> a
     61:63:void <init>() -> <init>
     65:67:void <init>(sun1.security.x509.GeneralSubtrees) -> <init>
@@ -16159,7 +16301,7 @@ sun1.security.x509.GeneralSubtrees -> b.b.f.am:
     138:144:void encode(sun1.security.util.DerOutputStream) -> a
     154:161:boolean equals(java.lang.Object) -> equals
     165:165:int hashCode() -> hashCode
-sun1.security.x509.IPAddressName -> b.b.f.an:
+sun1.security.x509.IPAddressName -> b.b.f.ao:
     byte[] address -> a
     boolean isIPv4 -> b
     java.lang.String name -> c
@@ -16175,7 +16317,7 @@ sun1.security.x509.IPAddressName -> b.b.f.an:
     316:347:boolean equals(java.lang.Object) -> equals
     357:362:int hashCode() -> hashCode
     397:476:int constrains(sun1.security.x509.GeneralNameInterface) -> a
-sun1.security.x509.InhibitAnyPolicyExtension -> b.b.f.ao:
+sun1.security.x509.InhibitAnyPolicyExtension -> b.b.f.ap:
     sun1.security.util.Debug debug -> e
     sun1.security.util.ObjectIdentifier AnyPolicy_Id -> d
     int skipCerts -> f
@@ -16186,7 +16328,7 @@ sun1.security.x509.InhibitAnyPolicyExtension -> b.b.f.ao:
     173:182:void encode(java.io.OutputStream) -> a
     261:261:java.lang.String getName() -> a
     67:85:void <clinit>() -> <clinit>
-sun1.security.x509.IssuerAlternativeNameExtension -> b.b.f.ap:
+sun1.security.x509.IssuerAlternativeNameExtension -> b.b.f.aq:
     sun1.security.x509.GeneralNames names -> d
     69:76:void encodeThis() -> b
     65:90:void <init>(sun1.security.x509.GeneralNames) -> <init>
@@ -16196,7 +16338,7 @@ sun1.security.x509.IssuerAlternativeNameExtension -> b.b.f.ap:
     147:155:void encode(java.io.OutputStream) -> a
     178:181:sun1.security.x509.GeneralNames get(java.lang.String) -> a
     214:214:java.lang.String getName() -> a
-sun1.security.x509.IssuingDistributionPointExtension -> b.b.f.aq:
+sun1.security.x509.IssuingDistributionPointExtension -> b.b.f.ar:
     sun1.security.x509.DistributionPointName distributionPoint -> d
     sun1.security.x509.ReasonFlags revocationReasons -> e
     boolean hasOnlyUserCerts -> f
@@ -16209,7 +16351,7 @@ sun1.security.x509.IssuingDistributionPointExtension -> b.b.f.aq:
     238:246:void encode(java.io.OutputStream) -> a
     379:438:void encodeThis() -> b
     445:474:java.lang.String toString() -> toString
-sun1.security.x509.KeyIdentifier -> b.b.f.ar:
+sun1.security.x509.KeyIdentifier -> b.b.f.as:
     byte[] octetString -> a
     50:52:void <init>(byte[]) -> <init>
     59:61:void <init>(sun1.security.util.DerValue) -> <init>
@@ -16219,7 +16361,7 @@ sun1.security.x509.KeyIdentifier -> b.b.f.ar:
     129:130:void encode(sun1.security.util.DerOutputStream) -> a
     137:140:int hashCode() -> hashCode
     147:152:boolean equals(java.lang.Object) -> equals
-sun1.security.x509.KeyUsageExtension -> b.b.f.as:
+sun1.security.x509.KeyUsageExtension -> b.b.f.at:
     boolean[] bitString -> d
     75:78:void encodeThis() -> f
     86:86:boolean isSet(int) -> a
@@ -16232,7 +16374,7 @@ sun1.security.x509.KeyUsageExtension -> b.b.f.as:
     322:331:void encode(java.io.OutputStream) -> a
     354:354:boolean[] getBits() -> b
     361:361:java.lang.String getName() -> a
-sun1.security.x509.NameConstraintsExtension -> b.b.f.at:
+sun1.security.x509.NameConstraintsExtension -> b.b.f.au:
     sun1.security.x509.GeneralSubtrees permitted -> d
     sun1.security.x509.GeneralSubtrees excluded -> e
     boolean minMaxValid -> f
@@ -16243,7 +16385,7 @@ sun1.security.x509.NameConstraintsExtension -> b.b.f.at:
     232:240:void encode(java.io.OutputStream) -> a
     310:310:java.lang.String getName() -> a
     517:528:java.lang.Object clone() -> clone
-sun1.security.x509.NetscapeCertTypeExtension -> b.b.f.au:
+sun1.security.x509.NetscapeCertTypeExtension -> b.b.f.av:
     int[] CertType_data -> e
     sun1.security.util.ObjectIdentifier NetscapeCertType_Id -> d
     boolean[] bitString -> f
@@ -16259,11 +16401,11 @@ sun1.security.x509.NetscapeCertTypeExtension -> b.b.f.au:
     277:286:void encode(java.io.OutputStream) -> a
     300:300:java.lang.String getName() -> a
     72:115:void <clinit>() -> <clinit>
-sun1.security.x509.NetscapeCertTypeExtension$MapEntry -> b.b.f.av:
+sun1.security.x509.NetscapeCertTypeExtension$MapEntry -> b.b.f.aw:
     java.lang.String mName -> a
     int mPosition -> b
     93:96:void <init>(java.lang.String,int) -> <init>
-sun1.security.x509.OIDMap -> b.b.f.aw:
+sun1.security.x509.OIDMap -> b.b.f.ax:
     int[] NetscapeCertType_data -> a
     java.util.Map oidMap -> b
     java.util.Map nameMap -> c
@@ -16271,14 +16413,14 @@ sun1.security.x509.OIDMap -> b.b.f.aw:
     225:226:java.lang.String getName(sun1.security.util.ObjectIdentifier) -> a
     238:239:java.lang.Class getClass(sun1.security.util.ObjectIdentifier) -> b
     103:161:void <clinit>() -> <clinit>
-sun1.security.x509.OIDMap$OIDInfo -> b.b.f.ax:
+sun1.security.x509.OIDMap$OIDInfo -> b.b.f.ay:
     sun1.security.util.ObjectIdentifier oid -> a
     java.lang.String name -> b
     java.lang.String className -> c
     java.lang.Class clazz -> d
     187:192:void <init>(java.lang.String,sun1.security.util.ObjectIdentifier,java.lang.Class) -> <init>
     201:211:java.lang.Class getClazz() -> a
-sun1.security.x509.OIDName -> b.b.f.ay:
+sun1.security.x509.OIDName -> b.b.f.az:
     sun1.security.util.ObjectIdentifier oid -> a
     51:53:void <init>(sun1.security.util.DerValue) -> <init>
     82:82:int getType() -> a
@@ -16288,7 +16430,7 @@ sun1.security.x509.OIDName -> b.b.f.ay:
     115:123:boolean equals(java.lang.Object) -> equals
     132:132:int hashCode() -> hashCode
     152:161:int constrains(sun1.security.x509.GeneralNameInterface) -> a
-sun1.security.x509.OtherName -> b.b.f.az:
+sun1.security.x509.OtherName -> b.b.f.ba:
     java.lang.String name -> a
     sun1.security.util.ObjectIdentifier oid -> b
     byte[] nameValue -> c
@@ -16302,7 +16444,7 @@ sun1.security.x509.OtherName -> b.b.f.az:
     209:215:int hashCode() -> hashCode
     222:222:java.lang.String toString() -> toString
     246:254:int constrains(sun1.security.x509.GeneralNameInterface) -> a
-sun1.security.x509.PKIXExtensions -> b.b.f.ba:
+sun1.security.x509.PKIXExtensions -> b.b.f.bb:
     int[] AuthorityKey_data -> z
     int[] SubjectKey_data -> A
     int[] KeyUsage_data -> B
@@ -16354,7 +16496,7 @@ sun1.security.x509.PKIXExtensions -> b.b.f.ba:
     sun1.security.util.ObjectIdentifier SubjectInfoAccess_Id -> x
     sun1.security.util.ObjectIdentifier FreshestCRL_Id -> y
     52:260:void <clinit>() -> <clinit>
-sun1.security.x509.PolicyConstraintsExtension -> b.b.f.bb:
+sun1.security.x509.PolicyConstraintsExtension -> b.b.f.bc:
     int require -> d
     int inhibit -> e
     81:102:void encodeThis() -> b
@@ -16364,7 +16506,7 @@ sun1.security.x509.PolicyConstraintsExtension -> b.b.f.bb:
     181:192:java.lang.String toString() -> toString
     202:210:void encode(java.io.OutputStream) -> a
     276:276:java.lang.String getName() -> a
-sun1.security.x509.PolicyInformation -> b.b.f.bc:
+sun1.security.x509.PolicyInformation -> b.b.f.bd:
     sun1.security.x509.CertificatePolicyId policyIdentifier -> a
     java.util.Set policyQualifiers -> b
     102:120:void <init>(sun1.security.util.DerValue) -> <init>
@@ -16374,7 +16516,7 @@ sun1.security.x509.PolicyInformation -> b.b.f.bc:
     169:169:java.util.Set getPolicyQualifiers() -> b
     261:263:java.lang.String toString() -> toString
     273:283:void encode(sun1.security.util.DerOutputStream) -> a
-sun1.security.x509.PolicyMappingsExtension -> b.b.f.bd:
+sun1.security.x509.PolicyMappingsExtension -> b.b.f.be:
     java.util.List maps -> d
     71:84:void encodeThis() -> b
     92:97:void <init>(java.util.List) -> <init>
@@ -16383,7 +16525,7 @@ sun1.security.x509.PolicyMappingsExtension -> b.b.f.bd:
     139:143:java.lang.String toString() -> toString
     153:161:void encode(java.io.OutputStream) -> a
     221:221:java.lang.String getName() -> a
-sun1.security.x509.PrivateKeyUsageExtension -> b.b.f.be:
+sun1.security.x509.PrivateKeyUsageExtension -> b.b.f.bf:
     java.util.Date notBefore -> d
     java.util.Date notAfter -> e
     84:105:void encodeThis() -> b
@@ -16392,7 +16534,7 @@ sun1.security.x509.PrivateKeyUsageExtension -> b.b.f.be:
     178:181:java.lang.String toString() -> toString
     233:241:void encode(java.io.OutputStream) -> a
     310:310:java.lang.String getName() -> a
-sun1.security.x509.RDN -> b.b.f.bf:
+sun1.security.x509.RDN -> b.b.f.bg:
     sun1.security.x509.AVA[] assertion -> a
     java.lang.String canonicalString -> b
     106:154:void <init>(java.lang.String,java.util.Map) -> <init>
@@ -16405,7 +16547,7 @@ sun1.security.x509.RDN -> b.b.f.bf:
     409:409:java.lang.String toRFC2253String(java.util.Map) -> a
     419:429:java.lang.String toRFC2253String(boolean) -> a
     445:463:java.lang.String toRFC2253StringInternal(boolean,java.util.Map) -> a
-sun1.security.x509.RFC822Name -> b.b.f.bg:
+sun1.security.x509.RFC822Name -> b.b.f.bh:
     java.lang.String name -> a
     53:56:void <init>(sun1.security.util.DerValue) -> <init>
     82:97:void parseName(java.lang.String) -> a
@@ -16416,7 +16558,7 @@ sun1.security.x509.RFC822Name -> b.b.f.bg:
     137:147:boolean equals(java.lang.Object) -> equals
     156:156:int hashCode() -> hashCode
     185:228:int constrains(sun1.security.x509.GeneralNameInterface) -> a
-sun1.security.x509.ReasonFlags -> b.b.f.bh:
+sun1.security.x509.ReasonFlags -> b.b.f.bi:
     java.lang.String[] NAMES -> a
     boolean[] bitString -> b
     102:102:boolean isSet(int) -> a
@@ -16424,7 +16566,7 @@ sun1.security.x509.ReasonFlags -> b.b.f.bh:
     203:234:java.lang.String toString() -> toString
     244:245:void encode(sun1.security.util.DerOutputStream) -> a
     72:72:void <clinit>() -> <clinit>
-sun1.security.x509.SerialNumber -> b.b.f.bi:
+sun1.security.x509.SerialNumber -> b.b.f.bj:
     java.math.BigInteger serialNum -> a
     44:48:void construct(sun1.security.util.DerValue) -> a
     64:66:void <init>(int) -> <init>
@@ -16432,7 +16574,7 @@ sun1.security.x509.SerialNumber -> b.b.f.bi:
     104:104:java.lang.String toString() -> toString
     114:115:void encode(sun1.security.util.DerOutputStream) -> a
     121:121:java.math.BigInteger getNumber() -> a
-sun1.security.x509.SubjectAlternativeNameExtension -> b.b.f.bj:
+sun1.security.x509.SubjectAlternativeNameExtension -> b.b.f.bk:
     sun1.security.x509.GeneralNames names -> d
     74:81:void encodeThis() -> b
     92:93:void <init>(sun1.security.x509.GeneralNames) -> <init>
@@ -16443,7 +16585,7 @@ sun1.security.x509.SubjectAlternativeNameExtension -> b.b.f.bj:
     168:176:void encode(java.io.OutputStream) -> a
     199:202:sun1.security.x509.GeneralNames get(java.lang.String) -> a
     235:235:java.lang.String getName() -> a
-sun1.security.x509.SubjectKeyIdentifierExtension -> b.b.f.bk:
+sun1.security.x509.SubjectKeyIdentifierExtension -> b.b.f.bl:
     sun1.security.x509.KeyIdentifier id -> d
     74:81:void encodeThis() -> b
     70:95:void <init>(byte[]) -> <init>
@@ -16452,7 +16594,7 @@ sun1.security.x509.SubjectKeyIdentifierExtension -> b.b.f.bk:
     125:126:java.lang.String toString() -> toString
     136:144:void encode(java.io.OutputStream) -> a
     203:203:java.lang.String getName() -> a
-sun1.security.x509.URIName -> b.b.f.bl:
+sun1.security.x509.URIName -> b.b.f.bm:
     java.net.URI uri -> a
     java.lang.String host -> b
     sun1.security.x509.DNSName hostDNS -> c
@@ -16471,18 +16613,18 @@ sun1.security.x509.URIName -> b.b.f.bl:
     275:278:java.lang.Object getHostObject() -> e
     288:288:int hashCode() -> hashCode
     323:375:int constrains(sun1.security.x509.GeneralNameInterface) -> a
-sun1.security.x509.UniqueIdentity -> b.b.f.bm:
+sun1.security.x509.UniqueIdentity -> b.b.f.bn:
     sun1.security.util.BitArray id -> a
     79:81:void <init>(sun1.security.util.DerValue) -> <init>
     87:87:java.lang.String toString() -> toString
     98:106:void encode(sun1.security.util.DerOutputStream,byte) -> a
     112:114:boolean[] getId() -> a
-sun1.security.x509.UnparseableExtension -> b.b.f.bn:
+sun1.security.x509.UnparseableExtension -> b.b.f.bo:
     java.lang.String name -> d
     java.lang.Throwable why -> e
     351:365:void <init>(sun1.security.x509.Extension,java.lang.Throwable) -> <init>
     368:370:java.lang.String toString() -> toString
-sun1.security.x509.X500Name -> b.b.f.bo:
+sun1.security.x509.X500Name -> b.b.f.bp:
     java.lang.String dn -> r
     java.lang.String rfc2253Dn -> s
     java.lang.String canonicalDn -> t
@@ -16526,6 +16668,7 @@ sun1.security.x509.X500Name -> b.b.f.bo:
     150:151:void <init>(java.lang.String) -> <init>
     162:164:void <init>(java.lang.String,java.util.Map) -> <init>
     241:265:void <init>(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String) -> <init>
+    295:296:void <init>(sun1.security.util.DerValue) -> <init>
     304:306:void <init>(sun1.security.util.DerInputStream) -> <init>
     367:373:boolean isEmpty() -> b
     381:381:int hashCode() -> hashCode
@@ -16548,13 +16691,94 @@ sun1.security.x509.X500Name -> b.b.f.bo:
     1287:1307:boolean isWithinSubtree(sun1.security.x509.X500Name) -> a
     1375:1375:javax.security.auth.x500.X500Principal asX500Principal() -> e
     1119:1234:void <clinit>() -> <clinit>
-sun1.security.x509.X509AttributeName -> b.b.f.bp:
+sun1.security.x509.X509AttributeName -> b.b.f.bq:
     java.lang.String prefix -> a
     java.lang.String suffix -> b
     39:56:void <init>(java.lang.String) -> <init>
     62:62:java.lang.String getPrefix() -> a
     69:69:java.lang.String getSuffix() -> b
-sun1.security.x509.X509CertImpl -> b.b.f.bq:
+sun1.security.x509.X509CRLEntryImpl -> b.b.f.br:
+    sun1.security.x509.SerialNumber serialNumber -> a
+    java.util.Date revocationDate -> b
+    sun1.security.x509.CRLExtensions extensions -> c
+    byte[] revokedCert -> d
+    javax.security.auth.x500.X500Principal certIssuer -> e
+    72:137:void <init>(sun1.security.util.DerValue) -> <init>
+    147:147:boolean hasExtensions() -> hasExtensions
+    159:182:void encode(sun1.security.util.DerOutputStream) -> a
+    191:191:byte[] getEncoded() -> getEncoded
+    196:198:byte[] getEncoded0() -> b
+    203:203:javax.security.auth.x500.X500Principal getCertificateIssuer() -> getCertificateIssuer
+    207:212:void setCertificateIssuer(javax.security.auth.x500.X500Principal,javax.security.auth.x500.X500Principal) -> a
+    221:221:java.math.BigInteger getSerialNumber() -> getSerialNumber
+    231:231:java.util.Date getRevocationDate() -> getRevocationDate
+    255:291:java.lang.String toString() -> toString
+    299:301:boolean hasUnsupportedCriticalExtension() -> hasUnsupportedCriticalExtension
+    313:322:java.util.Set getCriticalExtensionOIDs() -> getCriticalExtensionOIDs
+    334:343:java.util.Set getNonCriticalExtensionOIDs() -> getNonCriticalExtensionOIDs
+    359:390:byte[] getExtensionValue(java.lang.String) -> getExtensionValue
+    401:406:sun1.security.x509.Extension getExtension(sun1.security.util.ObjectIdentifier) -> a
+    412:439:void parse(sun1.security.util.DerValue) -> a
+    461:462:sun1.security.x509.CertificateIssuerExtension getCertificateIssuerExtension() -> a
+    466:480:int compareTo(sun1.security.x509.X509CRLEntryImpl) -> a
+    69:69:int compareTo(java.lang.Object) -> compareTo
+sun1.security.x509.X509CRLImpl -> b.b.f.bs:
+    byte[] signedCRL -> a
+    byte[] signature -> b
+    byte[] tbsCertList -> c
+    sun1.security.x509.AlgorithmId sigAlgId -> d
+    int version -> e
+    sun1.security.x509.AlgorithmId infoSigAlgId -> f
+    sun1.security.x509.X500Name issuer -> g
+    javax.security.auth.x500.X500Principal issuerPrincipal -> h
+    java.util.Date thisUpdate -> i
+    java.util.Date nextUpdate -> j
+    java.util.Map revokedMap -> k
+    java.util.List revokedList -> l
+    sun1.security.x509.CRLExtensions extensions -> m
+    boolean readOnly -> n
+    java.security.PublicKey verifiedPublicKey -> o
+    java.lang.String verifiedProvider -> p
+    94:132:void <init>() -> <init>
+    94:166:void <init>(sun1.security.util.DerValue) -> <init>
+    264:267:byte[] getEncodedInternal() -> a
+    276:276:byte[] getEncoded() -> getEncoded
+    345:346:void verify(java.security.PublicKey) -> verify
+    368:400:void verify(java.security.PublicKey,java.lang.String) -> verify
+    484:537:java.lang.String toString() -> toString
+    548:553:boolean isRevoked(java.security.cert.Certificate) -> isRevoked
+    567:567:int getVersion() -> getVersion
+    599:599:java.security.Principal getIssuerDN() -> getIssuerDN
+    607:610:javax.security.auth.x500.X500Principal getIssuerX500Principal() -> getIssuerX500Principal
+    620:620:java.util.Date getThisUpdate() -> getThisUpdate
+    630:632:java.util.Date getNextUpdate() -> getNextUpdate
+    643:649:java.security.cert.X509CRLEntry getRevokedCertificate(java.math.BigInteger) -> getRevokedCertificate
+    656:660:java.security.cert.X509CRLEntry getRevokedCertificate(java.security.cert.X509Certificate) -> getRevokedCertificate
+    672:675:java.util.Set getRevokedCertificates() -> getRevokedCertificates
+    688:690:byte[] getTBSCertList() -> getTBSCertList
+    699:701:byte[] getSignature() -> getSignature
+    720:722:java.lang.String getSigAlgName() -> getSigAlgName
+    739:742:java.lang.String getSigAlgOID() -> getSigAlgOID
+    755:760:byte[] getSigAlgParams() -> getSigAlgParams
+    890:892:boolean hasUnsupportedCriticalExtension() -> hasUnsupportedCriticalExtension
+    904:913:java.util.Set getCriticalExtensionOIDs() -> getCriticalExtensionOIDs
+    925:934:java.util.Set getNonCriticalExtensionOIDs() -> getNonCriticalExtensionOIDs
+    949:979:byte[] getExtensionValue(java.lang.String) -> getExtensionValue
+    1003:1119:void parse(sun1.security.util.DerValue) -> a
+    1189:1196:javax.security.auth.x500.X500Principal getCertIssuer(sun1.security.x509.X509CRLEntryImpl,javax.security.auth.x500.X500Principal) -> a
+sun1.security.x509.X509CRLImpl$X509IssuerSerial -> b.b.f.bt:
+    javax.security.auth.x500.X500Principal issuer -> a
+    java.math.BigInteger serial -> b
+    int hashcode -> c
+    1207:1218:void <init>(javax.security.auth.x500.X500Principal,java.math.BigInteger) -> <init>
+    1224:1225:void <init>(java.security.cert.X509Certificate) -> <init>
+    1233:1233:javax.security.auth.x500.X500Principal getIssuer() -> a
+    1242:1242:java.math.BigInteger getSerial() -> b
+    1253:1266:boolean equals(java.lang.Object) -> equals
+    1275:1281:int hashCode() -> hashCode
+    1286:1289:int compareTo(sun1.security.x509.X509CRLImpl$X509IssuerSerial) -> a
+    1203:1203:int compareTo(java.lang.Object) -> compareTo
+sun1.security.x509.X509CertImpl -> b.b.f.bu:
     boolean readOnly -> d
     byte[] signedCert -> e
     sun1.security.x509.X509CertInfo info -> a
@@ -16570,6 +16794,7 @@ sun1.security.x509.X509CertImpl -> b.b.f.bq:
     128:1876:void <init>() -> <init>
     128:1876:void <init>(byte[]) -> <init>
     128:1876:void <init>(sun1.security.x509.X509CertInfo) -> <init>
+    128:1876:void <init>(sun1.security.util.DerValue) -> <init>
     358:361:void derEncode(java.io.OutputStream) -> a
     372:372:byte[] getEncoded() -> getEncoded
     381:385:byte[] getEncodedInternal() -> a
@@ -16614,7 +16839,7 @@ sun1.security.x509.X509CertImpl -> b.b.f.bq:
     1574:1591:java.util.Collection getSubjectAlternativeNames() -> getSubjectAlternativeNames
     1640:1657:java.util.Collection getIssuerAlternativeNames() -> getIssuerAlternativeNames
     1717:1760:void parse(sun1.security.util.DerValue) -> a
-sun1.security.x509.X509CertInfo -> b.b.f.br:
+sun1.security.x509.X509CertInfo -> b.b.f.bv:
     sun1.security.x509.CertificateVersion version -> a
     sun1.security.x509.CertificateSerialNumber serialNum -> b
     sun1.security.x509.CertificateAlgorithmId algId -> c
@@ -16653,7 +16878,7 @@ sun1.security.x509.X509CertInfo -> b.b.f.br:
     969:977:void setSubjectUniqueId(java.lang.Object) -> i
     986:994:void setExtensions(java.lang.Object) -> j
     114:126:void <clinit>() -> <clinit>
-sun1.security.x509.X509Key -> b.b.f.bs:
+sun1.security.x509.X509Key -> b.b.f.bw:
     sun1.security.x509.AlgorithmId algid -> a
     byte[] key -> b
     int unusedBits -> d

@@ -25,7 +25,6 @@ public class App extends Application
 		super.onCreate();
 		JavaProvider provider = new JavaProvider();
 		Security.addProvider(provider);
-		PrintHandler.init();
 		try
 		{
 			copyData();
@@ -39,8 +38,8 @@ public class App extends Application
 	{
 		AssetManager assets = getAssets();
 		File dir = getFilesDir();
-		Settings.mFrameworkDirectory = dir.getAbsolutePath();
-		copyFramework(assets, dir);
+		Settings.mFrameworkDirectory = dir.getAbsolutePath()+"/framework";
+		copyFramework(assets, Settings.mFrameworkDirectory);
 		copy_aapt(assets, dir);
 		copyKey(assets,dir);
 	}
@@ -84,9 +83,11 @@ public class App extends Application
 		App.pk8=pk8.getAbsolutePath();
 		App.x509=x509.getAbsolutePath();
 	}
-	private void copyFramework(AssetManager assets, File dir) throws IOException
+	private void copyFramework(AssetManager assets, String dir) throws IOException
 	{
 		File f1 = new File(dir, "1.apk");
+		if(!f1.getParentFile().exists())
+			f1.getParentFile().mkdirs();
 		if (f1.exists())
 			return;
 		InputStream is = assets.open("android-framework.jar");

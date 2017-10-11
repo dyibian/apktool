@@ -18,17 +18,37 @@ package brut.androlib.res.decoder;
 
 import android.util.TypedValue;
 import brut.androlib.AndrolibException;
-import brut.androlib.res.data.*;
-import brut.androlib.res.data.value.*;
-import brut.util.Duo;
+import brut.androlib.res.data.ResConfigFlags;
+import brut.androlib.res.data.ResID;
+import brut.androlib.res.data.ResPackage;
+import brut.androlib.res.data.ResResSpec;
+import brut.androlib.res.data.ResResource;
 import brut.androlib.res.data.ResTable;
+import brut.androlib.res.data.ResType;
+import brut.androlib.res.data.ResTypeSpec;
+import brut.androlib.res.data.value.ResBagValue;
+import brut.androlib.res.data.value.ResBoolValue;
+import brut.androlib.res.data.value.ResFileValue;
+import brut.androlib.res.data.value.ResIntBasedValue;
+import brut.androlib.res.data.value.ResScalarValue;
+import brut.androlib.res.data.value.ResStringValue;
+import brut.androlib.res.data.value.ResValue;
+import brut.androlib.res.data.value.ResValueFactory;
+import brut.util.Duo;
 import brut.util.ExtDataInput;
+import brut.util.Log;
 import com.google.common.io.LittleEndianDataInputStream;
-import java.io.*;
+import java.io.DataInput;
+import java.io.EOFException;
+import java.io.IOException;
+import java.io.InputStream;
 import java.math.BigInteger;
-import java.util.*;
-import java.util.logging.Logger;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
 import org.apache.commons.io.input.CountingInputStream;
+import brut.androlib.R;
 
 /**
  * @author Ryszard Wiśniewski <brut.alll@gmail.com>
@@ -131,7 +151,7 @@ public class ARSCDecoder {
         for (int i = 0; i < libraryCount; i++) {
             packageId = mIn.readInt();
             packageName = mIn.readNullEndedString(128, true);
-            LOGGER.info(String.format("Decoding Shared Library (%s), pkgId: %d", packageName, packageId));
+            Log.infoResources(R.string.decode_shared, packageName, packageId);
         }
 
         while(nextChunk().type == Header.TYPE_TYPE) {
@@ -209,16 +229,16 @@ public class ARSCDecoder {
         }
 
         if (typeFlags == 1) {
-            LOGGER.info("Sparse type flags detected: " + mTypeSpec.getName());
+            Log.infoResources(R.string.spares_type ,mTypeSpec.getName());
         }
         int[] entryOffsets = mIn.readIntArray(entryCount);
 
         if (flags.isInvalid) {
             String resName = mTypeSpec.getName() + flags.getQualifiers();
             if (mKeepBroken) {
-                LOGGER.warning("Invalid config flags detected: " + resName);
+                Log.warning("Invalid config flags detected: " + resName);
             } else {
-                LOGGER.warning("Invalid config flags detected. Dropping resources: " + resName);
+                Log.warning("Invalid config flags detected. Dropping resources: " + resName);
             }
         }
 
@@ -284,7 +304,7 @@ public class ARSCDecoder {
             if (mKeepBroken) {
                 mType.addResource(res, true);
                 spec.addResource(res, true);
-                LOGGER.warning(String.format("Duplicate Resource Detected. Ignoring duplicate: %s", res.toString()));
+                Log.warning(String.format("Duplicate Resource Detected. Ignoring duplicate: %s", res.toString()));
             } else {
                 throw ex;
             }
@@ -407,11 +427,11 @@ public class ARSCDecoder {
             BigInteger exceedingBI = new BigInteger(1, buf);
 
             if (exceedingBI.equals(BigInteger.ZERO)) {
-                LOGGER.fine(String
+                Log.fine(String
                         .format("Config flags size > %d, but exceeding bytes are all zero, so it should be ok.",
                                 KNOWN_CONFIG_BYTES));
             } else {
-                LOGGER.warning(String.format("Config flags size > %d. Size = %d. Exceeding bytes: 0x%X.",
+                Log.warning(String.format("Config flags size > %d. Size = %d. Exceeding bytes: 0x%X.",
                         KNOWN_CONFIG_BYTES, size, exceedingBI));
                 isInvalid = true;
             }
@@ -576,7 +596,6 @@ public class ARSCDecoder {
         }
     }
 
-    private static final Logger LOGGER = Logger.getLogger(ARSCDecoder.class.getName());
     private static final int KNOWN_CONFIG_BYTES = 56;
 
     public static class ARSCData {
@@ -600,7 +619,7 @@ public class ARSCDecoder {
                 throw new AndrolibException("Arsc file contains zero packages");
             } else if (mPackages.length != 1) {
                 int id = findPackageWithMostResSpecs();
-                LOGGER.info("Arsc file contains multiple packages. Using package "
+                Log.info("Arsc file contains multiple packages. Using package "
                         + mPackages[id].getName() + " as default.");
 
                 return mPackages[id];

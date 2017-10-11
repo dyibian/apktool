@@ -9,12 +9,89 @@ package brut.androlib;
 
 public final class R {
     public static final class array {
-        public static final int apk=0x7f060000;
-        public static final int format=0x7f060001;
-        public static final int theme_entry=0x7f060002;
-        public static final int theme_entry_value=0x7f060003;
+        public static final int apk=0x7f060001;
+        public static final int file=0x7f060000;
+        public static final int format=0x7f060002;
+        public static final int theme_entry=0x7f060003;
+        public static final int theme_entry_value=0x7f060004;
     }
     public static final class attr {
+        /** <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int fatalBackColor=0x7f010005;
+        /** <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int fatalForeColor=0x7f010004;
+        /** <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int fineBackColor=0x7f010007;
+        /** <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int fineForeColor=0x7f010006;
+        /** <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int infoBackColor=0x7f010001;
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int infoColor=0x7f010008;
+        /** <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int infoForeColor=0x7f010000;
+        /** <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int warnBackColor=0x7f010003;
+        /** <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int warnForeColor=0x7f010002;
     }
     public static final class color {
         public static final int Dark_Primary=0x7f070006;
@@ -22,8 +99,12 @@ public final class R {
         public static final int Dark_press_true=0x7f070005;
         public static final int Primary=0x7f070002;
         public static final int Primary_Dark=0x7f070003;
+        public static final int common=0x7f070008;
+        public static final int fatal=0x7f07000a;
+        public static final int fine=0x7f07000b;
         public static final int press_false=0x7f070000;
         public static final int press_true=0x7f070001;
+        public static final int warn=0x7f070009;
         public static final int white=0x7f070004;
     }
     public static final class drawable {
@@ -32,32 +113,36 @@ public final class R {
         public static final int ic_launcher=0x7f020002;
     }
     public static final class id {
-        public static final int alias=0x7f0b0009;
-        public static final int cancel=0x7f0b0013;
-        public static final int confirm=0x7f0b0006;
-        public static final int country=0x7f0b0012;
-        public static final int date=0x7f0b000c;
-        public static final int exit=0x7f0b0019;
-        public static final int filename=0x7f0b0004;
-        public static final int format=0x7f0b0007;
-        public static final int generateKeystore=0x7f0b0017;
-        public static final int help=0x7f0b0018;
-        public static final int icon=0x7f0b0003;
-        public static final int key=0x7f0b0015;
-        public static final int keyPass=0x7f0b000b;
-        public static final int localityName=0x7f0b0010;
-        public static final int message=0x7f0b0005;
-        public static final int name=0x7f0b000d;
-        public static final int organizationName=0x7f0b000f;
-        public static final int organizationUnit=0x7f0b000e;
+        public static final int alias=0x7f0b000c;
+        public static final int btn=0x7f0b0003;
+        public static final int cancel=0x7f0b0016;
+        public static final int close=0x7f0b0004;
+        public static final int confirm=0x7f0b0009;
+        public static final int country=0x7f0b0015;
+        public static final int date=0x7f0b000f;
+        public static final int exit=0x7f0b001d;
+        public static final int filename=0x7f0b0007;
+        public static final int format=0x7f0b000a;
+        public static final int generateKeystore=0x7f0b0019;
+        public static final int help=0x7f0b001a;
+        public static final int icon=0x7f0b0006;
+        public static final int key=0x7f0b0018;
+        public static final int keyPass=0x7f0b000e;
+        public static final int localityName=0x7f0b0013;
+        public static final int message=0x7f0b0008;
+        public static final int name=0x7f0b0010;
+        public static final int organizationName=0x7f0b0012;
+        public static final int organizationUnit=0x7f0b0011;
         public static final int out=0x7f0b0002;
-        public static final int path=0x7f0b0008;
+        public static final int path=0x7f0b000b;
         public static final int progress=0x7f0b0000;
+        public static final int refresh=0x7f0b001b;
         public static final int scroll=0x7f0b0001;
-        public static final int settings=0x7f0b0016;
-        public static final int stateName=0x7f0b0011;
-        public static final int store=0x7f0b0014;
-        public static final int storePass=0x7f0b000a;
+        public static final int select=0x7f0b0005;
+        public static final int settings=0x7f0b001c;
+        public static final int stateName=0x7f0b0014;
+        public static final int store=0x7f0b0017;
+        public static final int storePass=0x7f0b000d;
     }
     public static final class layout {
         public static final int dialog_info=0x7f040000;
@@ -74,41 +159,261 @@ public final class R {
         public static final int apktool=0x7f030000;
     }
     public static final class string {
+        public static final int aapt=0x7f080031;
         public static final int api_dialogTitle=0x7f080010;
         public static final int api_key=0x7f080004;
         public static final int api_summary=0x7f08000f;
         public static final int api_title=0x7f08000e;
         public static final int app_name=0x7f080000;
+        public static final int baksmali=0x7f08001f;
+        public static final int build_apk=0x7f080028;
+        public static final int build_manifest=0x7f080025;
+        public static final int build_res=0x7f080023;
+        public static final int checking_resource=0x7f080021;
+        public static final int checking_source=0x7f080020;
+        public static final int command_ran=0x7f080032;
+        public static final int copy=0x7f080027;
+        public static final int copy_assets=0x7f080018;
+        public static final int copy_file=0x7f08001c;
+        public static final int copy_lib=0x7f080026;
+        public static final int copy_original=0x7f08001b;
+        /** Info
+Info
+         */
+        public static final int copy_raw=0x7f080015;
+        public static final int copy_raw_android_manifest=0x7f080024;
+        public static final int copy_raw_manifest=0x7f080016;
+        public static final int copy_raw_resources=0x7f080017;
+        public static final int copy_unknown=0x7f080019;
+        public static final int copy_unknown1=0x7f08001a;
+        public static final int could_not_empty_framework=0x7f08003b;
+        public static final int could_not_find_resource=0x7f080037;
+        /** Warning
+Warning
+         */
+        public static final int could_not_find_source=0x7f080036;
+        public static final int could_not_load_prop=0x7f080039;
         public static final int decode=0x7f080008;
+        public static final int decode_file=0x7f08002f;
+        public static final int decode_manifest=0x7f08002e;
+        public static final int decode_manifest_with_only_framework=0x7f08002b;
+        public static final int decode_shared=0x7f080034;
+        public static final int decode_xml=0x7f080030;
         /** 设置
          */
         public static final int encode=0x7f080007;
-        public static final int fhgggg=0x7f080015;
+        public static final int generic=0x7f080009;
         public static final int hello_world=0x7f080001;
-        public static final int jhggvbcfff=0x7f080016;
+        public static final int invalid_value=0x7f08003c;
+        public static final int jhggvbcfff=0x7f08003d;
         public static final int keep_broken_key=0x7f080003;
         public static final int keep_broken_summary=0x7f08000d;
         public static final int keep_broken_title=0x7f08000c;
         public static final int keystore_key=0x7f080005;
         public static final int keystore_summary=0x7f080012;
         public static final int keystore_title=0x7f080011;
+        public static final int load_table=0x7f080029;
+        public static final int load_table_from_file=0x7f08002a;
         /** Key
          */
         public static final int no_debug_key=0x7f080002;
         public static final int no_debug_summary=0x7f08000b;
         public static final int no_debug_title=0x7f08000a;
-        public static final int theme=0x7f080009;
+        public static final int parse_manifest_failed=0x7f080038;
+        public static final int regular_manifest=0x7f08002c;
+        public static final int remove_framework=0x7f080033;
+        public static final int replace_manifest=0x7f08002d;
+        public static final int skip_package_group=0x7f08003a;
+        public static final int smali=0x7f080022;
+        public static final int spares_type=0x7f080035;
         public static final int theme_key=0x7f080006;
         public static final int theme_summary=0x7f080014;
         public static final int theme_title=0x7f080013;
+        public static final int version=0x7f08001d;
+        public static final int version1=0x7f08001e;
     }
     public static final class style {
         public static final int AppTheme=0x7f090000;
         public static final int AppTheme_Dark=0x7f090002;
         public static final int AppTheme_Dialog=0x7f090001;
         public static final int AppTheme_Dialog_Dark=0x7f090003;
+        public static final int infoColorDark=0x7f090005;
+        public static final int infoColorLight=0x7f090004;
     }
     public static final class xml {
         public static final int settings=0x7f050000;
     }
+    public static final class styleable {
+        /** Attributes that can be used with a colors.
+           <p>Includes the following attributes:</p>
+           <table>
+           <colgroup align="left" />
+           <colgroup align="left" />
+           <tr><th>Attribute</th><th>Description</th></tr>
+           <tr><td><code>{@link #colors_fatalBackColor com.a4455jkjh.apktool:fatalBackColor}</code></td><td></td></tr>
+           <tr><td><code>{@link #colors_fatalForeColor com.a4455jkjh.apktool:fatalForeColor}</code></td><td></td></tr>
+           <tr><td><code>{@link #colors_fineBackColor com.a4455jkjh.apktool:fineBackColor}</code></td><td></td></tr>
+           <tr><td><code>{@link #colors_fineForeColor com.a4455jkjh.apktool:fineForeColor}</code></td><td></td></tr>
+           <tr><td><code>{@link #colors_infoBackColor com.a4455jkjh.apktool:infoBackColor}</code></td><td></td></tr>
+           <tr><td><code>{@link #colors_infoForeColor com.a4455jkjh.apktool:infoForeColor}</code></td><td></td></tr>
+           <tr><td><code>{@link #colors_warnBackColor com.a4455jkjh.apktool:warnBackColor}</code></td><td></td></tr>
+           <tr><td><code>{@link #colors_warnForeColor com.a4455jkjh.apktool:warnForeColor}</code></td><td></td></tr>
+           </table>
+           @see #colors_fatalBackColor
+           @see #colors_fatalForeColor
+           @see #colors_fineBackColor
+           @see #colors_fineForeColor
+           @see #colors_infoBackColor
+           @see #colors_infoForeColor
+           @see #colors_warnBackColor
+           @see #colors_warnForeColor
+         */
+        public static final int[] colors = {
+            0x7f010000, 0x7f010001, 0x7f010002, 0x7f010003,
+            0x7f010004, 0x7f010005, 0x7f010006, 0x7f010007
+        };
+        /**
+          <p>This symbol is the offset where the {@link com.a4455jkjh.apktool.R.attr#fatalBackColor}
+          attribute's value can be found in the {@link #colors} array.
+
+
+          <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.a4455jkjh.apktool:fatalBackColor
+        */
+        public static final int colors_fatalBackColor = 5;
+        /**
+          <p>This symbol is the offset where the {@link com.a4455jkjh.apktool.R.attr#fatalForeColor}
+          attribute's value can be found in the {@link #colors} array.
+
+
+          <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.a4455jkjh.apktool:fatalForeColor
+        */
+        public static final int colors_fatalForeColor = 4;
+        /**
+          <p>This symbol is the offset where the {@link com.a4455jkjh.apktool.R.attr#fineBackColor}
+          attribute's value can be found in the {@link #colors} array.
+
+
+          <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.a4455jkjh.apktool:fineBackColor
+        */
+        public static final int colors_fineBackColor = 7;
+        /**
+          <p>This symbol is the offset where the {@link com.a4455jkjh.apktool.R.attr#fineForeColor}
+          attribute's value can be found in the {@link #colors} array.
+
+
+          <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.a4455jkjh.apktool:fineForeColor
+        */
+        public static final int colors_fineForeColor = 6;
+        /**
+          <p>This symbol is the offset where the {@link com.a4455jkjh.apktool.R.attr#infoBackColor}
+          attribute's value can be found in the {@link #colors} array.
+
+
+          <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.a4455jkjh.apktool:infoBackColor
+        */
+        public static final int colors_infoBackColor = 1;
+        /**
+          <p>This symbol is the offset where the {@link com.a4455jkjh.apktool.R.attr#infoForeColor}
+          attribute's value can be found in the {@link #colors} array.
+
+
+          <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.a4455jkjh.apktool:infoForeColor
+        */
+        public static final int colors_infoForeColor = 0;
+        /**
+          <p>This symbol is the offset where the {@link com.a4455jkjh.apktool.R.attr#warnBackColor}
+          attribute's value can be found in the {@link #colors} array.
+
+
+          <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.a4455jkjh.apktool:warnBackColor
+        */
+        public static final int colors_warnBackColor = 3;
+        /**
+          <p>This symbol is the offset where the {@link com.a4455jkjh.apktool.R.attr#warnForeColor}
+          attribute's value can be found in the {@link #colors} array.
+
+
+          <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.a4455jkjh.apktool:warnForeColor
+        */
+        public static final int colors_warnForeColor = 2;
+        /** Attributes that can be used with a infoColor.
+           <p>Includes the following attributes:</p>
+           <table>
+           <colgroup align="left" />
+           <colgroup align="left" />
+           <tr><th>Attribute</th><th>Description</th></tr>
+           <tr><td><code>{@link #infoColor_infoColor com.a4455jkjh.apktool:infoColor}</code></td><td></td></tr>
+           </table>
+           @see #infoColor_infoColor
+         */
+        public static final int[] infoColor = {
+            0x7f010008
+        };
+        /**
+          <p>This symbol is the offset where the {@link com.a4455jkjh.apktool.R.attr#infoColor}
+          attribute's value can be found in the {@link #infoColor} array.
+
+
+          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+          @attr name com.a4455jkjh.apktool:infoColor
+        */
+        public static final int infoColor_infoColor = 0;
+    };
 }

@@ -18,11 +18,13 @@ package brut.androlib.src;
 
 import brut.androlib.AndrolibException;
 import brut.androlib.mod.SmaliMod;
-import brut.directory.ExtFile;
 import brut.directory.DirectoryException;
-import java.io.*;
-import java.util.logging.Logger;
-
+import brut.directory.ExtFile;
+import brut.util.Log;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import org.antlr.runtime.RecognitionException;
 import org.jf.dexlib2.Opcodes;
 import org.jf.dexlib2.writer.builder.DexBuilder;
@@ -78,7 +80,7 @@ public class SmaliBuilder {
                 throw new AndrolibException(ex);
             }
         } else {
-            LOGGER.warning("Unknown file type, ignoring: " + inFile);
+            Log.warning("Unknown file type, ignoring: " + inFile);
         }
         inStream.close();
     }
@@ -87,5 +89,4 @@ public class SmaliBuilder {
     private final File mDexFile;
     private int mApiLevel = 0;
 
-    private final static Logger LOGGER = Logger.getLogger(SmaliBuilder.class.getName());
 }

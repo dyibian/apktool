@@ -1,0 +1,45 @@
+<resources>
+	<!--Info-->
+	<string name="copy_raw">正在复制未处理的文件%1$s……</string>
+	<string name="copy_raw_manifest">正在复制未处理的manifest……</string>
+	<string name="copy_raw_resources">正在复制未处理的资源……</string>
+	<string name="copy_assets">正在复制assets和libs……</string>
+	<string name="copy_unknown">正在复制未知文件……</string>
+	<string name="copy_unknown1">正在复制未知文件/目录……</string>
+	<string name="copy_original">正在复制原始文件……</string>
+	<string name="copy_file">正在复制文件%1$s %2$s……</string>
+	<string name="version">Apktool版本：%1$s</string>
+	<string name="version1">使用版本：%1$s处理%2$s</string>
+	<string name="baksmali">反编译%1$s ...</string>
+	<string name="checking_source">正在检查源码是否被更改……</string>
+	<string name="checking_resource">正在检查资源是否被更改……</string>
+	<string name="smali">正在编译%1$s文件夹到%2$s……</string>
+	<string name="build_res">正在编译资源</string>
+	<string name="copy_raw_android_manifest">复制未处理的AndroidManifest.xml...</string>
+	<string name="build_manifest">编译AndroidManifest.xml...</string>
+	<string name="copy_lib">正在复制原生库\(/%1$s\)</string>
+	<string name="copy">正在复制%1$s...</string>
+	<string name="build_apk">正在创建APK文件</string>
+	<string name="load_table">正在加载资源表……</string>
+	<string name="load_table_from_file">正在从文件%1$s读取资源表</string>
+	<string name="decode_manifest_with_only_framework">Decoding AndroidManifest.xml with only framework resources...</string>
+	<string name="regular_manifest">Regular manifest package...</string>
+	<string name="replace_manifest">Renamed manifest package found! Replacing %1$s with %2$s</string>
+	<string name="decode_manifest">Decoding AndroidManifest.xml with resources...</string>
+	<string name="decode_file">正在反编译文件资源……</string>
+	<string name="decode_xml">正在反编译XML文件</string>
+	<string name="aapt">文件%1$s被设置为aapt</string>
+	<string name="command_ran">命令及参数为：</string>
+	<string name="remove_framework">正在移除框架文件%1$s……</string>
+	<string name="decode_shared">Decoding Shared Library \(%1$s\), pkgId: %2$d</string>
+	<string name="spares_type">Sparse type flags detected: %1$s</string>
+
+	<!--Warning-->
+	<string name="could_not_find_source">找不到源码</string>
+	<string name="could_not_find_resource">找不到资源</string>
+	<string name="parse_manifest_failed">处理AndroidManifest.xml失败，以未处理文件处理。</string>
+	<string name="could_not_load_prop">不能加载%1$s的属性。</string>
+	<string name="skip_package_group">Skipping "%1$s" package group</string>
+	<string name="could_not_empty_framework">不能清空框架文件夹，在%1$s中未找到文件</string>
+	<string name="invalid_value">无效的%1$s值：%2$s</string>
+</resources>

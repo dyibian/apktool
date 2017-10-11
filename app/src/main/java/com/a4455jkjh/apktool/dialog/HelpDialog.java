@@ -39,14 +39,14 @@ public class HelpDialog extends Dialog implements OnClickListener {
 			append("1：编译\n").
 			append("点击apktool.yml可自动编译。\n").
 			append("\n2:反编译\n").
-			append("点击apk文件时可选择4种操作(反编译全部、反编译资源、反编译classes.dex和签名)。\n").
+			append("点击apk文件时可选择5种操作(反编译全部、反编译资源、反编译classes.dex、签名和校验签名)。\n").
 			append("\n3:关于签名文件\n").
 			append("本软件支持3种类型的签名文件：\n").
 			append("  1:JKS格式(后缀名为jks或keystore，默认)。\n").
 			append("  2:PKCS#12格式(后缀名为p12或pk12)。\n").
 			append("  3:PKCS#8格式(后缀名为pk8，使用本格式时会自动读取对应的x509.pem文件)。\n").
 			append("\n4:本软件支持读取密钥文件的详细信息\n").
-			append("点击密钥文件可显示详细信息(暂只支持JKS和PKCS#12格式)。\n").
+			append("点击密钥文件可显示详细信息。\n").
 			append("\n注：读取和创建JKS、PKCS#12的代码提取自OpenJDK 6。");
 
 		TextView msg = (TextView)findViewById(R.id.message);

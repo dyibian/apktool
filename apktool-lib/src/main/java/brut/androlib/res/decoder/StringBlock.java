@@ -18,12 +18,13 @@ package brut.androlib.res.decoder;
 
 import brut.androlib.res.xml.ResXmlEncoders;
 import brut.util.ExtDataInput;
+import brut.util.Log;
 import java.io.IOException;
 import java.nio.ByteBuffer;
-import java.nio.charset.*;
+import java.nio.charset.CharacterCodingException;
+import java.nio.charset.Charset;
+import java.nio.charset.CharsetDecoder;
 import java.util.Arrays;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  * @author Ryszard Wiśniewski <brut.alll@gmail.com>
@@ -296,7 +297,7 @@ public class StringBlock {
             return (m_isUTF8 ? UTF8_DECODER : UTF16LE_DECODER).decode(
                     ByteBuffer.wrap(m_strings, offset, length)).toString();
         } catch (CharacterCodingException ex) {
-            LOGGER.log(Level.WARNING, null, ex);
+            Log.log(Log.LogLevel.WARN, null, ex);
             return null;
         }
     }
@@ -358,7 +359,6 @@ public class StringBlock {
 
     private final CharsetDecoder UTF16LE_DECODER = Charset.forName("UTF-16LE").newDecoder();
     private final CharsetDecoder UTF8_DECODER = Charset.forName("UTF-8").newDecoder();
-    private static final Logger LOGGER = Logger.getLogger(StringBlock.class.getName());
 
     // ResChunk_header = header.type (0x0001) + header.headerSize (0x001C)
     private static final int CHUNK_STRINGPOOL_TYPE = 0x001C0001;

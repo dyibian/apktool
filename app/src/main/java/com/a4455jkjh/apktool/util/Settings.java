@@ -28,11 +28,12 @@ public class Settings {
 	private final String no_debug_key;
 	private final String keep_broken_key;
 	private final String keystore_key;
+	private final String api_key;
 	public Settings(Context c) {
 		no_debug_key = c.getText(R.string.no_debug_key).toString();
 		keep_broken_key = c.getText(R.string.keep_broken_key).toString();
 		keystore_key = c.getText(R.string.keystore_key).toString();
-
+		api_key=c.getText(R.string.api_key).toString();
 	}
 	public ApkOptions buildApkOptions() {
 		ApkOptions option = new ApkOptions();
@@ -45,6 +46,7 @@ public class Settings {
 		option.keystore = keystore;
 		option.aaptPath=aapt;
 		option.frameworkFolderLocation=mFrameworkDirectory;
+		option.api = mApi;
 		return option;
 	}
 	public void setDecoder(ApkDecoder decoder,File apk) throws AndrolibException{
@@ -82,6 +84,7 @@ public class Settings {
 	public void update(SharedPreferences preference) {
 		mBakDeb = preference.getBoolean(no_debug_key, false);
 		mKeepBrokenResources = preference.getBoolean(keep_broken_key, false);
+		mApi=Integer.parseInt( preference.getString(api_key,"15"));
 		String kpath= preference.getString(keystore_key, App.pk8);
 		if (kpath.equals(""))
 			kpath = App.pk8;

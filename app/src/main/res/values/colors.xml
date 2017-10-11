@@ -9,5 +9,8 @@
 	<color name="Dark.Primary">#111111</color>
 	<color name="Dark.Primary.Dark">#6c830a</color>
 	
-	
+	<color name="common">#000000</color>
+	<color name="warn">#ffff00</color>
+	<color name="fatal">#ff0000</color>
+	<color name="fine">#00ff00</color>
 </resources>

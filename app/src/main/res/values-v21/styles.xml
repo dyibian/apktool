@@ -11,6 +11,7 @@
 		<item name="android:colorPrimaryDark">@color/Primary.Dark</item>
 		<item name="android:colorAccent">@color/press_true</item>
 		<item name="android:navigationBarColor">@color/Primary</item>
+		<item name="infoColor">@style/infoColorLight</item>
 	</style>
     <style name="AppTheme.Dark" parent="@android:style/Theme.Material">
 		<item name="android:colorPrimary">@color/Dark.Primary</item>
@@ -23,5 +24,6 @@
 		<item name="android:colorPrimaryDark">@color/Dark.Primary.Dark</item>
 		<item name="android:colorAccent">@color/Dark.press_true</item>
 		<item name="android:navigationBarColor">@color/Dark.Primary</item>
+		<item name="infoColor">@style/infoColorDark</item>
 	</style>
 </resources>

@@ -31,6 +31,7 @@ import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.apache.commons.io.IOUtils;
+import brut.util.Log;
 
 /**
  * @author Ryszard Wiśniewski <brut.alll@gmail.com>
@@ -124,7 +125,7 @@ public class ResSmaliUpdater {
                                 spec.getFullName()));
                     } catch (UndefinedResObject ex) {
                         if (!R_FILE_PATTERN.matcher(fileName).matches()) {
-                            LOGGER.warning(String.format(
+                            Log.warning(String.format(
                                     "Undefined resource spec in %s: 0x%08x",
                                     fileName, resID));
                         }
@@ -157,7 +158,4 @@ public class ResSmaliUpdater {
 
     private final static Pattern R_FILE_PATTERN = Pattern
             .compile(".*R\\$[a-z]+\\.smali$");
-
-    private final static Logger LOGGER = Logger.getLogger(ResSmaliUpdater.class
-            .getName());
 }

@@ -13,7 +13,7 @@
 	<!--设置-->
 	<string name="encode">回编译</string>
 	<string name="decode">反编译</string>
-	<string name="theme">主题</string>
+	<string name="generic">通用</string>
 	<string name="no_debug_title">不生成调试信息</string>
 	<string name="no_debug_summary">不生成调试信息（如‘.local’、‘.param’和‘.line’等）</string>
 	<string name="keep_broken_title">忽略损坏的资源</string>

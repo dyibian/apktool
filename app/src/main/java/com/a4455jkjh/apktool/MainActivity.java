@@ -6,6 +6,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -15,42 +16,28 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
-import brut.androlib.AndrolibException;
-import brut.androlib.ApkDecoder;
-import brut.androlib.ApkOptions;
-import com.a4455jkjh.apktool.dialog.BuildDialog;
-import com.a4455jkjh.apktool.dialog.DecodeDialog;
-import com.a4455jkjh.apktool.dialog.DialogCommon;
-import com.a4455jkjh.apktool.dialog.KeyDialog;
-import com.a4455jkjh.apktool.dialog.KeystoreDialog;
+import com.a4455jkjh.apktool.util.FileUtils;
 import com.a4455jkjh.apktool.util.PrintHandler;
-import com.a4455jkjh.apktool.util.Settings;
 import java.io.File;
 import java.io.FilenameFilter;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-import android.text.SpannableStringBuilder;
-import brut.androlib.res.AndrolibResources;
-import brut.androlib.Androlib;
-import android.text.style.URLSpan;
-import android.text.Spanned;
-import android.net.Uri;
-import com.a4455jkjh.apktool.dialog.HelpDialog;
+import brut.util.Log;
 
 public class MainActivity extends ListActivity
-implements Comparator<File>,FilenameFilter {
+implements Comparator<File>,FilenameFilter,AdapterView.OnItemLongClickListener {
 	private List<File> FileList;
 	private static File cur_dir = null;
 	private Adapter adapter;
-	private Settings settings;
+	private FileUtils fileUtils;
 	private TextView path;
 	private String[] formats;
 	private String theme,theme_key;
@@ -58,9 +45,7 @@ implements Comparator<File>,FilenameFilter {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-		settings = new Settings(this);
 		SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
-		settings.update(sp);
 		theme_key = getString(R.string.theme_key);
 		theme = sp.getString(theme_key, "light");
 		Window window=getWindow();
@@ -76,7 +61,10 @@ implements Comparator<File>,FilenameFilter {
 			setTheme(R.style.AppTheme_Dark);
 			theme_id = R.style.AppTheme_Dialog_Dark;
 		}
+		fileUtils=new FileUtils(this,theme_id);
+		fileUtils.updateSettings(sp);
 		setContentView(R.layout.main);
+		getListView().setOnItemLongClickListener(this);
 		formats = getResources().
 			getStringArray(R.array.format);
 		path = (TextView)findViewById(R.id.path);
@@ -131,143 +119,23 @@ implements Comparator<File>,FilenameFilter {
 		if (f.isDirectory())
 			refresh(f);
 		else
-			processFile(f);
-	}
-	private static final String key_file=".*\\.(keystore|jks|p12|pk12)";
-	private void processFile(File file) {
-		String name = file.getName().toLowerCase();
-		AlertDialog.Builder builder = new AlertDialog.Builder(this)
-			.setTitle(file.getName());
-		if (name.endsWith(".apk"))
-			processApk(file, builder);
-		else if (name.equals("apktool.yml"))
-			build(file, null);
-		else if (name.matches(key_file))
-			showInfo(file, builder);
-
-	}
-	private void processApk(final File apk, AlertDialog.Builder builder) {
-		DialogInterface.OnClickListener listener = new DialogInterface.OnClickListener(){
-			@Override
-			public void onClick(DialogInterface p1, int p2) {
-				if (p2 == 3) {
-					ApkOptions option = settings.buildApkOptions();
-					option.tmp = apk;
-					option.out = new File(apk.getParentFile(), "tmp-" + System.currentTimeMillis());
-					if (option.keystore != null)
-						getPassword(option);
-					else
-						build(null, option);
-					return;
-				}
-				try {
-					ApkDecoder decoder = new ApkDecoder();
-					switch (p2) {
-						case 0:
-							settings.setDecoder(decoder, apk);
-							break;
-						case 1:
-							settings.setDecoderResources(decoder, apk);
-							break;
-						case 2:
-							settings.setDecoderSource(decoder, apk);
-							break;
-					}
-					decode(decoder);
-				} catch (AndrolibException e) {
-					Toast.makeText(MainActivity.this, "错误", 0).show();
-				}
-			}
-		};
-		builder.setItems(R.array.apk, listener).
-			create().show();
-	}
-	private void showInfo(final File keyStore, final AlertDialog.Builder builder) {
-		View v = getLayoutInflater().
-			inflate(R.layout.password, null);
-		EditText alias=(EditText)v.findViewById(R.id.alias);
-		alias.setVisibility(View.GONE);
-		final EditText store=(EditText)v.findViewById(R.id.store);
-		final EditText key = (EditText)v.findViewById(R.id.key);
-		DialogInterface.OnClickListener confirm = new DialogInterface.OnClickListener(){
-			@Override
-			public void onClick(DialogInterface p1, int p2) {
-				String spass = store.getText().toString();
-				if (spass.equals("")) {
-					showInfo(keyStore, builder);
-					return;
-				}
-				String kpass = key.getText().toString();
-				if (kpass.equals(""))
-					kpass = spass;
-				KeystoreDialog.KeyStoreParam param = new KeystoreDialog.KeyStoreParam();
-				param.path = keyStore.getAbsolutePath();
-				param.storePass = spass.toCharArray();
-				param.keyPass = kpass.toCharArray();
-				KeystoreDialog kdg = new KeystoreDialog(MainActivity.this, theme_id);
-				kdg.setInput(param);
-				kdg.show();
-			}
-		};
-		builder.
-			setTitle("输入密码").
-			setView(v).
-			setPositiveButton("确定", confirm).
-			setNegativeButton("取消", null).
-			create().show();
-	}
-	private void decode(ApkDecoder decoder) {
-		DialogCommon dialog = new DecodeDialog(this, theme_id);
-		dialog.setInput(decoder);
-		dialog.show();
-	}
-	private void build(File yml, ApkOptions option) {
-		if (option == null) {
-			File dir = yml.getParentFile();
-			File out = new File(dir, dir.getName() + "_out.apk");
-			option = settings.buildApkOptions();
-			option.in = dir;
-			option.out = out;
-			if (option.keystore != null) {
-				getPassword(option);
-				return;
-			}
-		}
-		DialogCommon builder = new BuildDialog(this, theme_id);
-		builder.setInput(option);
-		builder.show();
+			fileUtils.processFile(f);
 	}
 
-	private void getPassword(final ApkOptions option) {
-		View v = getLayoutInflater().
-			inflate(R.layout.password, null);
-		final EditText alias=(EditText)v.findViewById(R.id.alias);
-		final EditText store=(EditText)v.findViewById(R.id.store);
-		final EditText key = (EditText)v.findViewById(R.id.key);
-		DialogInterface.OnClickListener confirm = new DialogInterface.OnClickListener(){
-			@Override
-			public void onClick(DialogInterface p1, int p2) {
-				String spass = store.getText().toString();
-				if (spass.equals("")) {
-					getPassword(option);
-					return;
-				}
-				String kpass = key.getText().toString();
-				if (kpass.equals(""))
-					kpass = spass;
-				option.storepass = spass;
-				option.keypass = kpass;
-				option.alias = alias.getText().toString();
-				build(null, option);
-			}
-		};
-		new AlertDialog.Builder(this).
-			setTitle("输入密码").
-			setView(v).
-			setPositiveButton("确定", confirm).
-			setNegativeButton("取消", null).
-			create().show();
+	@Override
+	public boolean onItemLongClick (AdapterView<?> p1, View p2, int p3, long p4) {
+		File f = FileList.get(p3);
+		fileUtils.processFileLong(f);
+		return true;
 	}
+	
+	public void install (File apk) {
+		Intent install = new Intent(Intent.ACTION_INSTALL_PACKAGE);
+		Uri data = Uri.fromFile(apk);
+		install.setData(data);
+		startActivity(install);
+	}
+	
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -283,11 +151,13 @@ implements Comparator<File>,FilenameFilter {
 				startActivity(i);
 				break;
 			case R.id.generateKeystore:
-				KeyDialog kd = new KeyDialog(this, theme_id, new FormatAdapter());
-				kd.show();
+				fileUtils.generateKey(new FormatAdapter());
 				break;
 			case R.id.help:
-				help();
+				fileUtils.help();
+				break;
+			case R.id.refresh:
+				refresh();
 				break;
 			case R.id.exit:
 				finish();
@@ -301,18 +171,19 @@ implements Comparator<File>,FilenameFilter {
 	protected void onResume() {
 		super.onResume();
 		SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
-		settings.update(sp);
+		fileUtils.updateSettings(sp);
 		String t = sp.getString(theme_key, "light");
 		if (!t.equals(theme))
 			recreate();
 	}
-	private void setKeystore(String keyStore) {
+	public void setKey(String keyStore) {
 		SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
 		String key=getText(R.string.keystore_key).toString();
 		SharedPreferences.Editor spe=sp.edit();
 		spe.putString(key, keyStore);
 		spe.commit();
-		settings.update(sp);
+		fileUtils.updateSettings(sp);
+		Toast.makeText(this,"设置成功！",0).show();
 	}
 	public void generateDone(boolean success, final String msg) {
 		AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -323,7 +194,7 @@ implements Comparator<File>,FilenameFilter {
 				setPositiveButton("使用", new DialogInterface.OnClickListener(){
 					@Override
 					public void onClick(DialogInterface a, int b) {
-						setKeystore(msg);
+						setKey(msg);
 					}
 				});
 		} else {
@@ -332,11 +203,6 @@ implements Comparator<File>,FilenameFilter {
 				setPositiveButton("确定", null);
 		}
 		builder.create().show();
-	}
-	@Override
-	protected void onStop() {
-		super.onStop();
-		PrintHandler.reset();
 	}
 
 	class FormatAdapter extends BaseAdapter {
@@ -407,8 +273,4 @@ implements Comparator<File>,FilenameFilter {
 		super.onConfigurationChanged(newConfig);
 	}
 
-	private void help() {
-		HelpDialog help=new HelpDialog(this,theme_id);
-		help.show();
-	}
 }

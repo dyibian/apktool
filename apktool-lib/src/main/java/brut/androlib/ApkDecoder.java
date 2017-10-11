@@ -98,7 +98,7 @@ public class ApkDecoder {
             }
             outDir.mkdirs();
 
-            LOGGER.info("Using Apktool " + Androlib.getVersion() + " on " + mApkFile.getName());
+            brut.util.Log.infoResources(R.string.version1, Androlib.getVersion() ,mApkFile.getName());
 
             if (hasResources()) {
                 switch (mDecodeResources) {
@@ -409,8 +409,6 @@ public class ApkDecoder {
     }
 
     private final Androlib mAndrolib;
-
-    private final static Logger LOGGER = Logger.getLogger(Androlib.class.getName());
 
     private ExtFile mApkFile;
     private File mOutDir;

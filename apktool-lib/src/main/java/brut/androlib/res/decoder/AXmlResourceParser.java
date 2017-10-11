@@ -21,13 +21,13 @@ import android.util.TypedValue;
 import brut.androlib.AndrolibException;
 import brut.androlib.res.xml.ResXmlEncoders;
 import brut.util.ExtDataInput;
+import brut.util.Log;
 import com.google.common.io.LittleEndianDataInputStream;
 import java.io.DataInput;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.Reader;
 import java.util.logging.Level;
-import java.util.logging.Logger;
 import org.xmlpull.v1.XmlPullParserException;
 
 /**
@@ -366,7 +366,7 @@ public class AXmlResourceParser implements XmlResourceParser {
                         getAttributeNameResource(index));
             } catch (AndrolibException ex) {
                 setFirstError(ex);
-                LOGGER.log(Level.WARNING, String.format("Could not decode attr value, using undecoded value "
+                Log.log(Log.LogLevel.WARN, String.format("Could not decode attr value, using undecoded value "
                                 + "instead: ns=%s, name=%s, value=0x%08x",
                         getAttributePrefix(index),
                         getAttributeName(index),
@@ -974,7 +974,6 @@ public class AXmlResourceParser implements XmlResourceParser {
     private int m_classAttribute;
     private int m_styleAttribute;
 
-    private final static Logger LOGGER = Logger.getLogger(AXmlResourceParser.class.getName());
     private static final String E_NOT_SUPPORTED = "Method is not supported.";
     private static final int ATTRIBUTE_IX_NAMESPACE_URI = 0,
             ATTRIBUTE_IX_NAME = 1, ATTRIBUTE_IX_VALUE_STRING = 2,

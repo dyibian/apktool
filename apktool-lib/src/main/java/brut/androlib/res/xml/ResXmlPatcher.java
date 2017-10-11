@@ -16,11 +16,11 @@
  */
 package brut.androlib.res.xml;
 
+import brut.androlib.AndrolibException;
+import brut.util.Log;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.util.logging.Logger;
-
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -34,14 +34,11 @@ import javax.xml.xpath.XPathConstants;
 import javax.xml.xpath.XPathExpression;
 import javax.xml.xpath.XPathExpressionException;
 import javax.xml.xpath.XPathFactory;
-
 import org.w3c.dom.Document;
 import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
-
-import brut.androlib.AndrolibException;
 
 /**
  * @author Connor Tumbleson <connor.tumbleson@gmail.com>
@@ -268,7 +265,7 @@ public final class ResXmlPatcher {
             docFactory.setAttribute(ACCESS_EXTERNAL_DTD, " ");
             docFactory.setAttribute(ACCESS_EXTERNAL_SCHEMA, " ");
         } catch (IllegalArgumentException ex) {
-            LOGGER.warning("JAXP 1.5 Support is required to validate XML");
+            Log.warning("JAXP 1.5 Support is required to validate XML");
         }
 
         DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
@@ -305,6 +302,4 @@ public final class ResXmlPatcher {
     private static final String ACCESS_EXTERNAL_SCHEMA = "http://javax.xml.XMLConstants/property/accessExternalSchema";
     private static final String FEATURE_LOAD_DTD = "http://apache.org/xml/features/nonvalidating/load-external-dtd";
     private static final String FEATURE_DISABLE_DOCTYPE_DECL = "http://apache.org/xml/features/disallow-doctype-decl";
-
-    private static final Logger LOGGER = Logger.getLogger(ResXmlPatcher.class.getName());
 }

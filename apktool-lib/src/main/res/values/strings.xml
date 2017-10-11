@@ -1,3 +1,45 @@
 <resources>
-	<string name="fhgggg">gjhfg</string>
+	<!--Info-->
+	<string name="copy_raw">Copying raw %1$s file...</string>
+	<string name="copy_raw_manifest">Copying raw manifest...</string>
+	<string name="copy_raw_resources">Copying raw resources...</string>
+	<string name="copy_assets">Copying assets and libs...</string>
+	<string name="copy_unknown">Copying unknown files...</string>
+	<string name="copy_unknown1">Copying unknown files/dir...</string>
+	<string name="copy_original">Copying original files...</string>
+	<string name="copy_file">Copying %1$s %2$s file...</string>
+	<string name="version">Using Apktool %1$s</string>
+	<string name="version1">Using Apktool %1$s on %2$s</string>
+	<string name="baksmali">Baksmaling %1$s ...</string>
+	<string name="checking_source">Checking whether sources has changed...</string>
+	<string name="checking_resource">Checking whether resources has changed...</string>
+	<string name="smali">Smaling %1$s folder into %2$s ...</string>
+	<string name="build_res">Building resources...</string>
+	<string name="copy_raw_android_manifest">Copying raw AndroidManifest.xml...</string>
+	<string name="build_manifest">Building AndroidManifest.xml...</string>
+	<string name="copy_lib">Copying libs \(/%1$s\)</string>
+	<string name="copy">Copy %1$s...</string>
+	<string name="build_apk">Building apk file...</string>
+	<string name="load_table">Loading resource table...</string>
+	<string name="load_table_from_file">Loading resource table from file %1$s</string>
+	<string name="decode_manifest_with_only_framework">Decoding AndroidManifest.xml with only framework resources...</string>
+	<string name="regular_manifest">Regular manifest package...</string>
+	<string name="replace_manifest">Renamed manifest package found! Replacing %1$s with %2$s</string>
+	<string name="decode_manifest">Decoding AndroidManifest.xml with resources...</string>
+	<string name="decode_file">Decoding file-resources...</string>
+	<string name="decode_xml">Decoding values */* XMLs...</string>
+	<string name="aapt">%1$s being used as aapt location.</string>
+	<string name="command_ran">command ran: </string>
+	<string name="remove_framework">Removing %1$s framework file...</string>
+	<string name="decode_shared">Decoding Shared Library \(%1$s\), pkgId: %2$d</string>
+	<string name="spares_type">Sparse type flags detected: %1$s</string>
+	
+	<!--Warning-->
+	<string name="could_not_find_source">Could not find sources</string>
+	<string name="could_not_find_resource">Could not find resources</string>
+	<string name="parse_manifest_failed">Parse AndroidManifest.xml failed, treat it as raw file.</string>
+	<string name="could_not_load_prop">Can\'t load %1$s properties.</string>
+	<string name="skip_package_group">Skipping "%1$s" package group</string>
+	<string name="could_not_empty_framework">Can\'t empty framework directory, no file found at: %1$s</string>
+	<string name="invalid_value">Invalid %1$s value: %2$s</string>
 </resources>

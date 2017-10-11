@@ -16,10 +16,10 @@
  */
 package brut.androlib;
 
+import brut.util.Log;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
-import java.util.logging.Logger;
 
 /**
  * @author Ryszard Wiśniewski <brut.alll@gmail.com>
@@ -43,14 +43,14 @@ public class ApktoolProperties {
             sProps.load(in);
             in.close();
         } catch (IOException ex) {
-            LOGGER.warning("Can't load properties.");
+            Log.warnResources(R.string.could_not_load_prop, "apktool");
         }
 
         InputStream templateStream = null;
         try {
             templateStream = org.jf.baksmali.Main.class.getClassLoader().getResourceAsStream("baksmali.properties");
-        } catch(NoClassDefFoundError ex) {
-            LOGGER.warning("Can't load baksmali properties.");
+        } catch (NoClassDefFoundError ex) {
+            Log.warnResources(R.string.could_not_load_prop, "baksmali");
         }
         Properties properties = new Properties();
         String version = "(unknown)";
@@ -67,8 +67,8 @@ public class ApktoolProperties {
         templateStream = null;
         try {
             templateStream = org.jf.smali.Main.class.getClassLoader().getResourceAsStream("smali.properties");
-        } catch(NoClassDefFoundError ex) {
-            LOGGER.warning("Can't load smali properties.");
+        } catch (NoClassDefFoundError ex) {
+            Log.warnResources(R.string.could_not_load_prop, "smali");
         }
         properties = new Properties();
         version = "(unknown)";
@@ -84,6 +84,4 @@ public class ApktoolProperties {
     }
 
     private static Properties sProps;
-
-    private static final Logger LOGGER = Logger.getLogger(ApktoolProperties.class.getName());
 }

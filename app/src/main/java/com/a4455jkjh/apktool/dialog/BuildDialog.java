@@ -1,20 +1,15 @@
 package com.a4455jkjh.apktool.dialog;
-import android.content.Context;
+import android.view.View;
+import android.widget.TextView;
 import brut.androlib.Androlib;
 import brut.androlib.ApkOptions;
 import brut.common.BrutException;
+import brut.util.Log;
+import com.a4455jkjh.apktool.MainActivity;
+import com.a4455jkjh.apktool.R;
 import com.a4455jkjh.apktool.util.ApkFile;
 import java.io.File;
 import java.io.IOException;
-import java.security.KeyStoreException;
-import java.security.NoSuchAlgorithmException;
-import java.security.UnrecoverableKeyException;
-import java.security.cert.CertificateException;
-import java.security.spec.InvalidKeySpecException;
-import java.util.logging.Logger;
-import java.security.InvalidKeyException;
-import java.security.SignatureException;
-import com.a4455jkjh.apktool.MainActivity;
 
 public class BuildDialog extends DialogCommon {
 	public BuildDialog(MainActivity c,int theme) {
@@ -25,6 +20,9 @@ public class BuildDialog extends DialogCommon {
 	public void show() {
 		setTitle("正在构建APK...");
 		super.show();
+		TextView install = (TextView)findViewById(R.id.select);
+		install.setVisibility(View.VISIBLE);
+		install.setText("安装");
 	}
 
 	@Override
@@ -45,21 +43,26 @@ public class BuildDialog extends DialogCommon {
 				Androlib builder = new Androlib(option);
 				builder.build(); 
 			}
-			ApkFile.build(option.out.getAbsolutePath(), option.tmp.getAbsolutePath());
+			ApkFile.build(option.out.getAbsolutePath(), option.tmp.getAbsolutePath(),option.api);
 			option.tmp.delete();
 			if (option.in == null) {
 				option.out.renameTo(option.tmp);
 				option.out = option.tmp;
 			}
-			LOGGER.info("签名成功");
-			LOGGER.info("输出文件为：" + option.out.getAbsolutePath());
+			Log.info("签名成功");
+			Log.info("输出文件为：" + option.out.getAbsolutePath());
 		} catch (IOException|BrutException e) {
-			LOGGER.warning(e.getMessage());
+			Log.warning(e.getMessage());
 			for (StackTraceElement s:e.getStackTrace()) {
-				LOGGER.warning(s.toString());
+				Log.warning(s.toString());
 			}
 			throw new BuildException(e);
 		}
 	}
-	static Logger LOGGER = Logger.getLogger(BuildDialog.class.getName());
+
+	@Override
+	protected void select () {
+		ApkOptions o = (ApkOptions)input;
+		main.install(o.out);
+	}
 }

@@ -2,10 +2,9 @@ brut.androlib.Androlib:
     private static final java.lang.String SMALI_DIRNAME
     private static final java.lang.String APK_DIRNAME
     private static final java.lang.String UNK_DIRNAME
-    691:692:public void publicizeResources(java.io.File)
-    696:697:public void installFramework(java.io.File)
-    700:701:public void emptyFrameworkDirectory()
-    758:759:public void close()
+    700:701:public void publicizeResources(java.io.File)
+    709:710:public void emptyFrameworkDirectory()
+    767:768:public void close()
 brut.androlib.ApkDecoder:
     public static final short DECODE_SOURCES_NONE
     public static final short DECODE_SOURCES_SMALI
@@ -14,7 +13,7 @@ brut.androlib.ApkDecoder:
     public static final short DECODE_ASSETS_NONE
     public static final short DECODE_ASSETS_FULL
     54:55:public ApkDecoder(java.io.File)
-    57:426:public ApkDecoder(java.io.File,brut.androlib.Androlib)
+    57:424:public ApkDecoder(java.io.File,brut.androlib.Androlib)
     232:233:public void setFrameworkTag(java.lang.String)
     298:301:public void close()
 brut.androlib.R
@@ -28,6 +27,7 @@ brut.androlib.R$menu
 brut.androlib.R$mipmap
 brut.androlib.R$string
 brut.androlib.R$style
+brut.androlib.R$styleable
 brut.androlib.R$xml
 brut.androlib.err.CantFind9PatchChunk:
     27:28:public CantFind9PatchChunk(java.lang.Throwable)
@@ -51,18 +51,15 @@ brut.androlib.mod.SmaliMod:
     35:36:public static boolean assembleSmaliFile(java.lang.String,org.jf.dexlib2.writer.builder.DexBuilder,boolean,boolean,java.io.File)
     43:50:public static boolean assembleSmaliFile(java.io.InputStream,org.jf.dexlib2.writer.builder.DexBuilder,boolean,boolean,java.io.File)
 brut.androlib.res.AndrolibResources:
-    58:58:public brut.androlib.res.data.ResTable getResTable(brut.directory.ExtFile)
-    468:483:public boolean detectWhetherAppIsFramework(java.io.File)
-    488:489:public void tagSmaliResIDs(brut.androlib.res.data.ResTable,java.io.File)
-    493:494:public void updateSmaliResIDs(brut.androlib.res.data.ResTable,java.io.File)
-    628:651:public void emptyFrameworkDirectory()
-    654:655:public void installFramework(java.io.File)
-    659:714:public void installFramework(java.io.File,java.lang.String)
-    717:730:public void publicizeResources(java.io.File)
-    733:734:public void publicizeResources(byte[])
-    738:746:public void publicizeResources(byte[],brut.androlib.res.decoder.ARSCDecoder$FlagsOffset[])
-    789:791:public java.io.File getAndroidResourcesFile()
-    796:799:public void close()
+    82:82:public brut.androlib.res.data.ResTable getResTable(brut.directory.ExtFile)
+    494:509:public boolean detectWhetherAppIsFramework(java.io.File)
+    514:515:public void tagSmaliResIDs(brut.androlib.res.data.ResTable,java.io.File)
+    519:520:public void updateSmaliResIDs(brut.androlib.res.data.ResTable,java.io.File)
+    654:677:public void emptyFrameworkDirectory()
+    745:758:public void publicizeResources(java.io.File)
+    761:762:public void publicizeResources(byte[])
+    817:819:public java.io.File getAndroidResourcesFile()
+    824:827:public void close()
 brut.androlib.res.ResSmaliUpdater
 brut.androlib.res.data.ResConfigFlags:
     public static final byte SDK_BASE
@@ -178,14 +175,14 @@ brut.androlib.res.data.ResConfigFlags:
 brut.androlib.res.data.ResID:
     30:31:public ResID(int,int,int)
 brut.androlib.res.data.ResPackage:
-    65:65:public java.util.List getConfigs()
-    69:69:public boolean hasConfig(brut.androlib.res.data.ResConfigFlags)
-    73:77:public brut.androlib.res.data.ResType getConfig(brut.androlib.res.data.ResConfigFlags)
-    94:94:public java.util.List listTypes()
-    98:98:public boolean hasType(java.lang.String)
-    102:106:public brut.androlib.res.data.ResTypeSpec getType(java.lang.String)
-    168:171:public void addConfig(brut.androlib.res.data.ResType)
-    185:185:public void removeResource(brut.androlib.res.data.ResResource)
+    72:72:public java.util.List getConfigs()
+    76:76:public boolean hasConfig(brut.androlib.res.data.ResConfigFlags)
+    80:84:public brut.androlib.res.data.ResType getConfig(brut.androlib.res.data.ResConfigFlags)
+    101:101:public java.util.List listTypes()
+    105:105:public boolean hasType(java.lang.String)
+    109:113:public brut.androlib.res.data.ResTypeSpec getType(java.lang.String)
+    175:178:public void addConfig(brut.androlib.res.data.ResType)
+    192:192:public void removeResource(brut.androlib.res.data.ResResource)
 brut.androlib.res.data.ResResSpec:
     55:55:public brut.androlib.res.data.ResResource getResource(brut.androlib.res.data.ResType)
     67:67:public boolean hasResource(brut.androlib.res.data.ResType)
@@ -246,13 +243,8 @@ brut.androlib.res.decoder.ARSCDecoder:
     private static final short ENTRY_FLAG_PUBLIC
     private static final short ENTRY_FLAG_WEAK
     private static final int KNOWN_CONFIG_BYTES
-    39:39:public static brut.androlib.res.decoder.ARSCDecoder$ARSCData decode(java.io.InputStream,boolean,boolean)
-    36:36:static synthetic java.util.logging.Logger access$000()
 brut.androlib.res.decoder.ARSCDecoder$ARSCData:
-    591:591:public brut.androlib.res.decoder.ARSCDecoder$FlagsOffset[] getFlagsOffsets()
-    599:608:public brut.androlib.res.data.ResPackage getOnePackage()
-    612:621:public int findPackageWithMostResSpecs()
-    625:625:public brut.androlib.res.data.ResTable getResTable()
+    644:644:public brut.androlib.res.data.ResTable getResTable()
 brut.androlib.res.decoder.ARSCDecoder$Header:
     public static final short TYPE_NONE
     public static final short TYPE_TABLE
@@ -292,9 +284,9 @@ brut.androlib.res.decoder.StringBlock:
     private static final int CHUNK_STRINGPOOL_TYPE
     private static final int CHUNK_NULL_TYPE
     private static final int UTF8_FLAG
-    88:88:public int getCount()
-    119:119:public java.lang.CharSequence get(int)
-    309:313:private static final int getShort(int[],int)
+    89:89:public int getCount()
+    120:120:public java.lang.CharSequence get(int)
+    310:314:private static final int getShort(int[],int)
 brut.androlib.res.util.ExtFile
 brut.androlib.res.util.ExtXmlSerializer:
     public static final java.lang.String PROPERTY_SERIALIZER_INDENTATION
@@ -309,8 +301,9 @@ brut.androlib.res.xml.ResXmlPatcher:
     private static final java.lang.String ACCESS_EXTERNAL_SCHEMA
     private static final java.lang.String FEATURE_LOAD_DTD
     private static final java.lang.String FEATURE_DISABLE_DOCTYPE_DECL
+    46:46:public ResXmlPatcher()
 brut.androlib.src.SmaliBuilder:
-    40:41:public static void build(brut.directory.ExtFile,java.io.File)
+    42:43:public static void build(brut.directory.ExtFile,java.io.File)
 brut.directory.AbstractDirectory:
     189:190:public void copyToDir(brut.directory.Directory,java.lang.String[])
     194:195:public void copyToDir(brut.directory.Directory,java.lang.String)
@@ -354,20 +347,31 @@ brut.j.common.R$menu
 brut.j.common.R$mipmap
 brut.j.common.R$string
 brut.j.common.R$style
+brut.j.common.R$styleable
 brut.j.common.R$xml
 brut.util.BrutIO:
     34:34:public BrutIO()
 brut.util.Jar
+brut.util.Log:
+    4:4:public Log()
+    20:20:public static brut.util.Log$LogCallback getCallback()
+    32:33:public static void error(java.lang.String)
+    47:48:public static varargs void errorResources(int,java.lang.Object[])
+    50:51:public static varargs void fatalResources(int,java.lang.Object[])
+    53:54:public static varargs void fineResources(int,java.lang.Object[])
+brut.util.Log$DefaultCallback:
+    89:89:public void log(brut.util.Log$LogLevel,java.lang.CharSequence,java.lang.Exception)
+brut.util.Log$LogCallback:
+    public abstract void log(brut.util.Log$LogLevel,java.lang.CharSequence,java.lang.Exception)
 brut.util.OS:
     29:29:public OS()
-    50:52:public static void rmfile(java.lang.String)
-    55:56:public static void rmdir(java.lang.String)
-    82:83:public static void cpdir(java.lang.String,java.lang.String)
-    105:114:public static java.io.File createTempDirectory()
+    48:50:public static void rmfile(java.lang.String)
+    53:54:public static void rmdir(java.lang.String)
+    80:81:public static void cpdir(java.lang.String,java.lang.String)
+    103:112:public static java.io.File createTempDirectory()
 brut.util.OSDetection
-com.a4455jkjh.apktool.MainActivity:
-    private static final java.lang.String key_file
-com.a4455jkjh.apktool.R
+com.a4455jkjh.apktool.R:
+    10:10:public R()
 com.a4455jkjh.apktool.R$array
 com.a4455jkjh.apktool.R$attr
 com.a4455jkjh.apktool.R$color
@@ -378,20 +382,26 @@ com.a4455jkjh.apktool.R$menu
 com.a4455jkjh.apktool.R$mipmap
 com.a4455jkjh.apktool.R$string
 com.a4455jkjh.apktool.R$style
+com.a4455jkjh.apktool.R$styleable:
+    246:246:public R$styleable()
 com.a4455jkjh.apktool.R$xml
-com.a4455jkjh.apktool.dialog.BuildException:
-    8:8:public BuildException(java.lang.String,java.lang.Exception)
 com.a4455jkjh.apktool.dialog.DialogCommon:
-    30:31:public DialogCommon(com.a4455jkjh.apktool.MainActivity)
+    46:47:public DialogCommon(com.a4455jkjh.apktool.MainActivity)
 com.a4455jkjh.apktool.util.ApkFile:
     private static final java.lang.String nnnn
+    43:43:public ApkFile()
 com.a4455jkjh.apktool.util.CertAndKeyGen:
     68:80:public CertAndKeyGen(java.lang.String,java.lang.String,java.lang.String)
     151:154:public sun1.security.x509.X509Key getPublicKey()
     203:205:public java.security.cert.X509Certificate getSelfCertificate(sun1.security.x509.X500Name,java.util.Date,long)
     310:310:public java.security.cert.X509Certificate getSelfCertificate(sun1.security.x509.X500Name,long)
+com.a4455jkjh.apktool.util.FileUtils:
+    private static final java.lang.String key_file
+    public static final java.lang.String no_pass
 com.a4455jkjh.apktool.util.PrintHandler:
-    private static final int OUT
+    29:43:public void log(brut.util.Log$LogLevel,java.lang.CharSequence,java.lang.Exception)
+com.a4455jkjh.apktool.util.PrintHandler$2
+com.a4455jkjh.apktool.util.PrintHandler$Verbosity
 com.google.common.annotations.Beta
 com.google.common.annotations.GwtCompatible
 com.google.common.annotations.GwtIncompatible
@@ -6366,29 +6376,19 @@ sun1.security.jca.JCAUtil
 sun1.security.jca.JCAUtil$CachedSecureRandomHolder
 sun1.security.pkcs.ContentInfo:
     204:208:public byte[] getContentBytes()
-sun1.security.pkcs.ESSCertId
 sun1.security.pkcs.PKCS7:
-    private sun1.security.util.ObjectIdentifier contentType
     private java.security.Principal[] certIssuerNames
     private static final java.lang.String KP_TIMESTAMPING_OID
     private static final java.lang.String EXTENDED_KEY_USAGE_OID
-    63:115:public PKCS7(java.io.InputStream)
     63:126:public PKCS7(sun1.security.util.DerInputStream)
     63:145:public PKCS7(byte[])
-    154:170:private void parse(sun1.security.util.DerInputStream)
-    182:198:private void parse(sun1.security.util.DerInputStream,boolean)
-    222:259:private void parseNetscapeCertChain(sun1.security.util.DerValue)
-    264:375:private void parseSignedData(sun1.security.util.DerValue)
-    384:455:private void parseOldSignedData(sun1.security.util.DerValue)
     539:539:public sun1.security.pkcs.SignerInfo verify(sun1.security.pkcs.SignerInfo,byte[])
     553:567:public sun1.security.pkcs.SignerInfo[] verify(byte[])
     578:578:public sun1.security.pkcs.SignerInfo[] verify()
     587:587:public java.math.BigInteger getVersion()
     596:596:public sun1.security.x509.AlgorithmId[] getDigestAlgorithmIds()
     603:603:public sun1.security.pkcs.ContentInfo getContentInfo()
-    612:615:public java.security.cert.X509Certificate[] getCertificates()
     624:627:public java.security.cert.X509CRL[] getCRLs()
-    636:636:public sun1.security.pkcs.SignerInfo[] getSignerInfos()
     648:661:public java.security.cert.X509Certificate getCertificate(java.math.BigInteger,sun1.security.x509.X500Name)
     669:694:private void populateCertIssuerNames()
     733:733:public boolean isOldStyle()
@@ -6421,39 +6421,23 @@ sun1.security.pkcs.PKCS9Attribute:
     411:413:public PKCS9Attribute(sun1.security.util.ObjectIdentifier,java.lang.Object)
     433:442:public PKCS9Attribute(java.lang.String,java.lang.Object)
     448:464:private void init(sun1.security.util.ObjectIdentifier,java.lang.Object)
-    475:588:public PKCS9Attribute(sun1.security.util.DerValue)
     738:738:public java.lang.Object getValue()
     746:746:public boolean isSingleValued()
-    762:762:public java.lang.String getName()
     771:771:public static sun1.security.util.ObjectIdentifier getOID(java.lang.String)
     780:780:public static java.lang.String getName(sun1.security.util.ObjectIdentifier)
-    835:839:static int indexOf(java.lang.Object,java.lang.Object[],int)
-    848:849:private void throwSingleValuedException()
-    860:878:private void throwTagException(java.lang.Byte)
 sun1.security.pkcs.PKCS9Attributes:
-    private final java.util.Hashtable permittedAttributes
-    private boolean ignoreUnsupportedAttributes
     46:100:public PKCS9Attributes(sun1.security.util.ObjectIdentifier[],sun1.security.util.DerInputStream)
-    116:117:public PKCS9Attributes(sun1.security.util.DerInputStream)
-    46:142:public PKCS9Attributes(sun1.security.util.DerInputStream,boolean)
     46:172:public PKCS9Attributes(sun1.security.pkcs.PKCS9Attribute[])
-    188:226:private byte[] decode(sun1.security.util.DerInputStream)
-    244:249:private byte[] generateDerEncoding()
     257:257:public byte[] getDerEncoding()
     272:272:public sun1.security.pkcs.PKCS9Attribute getAttribute(java.lang.String)
     280:291:public sun1.security.pkcs.PKCS9Attribute[] getAttributes()
     300:303:public java.lang.Object getAttributeValue(sun1.security.util.ObjectIdentifier)
     312:318:public java.lang.Object getAttributeValue(java.lang.String)
-    358:363:static sun1.security.util.DerEncoder[] castToDerEncoder(java.lang.Object[])
 sun1.security.pkcs.ParsingException:
     private static final long serialVersionUID
-    41:42:public ParsingException()
-    45:46:public ParsingException(java.lang.String)
 sun1.security.pkcs.SignerInfo:
     java.security.Timestamp timestamp
     89:123:public SignerInfo(sun1.security.x509.X500Name,java.math.BigInteger,sun1.security.x509.AlgorithmId,sun1.security.pkcs.PKCS9Attributes,sun1.security.x509.AlgorithmId,byte[],sun1.security.pkcs.PKCS9Attributes)
-    131:132:public SignerInfo(sun1.security.util.DerInputStream)
-    89:203:public SignerInfo(sun1.security.util.DerInputStream,boolean)
     207:208:public void encode(sun1.security.util.DerOutputStream)
     255:255:public java.security.cert.X509Certificate getCertificate(sun1.security.pkcs.PKCS7)
     265:309:public java.util.ArrayList getCertificateChain(sun1.security.pkcs.PKCS7)
@@ -6462,15 +6446,11 @@ sun1.security.pkcs.SignerInfo:
     471:471:public java.math.BigInteger getVersion()
     475:475:public sun1.security.x509.X500Name getIssuerName()
     479:479:public java.math.BigInteger getCertificateSerialNumber()
-    483:483:public sun1.security.x509.AlgorithmId getDigestAlgorithmId()
     487:487:public sun1.security.pkcs.PKCS9Attributes getAuthenticatedAttributes()
-    491:491:public sun1.security.x509.AlgorithmId getDigestEncryptionAlgorithmId()
-    495:495:public byte[] getEncryptedDigest()
     499:499:public sun1.security.pkcs.PKCS9Attributes getUnauthenticatedAttributes()
     507:516:public sun1.security.pkcs.PKCS7 getTsToken()
     543:567:public java.security.Timestamp getTimestamp()
     577:603:private void verifyTimestamp(sun1.security.timestamp.TimestampToken)
-sun1.security.pkcs.SigningCertificateInfo
 sun1.security.pkcs10.PKCS10
 sun1.security.pkcs10.PKCS10Attribute
 sun1.security.pkcs10.PKCS10Attributes
@@ -6524,7 +6504,6 @@ sun1.security.util.DerIndefLenConverter:
     279:292:private int getNumOfLenBytes(int)
 sun1.security.util.DerInputBuffer:
     50:51:DerInputBuffer(byte[])
-    84:87:int peek()
 sun1.security.util.DerInputStream:
     113:115:public DerInputStream(byte[],int,int)
     217:220:public java.math.BigInteger getPositiveBigInteger()
@@ -6538,7 +6517,6 @@ sun1.security.util.DerInputStream:
     490:490:public java.lang.String getBMPString()
     498:498:public java.lang.String getGeneralString()
     513:523:private java.lang.String readString(byte,java.lang.String,java.lang.String)
-    553:553:public int peekByte()
 sun1.security.util.DerOutputStream:
     62:62:public DerOutputStream(int)
     176:177:public void putInteger(java.lang.Integer)
@@ -6695,7 +6673,9 @@ sun1.security.x509.CRLDistributionPointsExtension:
     258:267:public void delete(java.lang.String)
     274:276:public java.util.Enumeration getElements()
     83:83:public bridge synthetic java.lang.Object get(java.lang.String)
-sun1.security.x509.CRLExtensions
+sun1.security.x509.CRLExtensions:
+    203:204:public void set(java.lang.String,java.lang.Object)
+    212:213:public void delete(java.lang.String)
 sun1.security.x509.CRLNumberExtension:
     public static final java.lang.String NAME
     public static final java.lang.String NUMBER
@@ -6747,7 +6727,6 @@ sun1.security.x509.CertificateIssuerExtension:
     public static final java.lang.String NAME
     public static final java.lang.String ISSUER
     126:137:public void set(java.lang.String,java.lang.Object)
-    145:148:public sun1.security.x509.GeneralNames get(java.lang.String)
     159:166:public void delete(java.lang.String)
     198:200:public java.util.Enumeration getElements()
     63:63:public bridge synthetic java.lang.Object get(java.lang.String)
@@ -6919,7 +6898,6 @@ sun1.security.x509.GeneralNameInterface:
     public static final int NAME_SAME_TYPE
     public abstract int subtreeDepth()
 sun1.security.x509.GeneralNames:
-    89:89:public sun1.security.x509.GeneralName get(int)
     97:97:public int size()
     101:101:public java.util.Iterator iterator()
 sun1.security.x509.GeneralSubtree:
@@ -7198,7 +7176,6 @@ sun1.security.x509.X500Name:
     175:186:public X500Name(java.lang.String,java.lang.String)
     203:221:public X500Name(java.lang.String,java.lang.String,java.lang.String,java.lang.String)
     273:284:public X500Name(sun1.security.x509.RDN[])
-    295:296:public X500Name(sun1.security.util.DerValue)
     313:316:public X500Name(byte[])
     322:327:public java.util.List rdns()
     334:334:public int size()
@@ -7232,9 +7209,38 @@ sun1.security.x509.X500Name:
 sun1.security.x509.X500Signer
 sun1.security.x509.X509AttributeName:
     private static final char SEPARATOR
-sun1.security.x509.X509CRLEntryImpl
-sun1.security.x509.X509CRLImpl
-sun1.security.x509.X509CRLImpl$X509IssuerSerial
+sun1.security.x509.X509CRLEntryImpl:
+    private static final boolean isExplicit
+    private static final long YR_2050
+    72:91:public X509CRLEntryImpl(java.math.BigInteger,java.util.Date)
+    72:107:public X509CRLEntryImpl(java.math.BigInteger,java.util.Date,sun1.security.x509.CRLExtensions)
+    72:122:public X509CRLEntryImpl(byte[])
+    241:245:public java.lang.Integer getReasonCode()
+    448:451:public static sun1.security.x509.X509CRLEntryImpl toImpl(java.security.cert.X509CRLEntry)
+sun1.security.x509.X509CRLImpl:
+    private static final boolean isExplicit
+    private static final long YR_2050
+    94:151:public X509CRLImpl(byte[])
+    94:182:public X509CRLImpl(java.io.InputStream)
+    94:195:public X509CRLImpl(sun1.security.x509.X500Name,java.util.Date,java.util.Date)
+    94:234:public X509CRLImpl(sun1.security.x509.X500Name,java.util.Date,java.util.Date,java.security.cert.X509CRLEntry[])
+    251:256:public X509CRLImpl(sun1.security.x509.X500Name,java.util.Date,java.util.Date,java.security.cert.X509CRLEntry[],sun1.security.x509.CRLExtensions)
+    287:327:public void encodeInfo(java.io.OutputStream)
+    418:419:public void sign(java.security.PrivateKey,java.lang.String)
+    439:476:public void sign(java.security.PrivateKey,java.lang.String,java.lang.String)
+    770:770:public sun1.security.x509.AlgorithmId getSigAlgId()
+    781:787:public sun1.security.x509.KeyIdentifier getAuthKeyId()
+    799:800:public sun1.security.x509.AuthorityKeyIdentifierExtension getAuthKeyIdExtension()
+    810:811:public sun1.security.x509.CRLNumberExtension getCRLNumberExtension()
+    821:826:public java.math.BigInteger getCRLNumber()
+    839:840:public sun1.security.x509.DeltaCRLIndicatorExtension getDeltaCRLIndicatorExtension()
+    850:855:public java.math.BigInteger getBaseCRLNumber()
+    867:868:public sun1.security.x509.IssuerAlternativeNameExtension getIssuerAltNameExtension()
+    881:882:public sun1.security.x509.IssuingDistributionPointExtension getIssuingDistributionPointExtension()
+    991:995:public java.lang.Object getExtension(sun1.security.util.ObjectIdentifier)
+    1129:1146:public static javax.security.auth.x500.X500Principal getIssuerX500Principal(java.security.cert.X509CRL)
+    1157:1160:public static byte[] getEncodedInternal(java.security.cert.X509CRL)
+    1171:1174:public static sun1.security.x509.X509CRLImpl toImpl(java.security.cert.X509CRL)
 sun1.security.x509.X509CertImpl:
     private static final long serialVersionUID
     private static final java.lang.String DOT
@@ -7260,7 +7266,6 @@ sun1.security.x509.X509CertImpl:
     private java.util.Set authInfoAccess
     128:1876:public X509CertImpl(java.io.InputStream)
     266:297:private sun1.security.util.DerValue readRFC1421Cert(java.io.InputStream)
-    128:1876:public X509CertImpl(sun1.security.util.DerValue)
     339:347:public void encode(java.io.OutputStream)
     657:686:public void set(java.lang.String,java.lang.Object)
     698:728:public void delete(java.lang.String)

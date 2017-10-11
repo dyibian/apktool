@@ -16,7 +16,8 @@
  */
 package brut.androlib.res.data;
 
-import java.util.logging.Logger;
+import brut.util.Log;
+import brut.androlib.R;
 
 /**
  * @author Ryszard Wiśniewski <brut.alll@gmail.com>
@@ -97,27 +98,27 @@ public class ResConfigFlags {
                           short screenHeightDp, char[] localeScript, char[] localeVariant,
                           byte screenLayout2, byte colorMode, boolean isInvalid, int size) {
         if (orientation < 0 || orientation > 3) {
-            LOGGER.warning("Invalid orientation value: " + orientation);
+            Log.warnResources(R.string.invalid_value,"orientation",orientation);
             orientation = 0;
             isInvalid = true;
         }
         if (touchscreen < 0 || touchscreen > 3) {
-            LOGGER.warning("Invalid touchscreen value: " + touchscreen);
+            Log.warnResources(R.string.invalid_value,"touchscreen",touchscreen);
             touchscreen = 0;
             isInvalid = true;
         }
         if (density < -1) {
-            LOGGER.warning("Invalid density value: " + density);
+            Log.warnResources(R.string.invalid_value,"density", density);
             density = 0;
             isInvalid = true;
         }
         if (keyboard < 0 || keyboard > 3) {
-            LOGGER.warning("Invalid keyboard value: " + keyboard);
+            Log.warnResources(R.string.invalid_value,"keyboard" ,keyboard);
             keyboard = 0;
             isInvalid = true;
         }
         if (navigation < 0 || navigation > 4) {
-            LOGGER.warning("Invalid navigation value: " + navigation);
+            Log.warnResources(R.string.invalid_value,"navigation" ,navigation);
             navigation = 0;
             isInvalid = true;
         }
@@ -640,6 +641,4 @@ public class ResConfigFlags {
     public final static byte COLOR_WIDE_NO = 0x1;
     public final static byte COLOR_WIDE_YES = 0x2;
     public final static byte COLOR_WIDE_MASK = 0x3;
-
-    private static final Logger LOGGER = Logger.getLogger(ResConfigFlags.class.getName());
 }

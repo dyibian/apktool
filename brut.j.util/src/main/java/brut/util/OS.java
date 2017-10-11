@@ -28,8 +28,6 @@ import org.apache.commons.io.IOUtils;
  */
 public class OS {
 
-    private static final Logger LOGGER = Logger.getLogger("");
-
     public static void rmdir(File dir) throws BrutException {
         if (! dir.exists()) {
             return;
@@ -129,9 +127,9 @@ public class OS {
                 String line;
                 while ((line = br.readLine()) != null) {
                     if (mType.equals("OUTPUT")) {
-                        LOGGER.info(line);
+                        Log.info(line);
                     } else {
-                        LOGGER.warning(line);
+                        Log.warning(line);
                     }
                 }
             } catch (IOException ex) {

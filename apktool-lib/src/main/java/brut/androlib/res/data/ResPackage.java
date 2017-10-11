@@ -22,8 +22,15 @@ import brut.androlib.res.data.value.ResFileValue;
 import brut.androlib.res.data.value.ResValueFactory;
 import brut.androlib.res.xml.ResValuesXmlSerializable;
 import brut.util.Duo;
-import java.util.*;
-import java.util.logging.Logger;
+import brut.util.Log;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 /**
  * @author Ryszard Wiśniewski <brut.alll@gmail.com>
@@ -172,7 +179,7 @@ public class ResPackage {
 
     public void addType(ResTypeSpec type) throws AndrolibException {
         if (mTypes.containsKey(type.getName())) {
-            LOGGER.warning("Multiple types detected! " + type + " ignored!");
+            Log.warning("Multiple types detected! " + type + " ignored!");
         } else {
             mTypes.put(type.getName(), type);
         }
@@ -225,6 +232,4 @@ public class ResPackage {
         }
         return mValueFactory;
     }
-
-    private final static Logger LOGGER = Logger.getLogger(ResPackage.class.getName());
 }

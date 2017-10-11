@@ -1,11 +1,10 @@
 package com.a4455jkjh.apktool.dialog;
-import android.content.Context;
-import brut.androlib.ApkDecoder;
 import brut.androlib.AndrolibException;
-import java.io.IOException;
+import brut.androlib.ApkDecoder;
 import brut.directory.DirectoryException;
-import java.util.logging.Logger;
+import brut.util.Log;
 import com.a4455jkjh.apktool.MainActivity;
+import java.io.IOException;
 
 public class DecodeDialog extends DialogCommon
 {
@@ -28,7 +27,7 @@ public class DecodeDialog extends DialogCommon
 			throw new BuildException("没有设置输入文件");
 		if(!(input instanceof ApkDecoder))
 			throw new BuildException("错误");
-		LOGGER.info("开始");
+		Log.info("开始");
 		ApkDecoder decoder = (ApkDecoder)input;
 		try
 		{
@@ -39,7 +38,5 @@ public class DecodeDialog extends DialogCommon
 			throw new BuildException(e);
 		}
 	}
-
-	private static Logger LOGGER = Logger.getLogger(DecodeDialog.class.getName());
 	
 }

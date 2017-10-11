@@ -156,5 +156,4 @@ public class XmlPullStreamDecoder implements ResStreamDecoder {
     private final XmlPullParser mParser;
     private final ExtXmlSerializer mSerial;
 
-    private final static Logger LOGGER = Logger.getLogger(XmlPullStreamDecoder.class.getName());
 }

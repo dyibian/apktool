@@ -29,6 +29,7 @@ public class ApkOptions {
     public boolean isFramework = false;
     public boolean resourcesAreCompressed = false;
     public Collection<String> doNotCompress;
+	public int api;
 
 	public File in,out,tmp;
 	public String keystore;
