@@ -1,5 +1,0 @@
-ffmpeg -y -i /sdcard/apktool.png -s 48x48 res/mipmap-mdpi/apktool.png
-ffmpeg -y -i /sdcard/apktool.png -s 72x72 res/mipmap-hdpi/apktool.png
-ffmpeg -y -i /sdcard/apktool.png -s 96x96 res/mipmap-xhdpi/apktool.png
-ffmpeg -y -i /sdcard/apktool.png -s 144x144 res/mipmap-xxhdpi/apktool.png
-ffmpeg -y -i /sdcard/apktool.png -s 256x256 res/mipmap-xxxhdpi/apktool.png

@@ -16,6 +16,7 @@
  */
 package brut.androlib;
 
+import brut.util.Log;
 import java.io.File;
 import java.util.Collection;
 
@@ -32,13 +33,20 @@ public class ApkOptions {
 	public int api;
 
 	public File in,out,tmp;
-	public String keystore;
-	public String pk8,x509;
-	public String storepass;
-	public String keypass;
-	public String alias;
 	
     public String frameworkFolderLocation = null;
     public String frameworkTag = null;
     public String aaptPath = "";
+	public SignTool signTool;
+
+
+	public void sign () throws Exception {
+		if(signTool==null){
+			tmp.renameTo(out);
+			return;
+		}
+		Log.info("正在签名");
+		signTool.sign(tmp,out);
+		tmp.delete();
+	}
 }

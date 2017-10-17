@@ -26,17 +26,20 @@ import brut.androlib.meta.VersionInfo;
 import brut.androlib.res.AndrolibResources;
 import brut.androlib.res.data.ResPackage;
 import brut.androlib.res.data.ResTable;
-import brut.directory.ExtFile;
 import brut.androlib.res.xml.ResXmlPatcher;
 import brut.common.BrutException;
 import brut.directory.DirectoryException;
+import brut.directory.ExtFile;
+import brut.util.Log;
 import brut.util.OS;
 import com.google.common.base.Strings;
-
 import java.io.File;
 import java.io.IOException;
-import java.util.*;
-import java.util.logging.Logger;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Map;
+import java.util.Set;
 
 /**
  * @author Ryszard Wiśniewski <brut.alll@gmail.com>
@@ -70,7 +73,7 @@ public class ApkDecoder {
         mResTable = null;
     }
 
-    public void setOutDir(File outDir) throws AndrolibException {
+    public void setOutDir(File outDir) {
         mOutDir = outDir;
     }
 
@@ -167,6 +170,7 @@ public class ApkDecoder {
             mAndrolib.recordUncompressedFiles(mApkFile, mUncompressedFiles);
             mAndrolib.writeOriginalFiles(mApkFile, outDir);
             writeMetaFile();
+			Log.info("输出文件夹为："+outDir);
         } catch (Exception ex) {
             throw new AndrolibException( ex);
         } finally {
@@ -176,24 +180,15 @@ public class ApkDecoder {
         }
     }
 
-    public void setDecodeSources(short mode) throws AndrolibException {
-        if (mode != DECODE_SOURCES_NONE && mode != DECODE_SOURCES_SMALI) {
-            throw new AndrolibException("Invalid decode sources mode: " + mode);
-        }
+    public void setDecodeSources(short mode){
         mDecodeSources = mode;
     }
 
-    public void setDecodeResources(short mode) throws AndrolibException {
-        if (mode != DECODE_RESOURCES_NONE && mode != DECODE_RESOURCES_FULL) {
-            throw new AndrolibException("Invalid decode resources mode");
-        }
+    public void setDecodeResources(short mode){
         mDecodeResources = mode;
     }
 
-    public void setDecodeAssets(short mode) throws AndrolibException {
-        if (mode != DECODE_ASSETS_NONE && mode != DECODE_ASSETS_FULL) {
-            throw new AndrolibException("Invalid decode asset mode");
-        }
+    public void setDecodeAssets(short mode) {
         mDecodeAssets = mode;
     }
 
@@ -236,7 +231,9 @@ public class ApkDecoder {
         mKeepBrokenResources = keepBrokenResources;
     }
 
-    public void setFrameworkDir(String dir) {
+    public void setFrameworkDir(String dir,String _default) {
+		if(dir.equals(""))
+			dir=_default;
         mAndrolib.apkOptions.frameworkFolderLocation = dir;
     }
 

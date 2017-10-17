@@ -676,13 +676,13 @@ final public class AndrolibResources {
         }
     }
 
-    public String installFramework(File frameFile) throws AndrolibException {
-        return installFramework(frameFile, apkOptions.frameworkTag);
+    public void installFramework(File frameFile) throws AndrolibException {
+        installFramework(frameFile, apkOptions.frameworkTag);
     }
 
-    public String installFramework(File frameFile, String tag)
+    public void installFramework(File frameFile, String tag)
 	throws AndrolibException {
-		String msg;
+		Log.info("正在安装框架文件："+frameFile);
         InputStream in = null;
         ZipOutputStream out = null;
         try {
@@ -731,14 +731,13 @@ final public class AndrolibResources {
             }
 
             zip.close();
-            msg = "Framework installed to: " + outFile;
+            Log.info("框架文件已安装到：" + outFile);
         } catch (IOException ex) {
             throw new AndrolibException(ex);
         } finally {
             IOUtils.closeQuietly(in);
             IOUtils.closeQuietly(out);
         }
-		return msg;
     }
 
     public void publicizeResources(File arscFile) throws AndrolibException {

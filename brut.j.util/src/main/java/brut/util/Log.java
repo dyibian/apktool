@@ -5,7 +5,7 @@ public class Log
 {
 
 	public static void log(LogLevel level, String format, Exception ex) {
-		// TODO: Implement this method
+		callback.log(level,format,ex);
 	}
 
 	public static void severe(String str) {
@@ -15,27 +15,35 @@ public class Log
 	public static void setCallback(LogCallback callback) {
 		Log.callback = callback;
 	}
-
+	public static void done(){
+		callback.log(LogLevel.DONE,"");
+	}
+	public static void fail(Exception e){
+		callback.log(LogLevel.FAIL,"失败",e);
+	}
 	public static LogCallback getCallback() {
 		return callback;
 	}
 	public static void reset(){
 		setCallback(new DefaultCallback());
 	}
-	public static void info(String str){
+	public static void info(CharSequence str){
 		callback.log(LogLevel.INFO,str);
 	}
-	public static void warning(String str){
+	public static void warning(CharSequence str){
 		callback.log(LogLevel.WARN,str);
 	}
-	public static void error(String str){
+	public static void error(CharSequence str){
 		callback.log(LogLevel.ERROR,str);
 	}
-	public static void fatal(String str){
+	public static void fatal(CharSequence str){
 		callback.log(LogLevel.FATAL,str);
 	}
-	public static void fine(String str){
+	public static void fine(CharSequence str){
 		callback.log(LogLevel.FINE,str);
+	}
+	public static void debugResources(int res,Object... args){
+		callback.logResources(LogLevel.DEBUG,res,args);
 	}
 	public static void infoResources(int res,Object... args){
 		callback.logResources(LogLevel.INFO,res,args);
@@ -64,7 +72,9 @@ public class Log
 		FATAL(-3),
 		FINE(1),
 		DEBUG(2),
-		VERBOSE(3);
+		VERBOSE(3),
+		DONE(-4),
+		FAIL(-5);
 		
 		public final int code;
 		LogLevel(int code){
@@ -75,17 +85,17 @@ public class Log
 
 		@Override
 		public void log(Log.LogLevel level, CharSequence str) {
-			// TODO: Implement this method
+			// Empty
 		}
 
 		@Override
 		public void logResources(Log.LogLevel level, int res,Object... args) {
-			// TODO: Implement this method
+			// Empty
 		}
 
 		@Override
 		public void log(Log.LogLevel level, CharSequence str, Exception e) {
-			// TODO: Implement this method
+			// Empty
 		}
 
 	}

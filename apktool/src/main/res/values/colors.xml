@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<color name="press_true">#2E6EE1</color>
+	<color name="Primary">#EEEEEE</color>
+	<color name="Primary.Dark">#937CF5</color>
+	<color name="Dark.press_true">#d1911e</color>
+	<color name="Dark.Primary">#111111</color>
+	<color name="Dark.Primary.Dark">#6c830a</color>
+	
+	<color name="common">#000000</color>
+	<color name="warn">#ffff00</color>
+	<color name="fatal">#ff0000</color>
+	<color name="fine">#00ff00</color>
+</resources>

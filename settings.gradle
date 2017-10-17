@@ -1,4 +1,4 @@
-include ':app'
+include ':apktool'
 include ':apktool-lib'
 include ':brut.j.common'
 include ':brut.j.dir'

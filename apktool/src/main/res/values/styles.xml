@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="AppTheme" parent="@android:style/Theme.Holo.Light">
+		<item name="textColor">@color/press_true</item>
+	</style>
+    <style name="AppTheme.Dark" parent="@android:style/Theme.Holo">
+		<item name="textColor">@color/Dark.press_true</item>
+	</style>
+	<style name="infoColorLight">
+		<item name="fatalForeColor">@color/common</item>
+		<item name="fatalBackColor">@color/fatal</item>
+		<item name="warnForeColor">@color/common</item>
+		<item name="warnBackColor">@color/warn</item>
+		<item name="fineForeColor">@color/common</item>
+		<item name="fineBackColor">@color/fine</item>
+	</style>
+	<style name="infoColorDark">
+		<item name="fatalForeColor">@color/fatal</item>
+		<item name="fatalBackColor">@color/common</item>
+		<item name="warnForeColor">@color/warn</item>
+		<item name="warnBackColor">@color/common</item>
+		<item name="fineForeColor">@color/fine</item>
+		<item name="fineBackColor">@color/common</item>
+	</style>
+</resources>

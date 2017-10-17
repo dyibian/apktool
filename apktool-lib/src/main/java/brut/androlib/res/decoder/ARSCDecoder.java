@@ -151,7 +151,7 @@ public class ARSCDecoder {
         for (int i = 0; i < libraryCount; i++) {
             packageId = mIn.readInt();
             packageName = mIn.readNullEndedString(128, true);
-            Log.infoResources(R.string.decode_shared, packageName, packageId);
+            Log.debugResources(R.string.decode_shared, packageName, packageId);
         }
 
         while(nextChunk().type == Header.TYPE_TYPE) {

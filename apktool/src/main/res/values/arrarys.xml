@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string-array name="file">
+		<item>删除</item>
+		<item>重命名</item>
+	</string-array>
+	<string-array name="app">
+		<item>反编译全部</item>
+		<item>反编译资源</item>
+		<item>反编译classes.dex</item>
+		<item>查看信息</item>
+		<item>作为框架导入</item>
+	</string-array>
+	<string-array name="location">
+		<item>已安装应用</item>
+		<item>系统应用</item>
+	</string-array>
+	<string-array name="apk">
+		<item>反编译全部</item>
+		<item>反编译资源</item>
+		<item>反编译classes.dex</item>
+		<item>签名</item>
+		<item>校验签名</item>
+		<item>安装</item>
+		<item>作为框架导入</item>
+	</string-array>
+	<string-array name="format1">
+		<item>Keystore(JKS)</item>
+		<item>Keystore(PKCS12)</item>
+		<item>Keystore(BKS)</item>
+	</string-array>
+	<string-array name="format">
+		<item>Keystore(JKS)</item>
+		<item>Keystore(PKCS12)</item>
+		<item>Keystore(BKS)</item>
+		<item>pk8+x509.pem</item>
+	</string-array>
+	<string-array name="theme_entry">
+		<item>亮色主题</item>
+		<item>暗色主题</item>
+	</string-array>
+	<string-array name="theme_entry_value">
+		<item>light</item>
+		<item>dark</item>
+	</string-array>
+</resources>

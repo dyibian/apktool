@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="AppTheme" parent="@android:style/Theme.Material.Light">
+		<item name="android:colorPrimary">@color/Primary</item>
+		<item name="android:colorPrimaryDark">@color/Primary.Dark</item>
+		<item name="android:colorAccent">@color/press_true</item>
+		<item name="android:navigationBarColor">@color/Primary</item>
+		<item name="textColor">@color/press_true</item>
+	</style>
+    <style name="AppTheme.Dark" parent="@android:style/Theme.Material">
+		<item name="android:colorPrimary">@color/Dark.Primary</item>
+		<item name="android:colorPrimaryDark">@color/Dark.Primary.Dark</item>
+		<item name="android:colorAccent">@color/Dark.press_true</item>
+		<item name="android:navigationBarColor">@color/Dark.Primary</item>
+		<item name="textColor">@color/Dark.press_true</item>
+	</style>
+</resources>

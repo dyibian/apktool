@@ -700,9 +700,14 @@ public class Androlib {
         mAndRes.publicizeResources(arscFile);
     }
 
-    public String installFramework(File frameFile)
+	public void installFramework()
 	throws AndrolibException {
-        return mAndRes.installFramework(frameFile);
+        mAndRes.installFramework(apkOptions.in);
+	}
+    
+    public void installFramework(File frameFile)
+	throws AndrolibException {
+        mAndRes.installFramework(frameFile);
     }
 
     public void emptyFrameworkDirectory() throws AndrolibException {
