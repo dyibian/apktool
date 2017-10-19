@@ -13,6 +13,7 @@ public class KeyParam implements CharSequence {
 	public String stateName;
 	public String country;
 	public long days;
+	public int keySize;
 
 	@Override
 	public int length () {

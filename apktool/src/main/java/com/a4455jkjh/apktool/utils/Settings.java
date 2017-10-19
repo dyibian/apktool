@@ -60,9 +60,6 @@ public class Settings {
 			options.copyOriginalFiles = false;
 			options.debugMode = prefs.getBoolean("debug", false);
 			options.verbose = prefs.getBoolean("verbose", false);
-
-			if (options.frameworkFolderLocation.equals(""))
-				options.frameworkFolderLocation = framework;
 			options.aaptPath = aapt;
 		} else {
 			options.in = yml;

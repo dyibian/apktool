@@ -8,11 +8,22 @@ import java.io.File;
 import android.content.Context;
 
 public class BuildDialog extends ProcessDialog<ApkOptions>
-{
+implements PasswordDialog.Callback{
 	public BuildDialog(ApktoolActivity a,CharSequence t){
 		super(a,t);
 	}
 
+	@Override
+	public void show () {
+		if(data.signTool.storepass.equals("")){
+			PasswordDialog pdg = new PasswordDialog((ApktoolActivity)context,data.signTool.keystore,this);
+			pdg.show();
+			return;
+		}
+		super.show();
+	}
+
+	
 	@Override
 	protected boolean appendInfo () {
 		return true;
@@ -38,7 +49,18 @@ public class BuildDialog extends ProcessDialog<ApkOptions>
 	protected void onNeutralButtonClicked () {
 		((ApktoolActivity)context).install(data.out);
 	}
-	
-	
+
+	@Override
+	public void done (int type, String sp, String kp) {
+		data.signTool.type=type;
+		data.signTool.storepass=sp;
+		data.signTool.keypass=kp;
+		show();
+	}
+
+	@Override
+	public void cancel () {
+		// TODO: Implement this method
+	}
 	
 }

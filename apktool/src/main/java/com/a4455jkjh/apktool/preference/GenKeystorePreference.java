@@ -29,6 +29,7 @@ implements TextWatcher {
 	private EditText stateName;
 	private EditText country;
 	private EditText date;
+	private EditText keySize;
 	private Spinner format;
 	private TextView cert;
 	private View password;
@@ -56,6 +57,7 @@ implements TextWatcher {
 		country = findViewById(R.id.country);
 		date = findViewById(R.id.date);
 		cert = findViewById(R.id.cert);
+		keySize = findViewById(R.id.keySize);
 		password = findViewById(R.id.password);
 		format.setOnItemSelectedListener(this);
 		path.addTextChangedListener(this);
@@ -126,23 +128,28 @@ implements TextWatcher {
 	@Override
 	protected void onNeutralButtonClicked () {
 		KeyParam param = save();
-		KeystorePreference.saveKeyParam(sp,param);
+		KeystorePreference.saveKeyParam(sp, param);
 	}
-	
+
 	private KeyParam save () {
 		KeyParam param = new KeyParam();
 		int type = format.getSelectedItemPosition();
+		String ks =keySize.getText().toString();
+		if (ks.equals(""))
+			param.keySize = 2048;
+		else
+			param.keySize = Integer.parseInt(ks);
 		param.type = type;
-		param. keyPath = this.path.getText().toString();
-		param. certOrAlias = this.alias.getText().toString();
-		param. storePass = storePass.getText().toString();
+		param.keyPath = this.path.getText().toString();
+		param.certOrAlias = this.alias.getText().toString();
+		param.storePass = storePass.getText().toString();
 		param.keyPass = keyPass.getText().toString();
-		param. commonName = this.commonName.getText().toString();
-		param. organizationUnit = this.organizationUnit.getText().toString();
-		param. organizationName = this.organizationName.getText().toString();
-		param. localityName = this.localityName.getText().toString();
-		param. stateName = this.stateName.getText().toString();
-		param. country = this.country.getText().toString();
+		param.commonName = this.commonName.getText().toString();
+		param.organizationUnit = this.organizationUnit.getText().toString();
+		param.organizationName = this.organizationName.getText().toString();
+		param.localityName = this.localityName.getText().toString();
+		param.stateName = this.stateName.getText().toString();
+		param.country = this.country.getText().toString();
 		long date = Long.parseLong(this.date.getText().toString());
 		param.days = date * 365;
 		try {

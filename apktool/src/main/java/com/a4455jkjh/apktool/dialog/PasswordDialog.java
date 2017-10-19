@@ -13,11 +13,11 @@ public class PasswordDialog extends ApktoolDialog {
 	private EditText storePass;
 	private EditText keyPass;
 	public interface Callback {
-		public void done (int type,String sp,String kp);
+		public void done (int type, String sp, String kp);
 		public void cancel ();
 	}
 	public PasswordDialog (ApktoolActivity a, CharSequence t, Callback callback) {
-		super(a, t);
+		super(a, "请输入" + t + "的密码");
 		this.callback = callback;
 	}
 	@Override
@@ -47,7 +47,7 @@ public class PasswordDialog extends ApktoolDialog {
 		String keyPass = this.keyPass.getText().toString();
 		if (keyPass.equals(""))
 			keyPass = storePass;
-		callback.done(type,storePass,keyPass);
+		callback.done(type, storePass, keyPass);
 	}
 
 	@Override

@@ -112,6 +112,7 @@ implements Runnable {
 	}
 	private class ProcessHandler extends Handler
 	implements Log.LogCallback {
+		private boolean first = true;
 
 		@Override
 		public void log (Log.LogLevel level, CharSequence str) {
@@ -150,6 +151,9 @@ implements Runnable {
 			}
 			if (appendInfo())
 				ss.insert(0, hint.get(level));
+			if(!first)
+				ss.insert(0,"\n");
+			first=false;
 			if (foreColor != 0) {
 				ForegroundColorSpan span = new ForegroundColorSpan(foreColor);
 				ss.setSpan(span, 0, ss.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
@@ -158,7 +162,6 @@ implements Runnable {
 				BackgroundColorSpan span = new BackgroundColorSpan(backColor);
 				ss.setSpan(span, 0, ss.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 			}
-			ss.append("\n");
 			Message msg = Message.obtain();
 			msg.what = level.code;
 			msg.obj = ss;

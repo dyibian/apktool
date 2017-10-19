@@ -1,6 +1,5 @@
 package com.a4455jkjh.apktool.dialog;
 
-import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import brut.util.Log;
@@ -21,15 +20,19 @@ import java.security.UnrecoverableKeyException;
 import java.security.cert.Certificate;
 import java.security.cert.CertificateException;
 import java.security.cert.CertificateFactory;
+import java.security.cert.X509Certificate;
 import java.security.spec.InvalidKeySpecException;
 import java.security.spec.PKCS8EncodedKeySpec;
 import java.util.Enumeration;
 import org.apache.commons.io.IOUtils;
 
 public class KeyDialog extends ProcessDialog<File> 
-implements PasswordDialog.Callback,Runnable {
+implements PasswordDialog.Callback {
 	private boolean start;
 	private KeyParam param;
+	private int type;
+	private String storePass;
+	private String keyPass;
 
 	public KeyDialog (ApktoolActivity a, CharSequence t) {
 		super(a, t);
@@ -48,16 +51,17 @@ implements PasswordDialog.Callback,Runnable {
 		if (name.matches(".*\\.(pk8|x509|x509\\.pem)"))
 			readKey();
 		else
-			((ApktoolActivity)context).runOnUiThread(this);
+			readKs();
 	}
 
 	@Override
-	public void run () {
-		if (start) {
-			PasswordDialog pdg = new PasswordDialog(((ApktoolActivity)context), "输入密码", this);
+	public void show () {
+		if (data.getName().matches(".*\\.(pk8|x509|x509\\.pem)"))
+			super.show();
+		else {
+			PasswordDialog pdg = new PasswordDialog(((ApktoolActivity)context), data.getAbsolutePath(), this);
 			pdg.show();
-		} else
-			super.run();
+		}
 	}
 
 	@Override
@@ -72,6 +76,12 @@ implements PasswordDialog.Callback,Runnable {
 	}
 	@Override
 	public void done (int type, String storePass, String keyPass) {
+		this.type = type;
+		this.storePass = storePass;
+		this.keyPass = keyPass;
+		super.show();
+	}
+	private void readKs () {
 		String keyType;
 		if (type == 0)
 			keyType = "JKS";
@@ -93,16 +103,20 @@ implements PasswordDialog.Callback,Runnable {
 			Enumeration<String> aliases = keyStore.aliases();
 			while (aliases.hasMoreElements()) {
 				String alias = aliases.nextElement();
+				Log.info("别名：" + alias);
 				if (keyStore.isKeyEntry(alias))
 					try {
 						Key key = keyStore.getKey(alias, keyPass.toCharArray());
-						printKey(key);
+						VerifyDialog.logKey(key, "");
 					} catch (NoSuchAlgorithmException|UnrecoverableKeyException|KeyStoreException e) {
 						Log.warning("别名为：" + alias + " 的密码不正确\n");
 					}
 				Certificate[] certs = keyStore.getCertificateChain(alias);
-				for (Certificate cert:certs)
-					Log.info(cert.toString());
+				int num=1;
+				for (Certificate cert:certs) {
+					Log.info("证书：" + (num++));
+					VerifyDialog.logCert((X509Certificate)cert, "  ");
+				}
 			}
 		} catch (KeyStoreException e) {
 			Log.error(e.getMessage());
@@ -112,41 +126,6 @@ implements PasswordDialog.Callback,Runnable {
 			Log.error("打开文件失败：" + data);
 		} 
 	}
-	private static CharSequence translate (Certificate cert) {
-		StringBuilder sb = new StringBuilder();
-		char[] array = cert.toString().toCharArray();
-		int l = array.length;
-		for (int i = 0;i < l;i++) {
-			char c = array[i];
-			if (c == '\\') {
-				if (array[i + 1] == 'x') {
-					byte[] b = new byte[3];
-					for (int x=0;x < 3;x++) {
-						int in = x * 4 + 2;
-						byte a=char2byte(array[i + in]);
-						byte aa=char2byte(array[i + in + 1]);
-						b[x] = (byte)((a << 4) + aa);
-						System.out.printf("%x\n", b[x]);
-					}
-					sb.append(new String(b));
-					i += 11;
-					continue;
-				}
-			}
-			sb.append(c);
-		}
-		if (sb.charAt(sb.length() - 1) == '\n')
-			sb.delete(sb.length() - 1, sb.length());
-		return sb;
-	}
-	private static byte char2byte (char in) {
-		if (in >= 'a' && in <= 'z')
-			return (byte)(in - 'a' + 10);
-		if (in >= 'A' && in <= 'Z')
-			return (byte)(in - 'A' + 10);
-		return (byte)(in - '0');
-	}
-
 	private void readKey () throws IOException, NoSuchAlgorithmException, InvalidKeySpecException, CertificateException {
 		String pk8,x509;
 		String path=data.getAbsolutePath();
@@ -169,23 +148,17 @@ implements PasswordDialog.Callback,Runnable {
 		PKCS8EncodedKeySpec spec = new PKCS8EncodedKeySpec(pk8_data);
 		PrivateKey key = kfact.generatePrivate(spec);
 		Log.info(pk8 + ":");
-		printKey(key);
-		Certificate c=CertificateFactory.getInstance("X.509").
+		VerifyDialog.logKey(key, "  ");
+		X509Certificate c=(X509Certificate) CertificateFactory.getInstance("X.509").
 			generateCertificate(x509_in);
-		Log.info(x509 + ":");
-		Log.info(translate(c));
+		Log.info("\n" + x509 + ":");
+		VerifyDialog.logCert(c, "  ");
 		param.keyPath = pk8;
 		param.type = 3;
 		param.certOrAlias = x509;
 		param.keyPass = "";
 		param.storePass = "";
 	}
-
-	private void printKey (Key key) {
-		Log.info(key.toString());
-		Log.info("");
-	}
-
 	@Override
 	protected void onNeutralButtonClicked () {
 		SharedPreferences sp = PreferenceManager.

@@ -2,8 +2,13 @@ package brut.androlib;
 
 import java.io.File;
 
-public interface SignTool extends CharSequence
+public abstract class SignTool
 {
-	public void sign(File in,File out) throws Exception;
-	public void loadKey() throws Exception;
+	public String keystore;
+	public int type;
+	public String storepass;
+	public String keypass;
+	public String alias;
+	public abstract void sign(File in,File out) throws Exception;
+	public abstract void loadKey() throws Exception;
 }

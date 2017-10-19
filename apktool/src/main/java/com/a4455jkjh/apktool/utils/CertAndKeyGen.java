@@ -208,7 +208,7 @@ public final class CertAndKeyGen {
 		CertAndKeyGen keygen = new CertAndKeyGen("RSA", "SHA256withRSA");
 		SecureRandom random = SecureRandom.getInstance("SHA1PRNG");
 		keygen.setRandom(random);
-		keygen.generate(2048);
+		keygen.generate(param.keySize);
 		PrivateKey key = keygen.getPrivateKey();
 		CertificateExtensions ext = new CertificateExtensions();
 		ext.set(SubjectKeyIdentifierExtension.NAME,

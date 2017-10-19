@@ -1,11 +1,12 @@
 package com.a4455jkjh.apktool.dialog;
 
-import android.content.Context;
 import brut.util.Log;
+import com.a4455jkjh.apktool.ApktoolActivity;
 import com.android.apksig.ApkVerifier;
 import com.android.apksig.apk.ApkFormatException;
 import java.io.File;
 import java.io.IOException;
+import java.security.Key;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.security.PublicKey;
@@ -15,7 +16,7 @@ import java.security.interfaces.DSAParams;
 import java.security.interfaces.ECKey;
 import java.security.interfaces.RSAKey;
 import java.util.List;
-import com.a4455jkjh.apktool.ApktoolActivity;
+import java.security.cert.CertificateEncodingException;
 
 public class VerifyDialog extends ProcessDialog<File> {
 	public VerifyDialog (ApktoolActivity a, CharSequence t) {
@@ -50,45 +51,7 @@ public class VerifyDialog extends ProcessDialog<File> {
 				int signerNumber = 0;
 				for (X509Certificate signerCert : signerCerts) {
 					signerNumber++;
-					Log.info(
-						"签名" + signerNumber + " 唯一判别名："
-						+ signerCert.getSubjectDN());
-					byte[] encodedCert = signerCert.getEncoded();
-					log("签名" + signerNumber + " 证书SHA-256: ",
-						sha256.digest(encodedCert));
-					log("签名" + signerNumber + " 证书SHA-1: ",
-						sha1.digest(encodedCert));
-					log("签名" + signerNumber + " 证书MD5: ",
-						md5.digest(encodedCert));
-					PublicKey publicKey = signerCert.getPublicKey();
-					Log.info(
-						"签名" + signerNumber + "密钥算法: "
-						+ publicKey.getAlgorithm());
-					int keySize = -1;
-					if (publicKey instanceof RSAKey) {
-						keySize = ((RSAKey) publicKey).getModulus().bitLength();
-					} else if (publicKey instanceof ECKey) {
-						keySize = ((ECKey) publicKey).getParams()
-							.getOrder().bitLength();
-					} else if (publicKey instanceof DSAKey) {
-						// DSA parameters may be inherited from the certificate. We
-						// don't handle this case at the moment.
-						DSAParams dsaParams = ((DSAKey) publicKey).getParams();
-						if (dsaParams != null) {
-							keySize = dsaParams.getP().bitLength();
-						}
-					}
-					Log.info(
-						"签名" + signerNumber + "密钥大小(位): "
-						+ ((keySize != -1)
-						? String.valueOf(keySize) : "未知"));
-					byte[] encodedKey = publicKey.getEncoded();
-					log("签名" + signerNumber + "公钥SHA-256: ",
-						sha256.digest(encodedKey));
-					log("签名" + signerNumber + "公钥SHA-1: ",
-						sha1.digest(encodedKey));
-					log("签名" + signerNumber + "公钥MD5: ",
-						md5.digest(encodedKey));
+					logCert(signerCert, "签名" + signerNumber);
 				}
 			}
 			for (ApkVerifier.IssueWithParams error : result.getErrors()) {
@@ -125,6 +88,48 @@ public class VerifyDialog extends ProcessDialog<File> {
 		| ApkFormatException  e) {
 			throw new IOException(e.getMessage(), e);
 		}
+	}
+	public static void logCert (X509Certificate cert, CharSequence msg) throws CertificateEncodingException {
+		Log.info(
+			msg + " 唯一判别名："
+			+ cert.getSubjectDN());
+		byte[] encodedCert = cert.getEncoded();
+		logEncoded(msg, encodedCert);
+		PublicKey publicKey = cert.getPublicKey();
+		int keySize = -1;
+		if (publicKey instanceof RSAKey) {
+			keySize = ((RSAKey) publicKey).getModulus().bitLength();
+		} else if (publicKey instanceof ECKey) {
+			keySize = ((ECKey) publicKey).getParams()
+				.getOrder().bitLength();
+		} else if (publicKey instanceof DSAKey) {
+			// DSA parameters may be inherited from the certificate. We
+			// don't handle this case at the moment.
+			DSAParams dsaParams = ((DSAKey) publicKey).getParams();
+			if (dsaParams != null) {
+				keySize = dsaParams.getP().bitLength();
+			}
+		}
+		Log.info(
+			msg + "密钥大小(位): "
+			+ ((keySize != -1)
+			? String.valueOf(keySize) : "未知"));
+		logKey(publicKey, msg);
+	}
+	public static void logKey (Key key, CharSequence msg) {
+		Log.info(
+			msg + "密钥算法: "
+			+ key.getAlgorithm());
+		byte[] encodedKey = key.getEncoded();
+		logEncoded(msg, encodedKey);
+	}
+	private static void logEncoded (CharSequence msg, byte[] encoded) {
+		log(msg + "SHA-256: ",
+			sha256.digest(encoded));
+		log(msg + "SHA-1: ",
+			sha1.digest(encoded));
+		log(msg + "MD5: ",
+			md5.digest(encoded));
 	}
 	private static void log (String n, byte[] data) {
 		Log.info(n);

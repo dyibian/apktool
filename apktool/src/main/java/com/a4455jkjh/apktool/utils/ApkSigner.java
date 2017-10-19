@@ -15,13 +15,8 @@ import java.security.cert.CertificateFactory;
 import java.security.KeyStore;
 import java.util.Enumeration;
 
-public class ApkSigner implements SignTool {
+public class ApkSigner extends SignTool {
 	public boolean v2Sign;
-	public String keystore;
-	public int type;
-	public String storepass;
-	public String keypass;
-	public String alias;
 
 	private List<SignerConfig> signerConfigs;
 	public ApkSigner () {
@@ -117,18 +112,6 @@ public class ApkSigner implements SignTool {
 			append(',').
 			append(keypass);
 		return sb.toString();
-	}
-	@Override
-	public char charAt (int p1) {
-		return toString().charAt(p1);
-	}
-	@Override
-	public CharSequence subSequence (int p1, int p2) {
-		return toString().subSequence(p1, p2);
-	}
-	@Override
-	public int length () {
-		return toString().length();
 	}
 }
 
