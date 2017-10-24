@@ -29,6 +29,8 @@ public class FileUtils {
 			build(file);
 		else if(name.matches(key_file))
 			read_key(file);
+		else if(name.matches(".*\\.((xml)|(smali))"))
+			main.edit(file);
 	}
 
 	private void read_key (File key) {

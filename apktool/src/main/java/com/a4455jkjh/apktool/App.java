@@ -1,9 +1,13 @@
 package com.a4455jkjh.apktool;
 
 import android.app.Application;
+import android.content.SharedPreferences;
 import android.content.res.AssetManager;
 import android.os.Build;
+import android.os.StrictMode;
+import android.preference.PreferenceManager;
 import brut.util.Log;
+import com.a4455jkjh.apktool.utils.Settings;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -12,9 +16,6 @@ import java.io.OutputStream;
 import java.security.Security;
 import org.apache.commons.io.IOUtils;
 import sun1.security.provider.JavaProvider;
-import com.a4455jkjh.apktool.utils.Settings;
-import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
 
 public class App extends Application {
 	public static String pk8,x509;
@@ -28,6 +29,10 @@ public class App extends Application {
 	@Override
 	public void onCreate () {
 		super.onCreate();
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+			StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
+			StrictMode.setVmPolicy(builder.build());
+		}
 		Log.reset();
 		JavaProvider provider = new JavaProvider();
 		Security.addProvider(provider);

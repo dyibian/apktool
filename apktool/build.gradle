@@ -7,9 +7,9 @@ android {
     defaultConfig {
         applicationId "com.a4455jkjh.apktool"
         minSdkVersion 14
-        targetSdkVersion 21
-        versionCode 1710170231
-        versionName "2.3.1-171017"
+        targetSdkVersion 25
+        versionCode 1710230231
+        versionName "2.3.1-171023"
     }
     buildTypes {
         release {
@@ -30,7 +30,6 @@ android {
 }
 
 dependencies {
-	compile 'com.android.support:support-annotations:+'
     compile fileTree(dir: 'libs', include: ['*.jar'])
 	compile project(':apktool-lib')
 }

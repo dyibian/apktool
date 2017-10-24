@@ -18,9 +18,19 @@ public class SignDialog extends ProcessDialog<ApkOptions>
 
 	@Override
 	protected void start () throws Exception {
+		Log.info("正在签名");
 		data.signTool.loadKey();
 		data.signTool.sign(data.in,data.out);
 		Log.info("签名成功");
 	}
+
+	@Override
+	protected CharSequence getTitle (boolean success) {
+		if(success)
+			return "签名成功";
+		return "签名失败";
+	}
+
+	
 	
 }

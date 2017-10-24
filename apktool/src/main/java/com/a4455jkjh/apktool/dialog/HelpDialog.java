@@ -8,30 +8,36 @@ import brut.androlib.Androlib;
 import brut.util.Log;
 import com.a4455jkjh.apktool.ApktoolActivity;
 
-public class HelpDialog extends ProcessDialog{
-	public HelpDialog (ApktoolActivity a, CharSequence t) {
+public class HelpDialog extends ProcessDialog {
+	public HelpDialog(ApktoolActivity a, CharSequence t) {
 		super(a, t);
 	}
 	@Override
-	protected boolean appendInfo () {
+	protected boolean appendInfo() {
 		return false;
 	}
 
 	@Override
-	protected void start () throws Exception {
+	protected void start() throws Exception {
 		String apktool_url = "https://github.com/iBotPeaches/Apktool";
 		String apksig_url="https://android.googlesource.com/platform/tools/apksig";
+		String editor_url="https://github.com/nirenr/AndroLua_pro";
 		Log.info("本软件使用了一下开源代码：");
-		Log.info("·Apktool:版本 " + Androlib.getVersion());
+		Log.info("●Apktool:版本 " + Androlib.getVersion());
 		SpannableString apktool = new SpannableString("    " + apktool_url);
 		URLSpan apktool_span = new URLSpan(apktool_url);
 		apktool.setSpan(apktool_span, 4, apktool.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
 		Log.info(apktool);
-		Log.info("·apksig:版本未知");
+		Log.info("●apksig:版本未知");
 		SpannableString apksig = new SpannableString("    " + apksig_url);
 		URLSpan apksig_span = new URLSpan(apksig_url);
 		apksig.setSpan(apksig_span, 4, apksig.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
 		Log.info(apksig);
+		Log.info("●编辑器和自动提示来自Androlua_pro");
+		SpannableString editor = new SpannableString("    " + editor_url);
+		URLSpan editor_span = new URLSpan(editor_url);
+		editor.setSpan(editor_span, 4, editor.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+		Log.info(editor);
 		Log.info("\n使用说明：");
 		Log.info("1：编译");
 		Log.info("点击apktool.yml可自动编译。");
@@ -47,5 +53,12 @@ public class HelpDialog extends ProcessDialog{
 		Log.info("点击密钥文件可显示详细信息。");
 		Log.info("\n注：读取和创建JKS、PKCS#12的代码提取自OpenJDK 6。");
 	}
+
+	@Override
+	protected CharSequence getTitle(boolean success) {
+		return "帮助";
+	}
+
+
 
 }

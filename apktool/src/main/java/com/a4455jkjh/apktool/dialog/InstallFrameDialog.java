@@ -14,7 +14,10 @@ public class InstallFrameDialog extends ProcessDialog<ApkOptions>
 	protected boolean appendInfo () {
 		return false;
 	}
-
+	@Override
+	protected CharSequence getTitle (boolean success) {
+		return "安装完成";
+	}
 	@Override
 	protected void start () throws Exception {
 		Androlib lib = new Androlib(data);

@@ -17,7 +17,7 @@
 #}
 -dontwarn **
 -dontnote **
--keep class org.xmlpull.**
+-keepnames class org.xmlpull.**
 -keepclassmember class brut.androlib.meta.**{
 	public *;
 }
@@ -26,7 +26,7 @@
 }
 -keepclassmembers class ** extends sun1.security.x509.Extension { <init>(...); }
 # 将.class信息中的类名重新定义为"Proguard"字符串
--renamesourcefileattribute SourceFile
+#-renamesourcefileattribute SourceFile
 # 并保留源文件名为"Proguard"字符串，而非原始的类名 并保留行号 // blog from sodino.com
 -keepattributes SourceFile,LineNumberTable
 

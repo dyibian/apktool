@@ -20,8 +20,8 @@
 	<string name="decode">反编译</string>
 	<string name="generic">通用</string>
 	<string name="sign">签名</string>
-	<string name="no_debug_title">不生成调试信息</string>
-	<string name="no_debug_summary">不生成调试信息（如‘.local’、‘.param’和‘.line’等）</string>
+	<string name="no_debug_title">保留调试信息</string>
+	<string name="no_debug_summary">是否保留调试信息（如‘.local’、‘.param’和‘.line’等）</string>
 	<string name="keep_broken_title">忽略损坏的资源</string>
 	<string name="keep_broken_summary">当出现错误或某些资源缺少（如：发现无效的config flags、 缺少资源)时，可以开启此项来忽略。但在构建之前必须修复它们。</string>
 	<string name="api_title">API版本</string>

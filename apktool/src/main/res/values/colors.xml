@@ -11,25 +11,20 @@
 	<color name="warn">#ffff00</color>
 	<color name="fatal">#ff0000</color>
 	<color name="fine">#00ff00</color>
-	
-	<color name="fab_light">#ffffff</color>
-    <color name="fab_dark">#f7f7f7</color>
-    <!-- colors used as file icons -->
-    <color name="file_folder">#ffbb33</color>
-    <color name="file_code">#00a569</color>
-    <color name="file_html">#00a569</color>
-    <color name="file_text">#717171</color>
-    <color name="file_archive">#aa66cc</color>
-    <color name="file_media_music">#ff4444</color>
-    <color name="file_media_picture">#33b5e5</color>
-    <color name="file_media_video">#ff00607d</color>
-	<color name="textColor">#ffffffff</color> <!-- ff191919 -->
-	<color name="textColorInverted">#ff212121</color> <!-- ff191919 -->
-    <color name="syntax_number">#ffff6600</color>
-    <color name="syntax_keyword">#ff2f6f9f</color>
-    <color name="syntax_attr">#ff4f9fcf</color>
-    <color name="syntax_attr_value">#ffd44950</color>
-    <color name="syntax_string">#ffd44950</color>
-    <color name="syntax_variable">#ff009688</color>
-    <color name="syntax_comment">#ff999999</color>
+	<color name="BLACK">#FF000000</color>
+	<color name="BLUE">#FF0000FF</color>
+	<color name="DARK_RED">#FF8B0000</color>
+	<color name="DARK_BLUE">#FFD040DD</color>
+	<color name="REY">#FF808080</color>
+	<color name="LIGHT_GREY">#FFAAAAAA</color>
+	<color name="MAROON">#FF800000</color>
+	<color name="INDIGO">#FF2A40FF</color>
+	<color name="OLIVE_GREEN">#FF3F7F5F</color>
+	<color name="PURPLE">#FFDD4488</color>
+	<color name="RED">#44FF0000</color>
+	<color name="WHITE">#FFFFFFE0</color>
+	<color name="PURPLE2">#FFFF00FF</color>
+	<color name="LIGHT_BLUE">#FF6080FF</color>
+	<color name="LIGHT_BLUE2">#FF40B0FF</color>
+	<color name="GREEN">#FF88AA88</color>
 </resources>

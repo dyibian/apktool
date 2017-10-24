@@ -166,4 +166,10 @@ implements PasswordDialog.Callback {
 		KeystorePreference.saveKeyParam(sp, param);
 	}
 
+	@Override
+	protected CharSequence getTitle (boolean success) {
+		return "密钥信息";
+	}
+
+
 }

@@ -87,8 +87,14 @@ public class InstallSystemFrameworkDialog extends ProcessDialog<PackageManager> 
 				Log.log(Log.LogLevel.WARN,"处理文件：" + apk + "失败",e);
 			}
 		}
-		Log.info("安装完成");
 	}
+
+	@Override
+	protected CharSequence getTitle (boolean success) {
+		return "安装完成";
+	}
+
+	
 	public void publicizeResources (byte[] arsc, ARSCDecoder. FlagsOffset[] flagsOffsets) {
         for (ARSCDecoder. FlagsOffset flags : flagsOffsets) {
             int offset = flags.offset + 3;

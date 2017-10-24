@@ -1,0 +1,32 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+		android:showAsAction="always"
+		android:icon="@android:drawable/ic_menu_save"
+        android:id="@+id/save"
+        android:title="保存"/>
+    <item
+		android:icon="@drawable/undo"
+		android:showAsAction="always"
+        android:id="@+id/undo"
+        android:title="撤销"/>
+	<item
+		android:icon="@drawable/redo"
+		android:showAsAction="always"
+        android:id="@+id/redo"
+        android:title="重做"/>
+	<item android:title="查找">
+		<menu>
+			<item
+				android:showAsAction="collapseActionView"
+				android:actionViewClass="android.widget.SearchView"
+				android:id="@+id/find"
+				android:title="查找"/>
+			<item
+				android:showAsAction="collapseActionView"
+				android:actionViewClass="android.widget.SearchView"
+				android:id="@+id/goto_line"
+				android:title="前往行"/>
+		</menu>
+	</item>
+</menu>

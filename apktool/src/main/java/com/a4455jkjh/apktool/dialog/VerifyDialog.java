@@ -57,8 +57,6 @@ public class VerifyDialog extends ProcessDialog<File> {
 			for (ApkVerifier.IssueWithParams error : result.getErrors()) {
 				Log.error(error.toString());
 			}
-
-
 			for (ApkVerifier.IssueWithParams warning : result.getWarnings()) {
 				Log.warning(warning.toString());
 			}
@@ -89,6 +87,13 @@ public class VerifyDialog extends ProcessDialog<File> {
 			throw new IOException(e.getMessage(), e);
 		}
 	}
+
+	@Override
+	protected CharSequence getTitle (boolean success) {
+		return data.getName();
+	}
+
+	
 	public static void logCert (X509Certificate cert, CharSequence msg) throws CertificateEncodingException {
 		Log.info(
 			msg + " 唯一判别名："

@@ -2,6 +2,7 @@
 <manifest
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	package="com.a4455jkjh.apktool">
+ 
 	<application
 		android:name="com.a4455jkjh.apktool.App"
 		android:allowBackup="true"
@@ -9,11 +10,12 @@
 		android:label="@string/app_name"
 		android:theme="@style/AppTheme"
 		android:resizeableActivity="true">
-		<activity   
+  
+		<activity
 			android:name="com.a4455jkjh.apktool.MainActivity"
-			android:launchMode="singleTask"
+			android:launchMode="singleTop"
 			android:label="@string/app_name"
-			android:configChanges="orientation|screenSize">
+			android:configChanges="orientation|screenSize|keyboardHidden">
 			<intent-filter>
 				<action android:name="android.intent.action.MAIN"/>
 				<category android:name="android.intent.category.LAUNCHER"/>
@@ -22,6 +24,10 @@
 		<activity
 			android:name="com.a4455jkjh.apktool.SettingsActivity"
 			android:label="设置"/>
+		<activity
+			android:windowSoftInputMode="adjustResize|stateAlwaysVisible"
+			android:name="com.a4455jkjh.apktool.SmaliActivity"
+			android:configChanges="screenSize|keyboardHidden|orientation"/>
 	</application>
 	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 </manifest>

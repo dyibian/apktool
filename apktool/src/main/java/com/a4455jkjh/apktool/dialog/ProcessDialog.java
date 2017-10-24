@@ -17,17 +17,23 @@ import com.a4455jkjh.apktool.ApktoolActivity;
 import com.a4455jkjh.apktool.R;
 import java.util.HashMap;
 import java.util.Map;
+import org.xmlpull.v1.XmlPullParser;
 
 public abstract class ProcessDialog<T> extends ApktoolDialog<T>
 implements Runnable {
 	private ScrollView scrollView;
 	private TextView textView;
 	private TextColor color;
+	private CharSequence title;
+	protected boolean notify;
 
 	protected abstract boolean appendInfo ();
 	protected abstract void start () throws Exception;
+	protected abstract CharSequence getTitle (boolean success);
 	public ProcessDialog (Context a, CharSequence t) {
 		super(a, t);
+		notify = false;
+		title = t;
 		TypedArray res = a.obtainStyledAttributes(R.styleable.infoColor);
 		int colorId = res.getResourceId(R.styleable.infoColor_infoColor, R.style.infoColorLight);
 		res.recycle();
@@ -87,17 +93,25 @@ implements Runnable {
 	}
 	private void finish (boolean success) {
 		setPositiveButton("确定");
-		if (!(data instanceof ApktoolActivity))
-			if (success)
-				setTitle("完成");
-			else
-				setTitle("失败");
+		setTitle(getTitle(success));
 		findViewById(R.id.progress).
 			setVisibility(View.GONE);
 		finish();
-		((ApktoolActivity)context).refresh();
+		ApktoolActivity act = (ApktoolActivity)context;
+		act.refresh();
+		XmlPullParser xpp;
+		if (notify)
+			if (success)
+				act.cancel();
+			else
+				act.notify("操作结束", getTitle(success));
 	}
-
+	private void append (CharSequence msg) {
+		textView.append(msg);
+		if (notify)
+			((ApktoolActivity)context).
+				notify(title, msg);
+	}
 	protected void finish () {}
 	@Override
 	public void onDismiss (DialogInterface p1) {
@@ -151,9 +165,9 @@ implements Runnable {
 			}
 			if (appendInfo())
 				ss.insert(0, hint.get(level));
-			if(!first)
-				ss.insert(0,"\n");
-			first=false;
+			if (!first)
+				ss.insert(0, "\n");
+			first = false;
 			if (foreColor != 0) {
 				ForegroundColorSpan span = new ForegroundColorSpan(foreColor);
 				ss.setSpan(span, 0, ss.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
@@ -197,11 +211,11 @@ implements Runnable {
 				case -5:
 					finish(false);
 					CharSequence ch = (CharSequence) msg.obj;
-					textView.append(ch);
+					append(ch);
 					break;
 				default:
 					CharSequence ch1 = (CharSequence) msg.obj;
-					textView.append(ch1);
+					append(ch1);
 					break;
 			}
 		}
