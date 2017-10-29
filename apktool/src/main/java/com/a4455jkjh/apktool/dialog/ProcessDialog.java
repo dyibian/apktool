@@ -18,6 +18,7 @@ import com.a4455jkjh.apktool.R;
 import java.util.HashMap;
 import java.util.Map;
 import org.xmlpull.v1.XmlPullParser;
+import android.widget.ProgressBar;
 
 public abstract class ProcessDialog<T> extends ApktoolDialog<T>
 implements Runnable {
@@ -57,8 +58,8 @@ implements Runnable {
 
 	@Override
 	protected final void setup () {
-		scrollView = (ScrollView) findViewById(R.id.scroll);
-		textView = (TextView) findViewById(R.id.out);
+		scrollView = findViewById(R.id.scroll);
+		textView = findViewById(R.id.out);
 		textView.setText("");
 		textView.setMovementMethod(LinkMovementMethod.getInstance());
 		ProcessHandler handler= new ProcessHandler();
@@ -94,23 +95,14 @@ implements Runnable {
 	private void finish (boolean success) {
 		setPositiveButton("确定");
 		setTitle(getTitle(success));
-		findViewById(R.id.progress).
-			setVisibility(View.GONE);
+		ProgressBar bar=findViewById(R.id.progress);
+		bar.setVisibility(View.GONE);
 		finish();
 		ApktoolActivity act = (ApktoolActivity)context;
 		act.refresh();
-		XmlPullParser xpp;
-		if (notify)
-			if (success)
-				act.cancel();
-			else
-				act.notify("操作结束", getTitle(success));
 	}
 	private void append (CharSequence msg) {
 		textView.append(msg);
-		if (notify)
-			((ApktoolActivity)context).
-				notify(title, msg);
 	}
 	protected void finish () {}
 	@Override

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name" translatable="false">Apktool</string>
+	<!--Key-->
+	<string name="api_key" translatable="false">api</string>
+	<string name="theme_key" translatable="false">theme</string>
+	<string name="framework" translatable="false">framework_dir</string>
+	<string name="custom_key" translatable="false">custom_keystore</string>
+	<string name="keystore_key" translatable="false">keystore</string>
+	<string name="no_debug_key" translatable="false">no_debug_info</string>
+	<string name="keep_broken_key" translatable="false">keep_broken_res</string>
+	<string name="v2sign_key" translatable="false">v2sign</string>
+	<string name="debug_key" translatable="false">debug</string>
+	<string name="verbose_key" translatable="false">verbose</string>
+	<string name="gen_key" translatable="false">gen_key</string>
+	<string name="install_key">install_system_framework</string>
+</resources>

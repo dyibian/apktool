@@ -1,12 +1,12 @@
 package com.a4455jkjh.apktool.dialog;
 
-import android.content.Context;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.style.URLSpan;
 import brut.androlib.Androlib;
 import brut.util.Log;
 import com.a4455jkjh.apktool.ApktoolActivity;
+import com.a4455jkjh.apktool.R;
 
 public class HelpDialog extends ProcessDialog {
 	public HelpDialog(ApktoolActivity a, CharSequence t) {
@@ -22,36 +22,23 @@ public class HelpDialog extends ProcessDialog {
 		String apktool_url = "https://github.com/iBotPeaches/Apktool";
 		String apksig_url="https://android.googlesource.com/platform/tools/apksig";
 		String editor_url="https://github.com/nirenr/AndroLua_pro";
-		Log.info("本软件使用了一下开源代码：");
-		Log.info("●Apktool:版本 " + Androlib.getVersion());
+		Log.infoResources(R.string.help_msg_1);
+		Log.infoResources(R.string.apktool_version, Androlib.getVersion());
 		SpannableString apktool = new SpannableString("    " + apktool_url);
 		URLSpan apktool_span = new URLSpan(apktool_url);
 		apktool.setSpan(apktool_span, 4, apktool.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
 		Log.info(apktool);
-		Log.info("●apksig:版本未知");
+		Log.infoResources(R.string.apksig_version);
 		SpannableString apksig = new SpannableString("    " + apksig_url);
 		URLSpan apksig_span = new URLSpan(apksig_url);
 		apksig.setSpan(apksig_span, 4, apksig.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
 		Log.info(apksig);
-		Log.info("●编辑器和自动提示来自Androlua_pro");
+		Log.infoResources(R.string.editor_version);
 		SpannableString editor = new SpannableString("    " + editor_url);
 		URLSpan editor_span = new URLSpan(editor_url);
 		editor.setSpan(editor_span, 4, editor.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
 		Log.info(editor);
-		Log.info("\n使用说明：");
-		Log.info("1：编译");
-		Log.info("点击apktool.yml可自动编译。");
-		Log.info("\n2:反编译");
-		Log.info("点击apk文件时可选择5种操作(反编译全部、反编译资源、反编译classes.dex、签名和校验签名)。");
-		Log.info("\n3:关于签名文件");
-		Log.info("本软件支持4种类型的签名文件：");
-		Log.info("  1:JKS格式");
-		Log.info("  2:PKCS#12格式");
-		Log.info("  3:BKS格式");
-		Log.info("  4:PKCS#8(未加密) + X.509");
-		Log.info("\n4:本软件支持读取密钥文件的详细信息");
-		Log.info("点击密钥文件可显示详细信息。");
-		Log.info("\n注：读取和创建JKS、PKCS#12的代码提取自OpenJDK 6。");
+		Log.infoResources(R.string.help_msg);
 	}
 
 	@Override

@@ -1,27 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
-    <string name="app_name">Apktool</string>
-    <string name="hello_world">Hello world!</string>
-	<!--Key-->
-	<string name="api_key" translatable="false">api</string>
-	<string name="theme_key" translatable="false">theme</string>
-	<string name="framework" translatable="false">framework_dir</string>
-	<string name="custom_key" translatable="false">custom_keystore</string>
-	<string name="keystore_key" translatable="false">keystore</string>
-	<string name="no_debug_key" translatable="false">no_debug_info</string>
-	<string name="keep_broken_key" translatable="false">keep_broken_res</string>
-	<string name="v2sign_key" translatable="false">v2sign</string>
-	<string name="debug_key" translatable="false">debug</string>
-	<string name="verbose_key" translatable="false">verbose</string>
-		
 	<!--设置-->
-	<string name="encode">回编译</string>
-	<string name="decode">反编译</string>
-	<string name="generic">通用</string>
-	<string name="sign">签名</string>
-	<string name="no_debug_title">保留调试信息</string>
-	<string name="no_debug_summary">是否保留调试信息（如‘.local’、‘.param’和‘.line’等）</string>
+	<string name="encode">Compile</string>
+	<string name="decode">Decompile</string>
+	<string name="generic">Generic</string>
+	<string name="sign">Sign</string>
+	<string name="no_debug_title">Keep debug ifo</string>
+	<string name="no_debug_summary">Keep debug（如‘.local’、‘.param’和‘.line’等）</string>
 	<string name="keep_broken_title">忽略损坏的资源</string>
 	<string name="keep_broken_summary">当出现错误或某些资源缺少（如：发现无效的config flags、 缺少资源)时，可以开启此项来忽略。但在构建之前必须修复它们。</string>
 	<string name="api_title">API版本</string>
@@ -31,8 +16,8 @@
 	<string name="keystore_summary">设置文件（pk8或者keystore文件)，若为pk8,则会自动添加x509.pem文件（如testkey.pk8对应testkey.x509.pem)。</string>
 	<string name="theme_title">主题</string>
 	<string name="theme_summary">选择主题</string>
-	<string name="v2sign_title" translatable="false">开启V2 Scheme sign</string>
-	<string name="v2sign_summary" translatable="false">是否开启V2 Scheme sign</string>
+	<string name="v2sign_title">开启V2 Scheme sign</string>
+	<string name="v2sign_summary">是否开启V2 Scheme sign</string>
 	<string name="custom_key_title">自定义签名文件</string>
 	<string name="custom_key_summary">是否启用自定义签名文件</string>
 	<string name="gen_key_title">创建密钥文件</string>
@@ -43,5 +28,6 @@
 	<string name="verbose_summary">是否启用啰嗦(Verbose)模式</string>
 	<string name="framework_title">框架目录</string>
 	<string name="framework_summary">设置框架目录</string>
-	
+	<string name="install_title">安装系统框架</string>
+	<string name="install_summary">点击安装系统框架</string>
 </resources>

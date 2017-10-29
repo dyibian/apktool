@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="help_msg_1">本软件使用了以下开源代码：</string>
+	<string name="apktool_version">●Apktool: %1$s</string>
+	<string name="apksig_version">●apksig：版本未知</string>
+	<string name="editor_version">●编辑器和自动提示来自Androlua_pro：</string>
+	<string name="help_msg">"\n使用说明：\n"
+		"1:编译\n"
+		"点击apktool.yml可自动编译。\n"
+		"\n"
+		"2:反编译\n"
+		"点击apk文件时可选择5种操作(反编译全部、反编译资源、反编译classes.dex、签名和校验签名)。\n"
+		"3:关于签名文件\n"
+		"本软件支持4种类型的签名文件：\n"
+		"  1:JKS格式\n"
+		"  2:PKCS#12格式\n"
+		"  3:BKS格式\n"
+		"  4:PKCS#8(未加密) + X.509\n"
+		"\n"
+		"4:本软件支持读取密钥文件的详细信息\n"
+		"点击密钥文件可显示详细信息。\n"
+		"\n"
+		"注：读取和创建JKS、PKCS#12的代码提取自OpenJDK 6。"
+	</string>
+</resources>

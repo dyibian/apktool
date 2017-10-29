@@ -51,7 +51,7 @@ public final class ResXmlPatcher {
      * @param file AndroidManifest file
      * @throws AndrolibException
      */
-    public static void removeApplicationDebugTag(File file) throws AndrolibException {
+    public static void removeApplicationDebugTag (File file) throws AndrolibException {
         if (file.exists()) {
             try {
                 Document doc = loadDocument(file);
@@ -85,7 +85,7 @@ public final class ResXmlPatcher {
      * @param file File for AndroidManifest.xml
      * @throws AndrolibException
      */
-    public static void fixingPublicAttrsInProviderAttributes(File file) throws AndrolibException {
+    public static void fixingPublicAttrsInProviderAttributes (File file) throws AndrolibException {
         boolean saved = false;
         if (file.exists()) {
             try {
@@ -134,7 +134,7 @@ public final class ResXmlPatcher {
                 }
 
             }  catch (SAXException | ParserConfigurationException | IOException |
-                    XPathExpressionException | TransformerException ignored) {
+			XPathExpressionException | TransformerException ignored) {
             }
         }
     }
@@ -148,7 +148,7 @@ public final class ResXmlPatcher {
      * @return boolean
      * @throws AndrolibException setting node value failed
      */
-    private static boolean isSaved(File file, boolean saved, Node provider) throws AndrolibException {
+    private static boolean isSaved (File file, boolean saved, Node provider) throws AndrolibException {
         String reference = provider.getNodeValue();
         String replacement = pullValueFromStrings(file.getParentFile(), reference);
 
@@ -167,7 +167,7 @@ public final class ResXmlPatcher {
      * @return String|null
      * @throws AndrolibException
      */
-    public static String pullValueFromStrings(File directory, String key) throws AndrolibException {
+    public static String pullValueFromStrings (File directory, String key) throws AndrolibException {
         if (key == null || ! key.contains("@")) {
             return null;
         }
@@ -200,7 +200,7 @@ public final class ResXmlPatcher {
      * @param file File representing AndroidManifest.xml
      * @throws AndrolibException
      */
-    public static void removeManifestVersions(File file) throws AndrolibException {
+    public static void removeManifestVersions (File file) throws AndrolibException {
         if (file.exists()) {
             try {
                 Document doc = loadDocument(file);
@@ -218,6 +218,7 @@ public final class ResXmlPatcher {
                 saveDocument(file, doc);
 
             } catch (SAXException | ParserConfigurationException | IOException | TransformerException ignored) {
+				Log.log(Log.LogLevel.WARN, ignored.getMessage(), ignored);
             }
         }
     }
@@ -229,7 +230,7 @@ public final class ResXmlPatcher {
      * @param packageOriginal Package name to replace
      * @throws AndrolibException
      */
-    public static void renameManifestPackage(File file, String packageOriginal) throws AndrolibException {
+    public static void renameManifestPackage (File file, String packageOriginal) throws AndrolibException {
         try {
             Document doc = loadDocument(file);
 
@@ -254,19 +255,18 @@ public final class ResXmlPatcher {
      * @throws SAXException
      * @throws ParserConfigurationException
      */
-    private static Document loadDocument(File file)
-            throws IOException, SAXException, ParserConfigurationException {
+    private static Document loadDocument (File file)
+	throws IOException, SAXException, ParserConfigurationException {
 
         DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
-        docFactory.setFeature(FEATURE_DISABLE_DOCTYPE_DECL, true);
-        docFactory.setFeature(FEATURE_LOAD_DTD, false);
-
-        try {
-            docFactory.setAttribute(ACCESS_EXTERNAL_DTD, " ");
-            docFactory.setAttribute(ACCESS_EXTERNAL_SCHEMA, " ");
-        } catch (IllegalArgumentException ex) {
-            Log.warning("JAXP 1.5 Support is required to validate XML");
-        }
+        /*docFactory.setFeature(FEATURE_DISABLE_DOCTYPE_DECL, true);
+		 *docFactory.setFeature(FEATURE_LOAD_DTD, false);
+		 *try {
+		 *    docFactory.setAttribute(ACCESS_EXTERNAL_DTD, " ");
+		 *    docFactory.setAttribute(ACCESS_EXTERNAL_SCHEMA, " ");
+		 *} catch (IllegalArgumentException ex) {
+		 *    Log.warning("JAXP 1.5 Support is required to validate XML");
+		 *}*/
 
         DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
         // Not using the parse(File) method on purpose, so that we can control when
@@ -288,8 +288,8 @@ public final class ResXmlPatcher {
      * @throws ParserConfigurationException
      * @throws TransformerException
      */
-    private static void saveDocument(File file, Document doc)
-            throws IOException, SAXException, ParserConfigurationException, TransformerException {
+    private static void saveDocument (File file, Document doc)
+	throws IOException, SAXException, ParserConfigurationException, TransformerException {
 
         TransformerFactory transformerFactory = TransformerFactory.newInstance();
         Transformer transformer = transformerFactory.newTransformer();

@@ -14,6 +14,8 @@ import java.security.cert.X509Certificate;
 import java.security.cert.CertificateFactory;
 import java.security.KeyStore;
 import java.util.Enumeration;
+import sun1.security.util.DerValue;
+import sun1.security.pkcs.PKCS8Key;
 
 public class ApkSigner extends SignTool {
 	public boolean v2Sign;
@@ -76,9 +78,8 @@ public class ApkSigner extends SignTool {
 		InputStream k = new FileInputStream(pk8);
 		byte[] data = IOUtils.toByteArray(k);
 		k.close();
-		PKCS8EncodedKeySpec kspec = new PKCS8EncodedKeySpec(data);
-		KeyFactory fact = KeyFactory.getInstance("RSA");
-		PrivateKey key = fact.generatePrivate(kspec);
+		DerValue key_value=new DerValue(data);
+		PrivateKey key = PKCS8Key.parseKey(key_value);
 		InputStream x509 = new FileInputStream(alias);
 		X509Certificate cert = (X509Certificate) CertificateFactory.
 			getInstance("X.509").

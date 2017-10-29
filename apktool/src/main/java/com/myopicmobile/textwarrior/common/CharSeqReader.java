@@ -8,7 +8,7 @@ public class CharSeqReader extends Reader
 	int offset = 0;
 	CharSequence src;
 
-	CharSeqReader(CharSequence src)
+	public CharSeqReader(CharSequence src)
 	{
 		this.src = src;
 	}

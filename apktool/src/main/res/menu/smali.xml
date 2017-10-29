@@ -15,18 +15,17 @@
 		android:showAsAction="always"
         android:id="@+id/redo"
         android:title="重做"/>
-	<item android:title="查找">
-		<menu>
-			<item
-				android:showAsAction="collapseActionView"
-				android:actionViewClass="android.widget.SearchView"
-				android:id="@+id/find"
-				android:title="查找"/>
-			<item
-				android:showAsAction="collapseActionView"
-				android:actionViewClass="android.widget.SearchView"
-				android:id="@+id/goto_line"
-				android:title="前往行"/>
-		</menu>
-	</item>
+	<item
+		android:showAsAction="collapseActionView"
+		android:actionViewClass="android.widget.SearchView"
+		android:id="@+id/find"
+		android:title="查找"/>
+	<item
+		android:showAsAction="collapseActionView"
+		android:actionViewClass="android.widget.SearchView"
+		android:id="@+id/goto_line"
+		android:title="前往行"/>
+	<item
+        android:id="@+id/translate"
+        android:title="转为Java"/>
 </menu>

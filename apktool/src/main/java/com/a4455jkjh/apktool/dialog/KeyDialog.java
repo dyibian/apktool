@@ -25,6 +25,8 @@ import java.security.spec.InvalidKeySpecException;
 import java.security.spec.PKCS8EncodedKeySpec;
 import java.util.Enumeration;
 import org.apache.commons.io.IOUtils;
+import sun1.security.util.DerValue;
+import sun1.security.pkcs.PKCS8Key;
 
 public class KeyDialog extends ProcessDialog<File> 
 implements PasswordDialog.Callback {
@@ -68,6 +70,7 @@ implements PasswordDialog.Callback {
 	protected void finish () {
 		super.finish();
 		setNeutralButton("使用当前密钥");
+		//setNegativeButton("格式转换");
 	}
 
 	@Override
@@ -143,10 +146,9 @@ implements PasswordDialog.Callback {
 			throw new IOException(path + ":文件格式不支持！");
 		InputStream pk8_in = new FileInputStream(pk8);
 		InputStream x509_in = new FileInputStream(x509);
-		KeyFactory kfact = KeyFactory.getInstance("RSA");
 		byte[] pk8_data = IOUtils.toByteArray(pk8_in);
-		PKCS8EncodedKeySpec spec = new PKCS8EncodedKeySpec(pk8_data);
-		PrivateKey key = kfact.generatePrivate(spec);
+		DerValue pk8_v = new DerValue(pk8_data);
+		PrivateKey key = PKCS8Key.parseKey(pk8_v);
 		Log.info(pk8 + ":");
 		VerifyDialog.logKey(key, "  ");
 		X509Certificate c=(X509Certificate) CertificateFactory.getInstance("X.509").
@@ -164,6 +166,15 @@ implements PasswordDialog.Callback {
 		SharedPreferences sp = PreferenceManager.
 			getDefaultSharedPreferences(context);
 		KeystorePreference.saveKeyParam(sp, param);
+	}
+
+	@Override
+	protected void onNegativeButtonClicked () {
+		KeyTransDialog ktdg = new KeyTransDialog((ApktoolActivity)context,"格式转换");
+		try {
+			ktdg.init(param);
+		} catch (Exception e) {}
+		ktdg.show();
 	}
 
 	@Override

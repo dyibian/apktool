@@ -27,9 +27,9 @@
 			android:summary="@string/framework_summary" />
 		
 		<com.a4455jkjh.apktool.preference.InstallSystemFrameworkPreference
-			android:title="安装系统框架"
-			android:key="install_system_framework"
-			android:summary="点击安装系统框架"/>
+			android:title="@string/install_title"
+			android:key="@string/install_key"
+			android:summary="@string/install_summary"/>
 		
 	</PreferenceCategory>
 	
@@ -55,7 +55,7 @@
 		
 		<com.a4455jkjh.apktool.preference.GenKeystorePreference
 			android:title="@string/gen_key_title"
-			android:key="gen_key"
+			android:key="@string/gen_key"
 			android:summary="@string/gen_key_summary"/>
 		
 	</PreferenceCategory>

@@ -16,24 +16,24 @@ import android.content.pm.PackageManager;
 import android.widget.Spinner;
 
 public abstract class ApktoolAdapter<T> extends BaseAdapter
-implements AdapterView.OnItemClickListener,Comparator<T>{
+implements AdapterView.OnItemClickListener,Comparator<T> {
 	protected MainActivity main;
 	protected final List<T> list;
 	protected PackageManager pm;
 	public ApktoolAdapter (MainActivity main) {
 		this.main = main;
-		pm=main.getPackageManager();
+		pm = main.getPackageManager();
 		list = new ArrayList<T>();
 		refresh();
 	}
-	public abstract boolean goBack();
-	protected abstract void refresh1();
-	public abstract void init(TextView path,Spinner location);
-	protected abstract void setup (T obj,TextView title,ImageView icon);
-	public void refresh(){
+	public abstract boolean goBack ();
+	protected abstract void refresh1 ();
+	public abstract void init (TextView path, Spinner location);
+	protected abstract void setup (T obj, TextView title, ImageView icon);
+	public void refresh () {
 		list.clear();
 		refresh1();
-		Collections.sort(list,this);
+		Collections.sort(list, this);
 		notifyDataSetInvalidated();
 	}
 
@@ -64,8 +64,8 @@ implements AdapterView.OnItemClickListener,Comparator<T>{
 				inflate(R.layout.file_entry, p3, false);
 		TextView title = (TextView) p2.findViewById(R.id.filename);
 		ImageView icon = (ImageView) p2.findViewById(R.id.icon);
-		setup(list.get(p1),title,icon);
+		setup(getItem(p1), title, icon);
 		return p2;
 	}
-	public void reset(){}
+	public void reset () {}
 }

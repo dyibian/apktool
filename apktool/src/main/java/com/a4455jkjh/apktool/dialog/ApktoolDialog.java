@@ -36,8 +36,8 @@ implements DialogInterface.OnClickListener,DialogInterface.OnDismissListener{
 	protected final String getString(int id,Object... args){
 		return context.getString(id,args);
 	}
-	protected View findViewById(int id){
-		return view.findViewById(id);
+	protected <V extends View> V findViewById(int id){
+		return (V)view.findViewById(id);
 	}
 	public final void setData(T data){
 		this.data = data;

@@ -26,6 +26,7 @@ public abstract class LexerThread extends Thread
 
 	@Override
 	public void run() {
+		_tokens = new ArrayList<Pair>();
 		do{
 			rescan = false;
 			_abort.clear();

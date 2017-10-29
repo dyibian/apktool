@@ -35,6 +35,14 @@ public class ApktoolActivity extends Activity {
 			}
 		} else if (theme.equals("dark")) {
 			setTheme(R.style.AppTheme_Dark);
+			if (Build.VERSION.SDK_INT >= 23) {
+				window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+				window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+				View v =window.getDecorView();
+				int flag = v.getSystemUiVisibility();
+				flag = flag & (~ View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+				v.setSystemUiVisibility(flag);
+			}
 		}
 	}
 

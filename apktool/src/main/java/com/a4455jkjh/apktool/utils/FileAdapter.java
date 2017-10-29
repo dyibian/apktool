@@ -1,27 +1,36 @@
 package com.a4455jkjh.apktool.utils;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import com.a4455jkjh.apktool.MainActivity;
 import com.a4455jkjh.apktool.R;
 import java.io.File;
 import java.io.FilenameFilter;
-import android.widget.Spinner;
 
 public class FileAdapter extends ApktoolAdapter<File>
 implements FilenameFilter {
-	private static final File root = new File("/sdcard");
+	private static File home;
 	private static File cur_file = null;
 	private FileUtils fileUtils;
+	public static void init (Context c) {
+		SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(c);
+		String path = sp.getString("HOME", "");
+		if (path.equals(""))
+			path = "/sdcard";
+		home = new File(path);
+	}
 
 	public FileAdapter (MainActivity main) {
 		super(main);
-		fileUtils = new FileUtils(main,this);
+		fileUtils = new FileUtils(main, this);
 	}
 
 	@Override
@@ -30,12 +39,16 @@ implements FilenameFilter {
 		location.setVisibility(View.GONE);
 	}
 
-	
+	public void savePath (SharedPreferences prefs) {
+		SharedPreferences.Editor editor = prefs.edit();
+		editor.putString("HOME", cur_file.getAbsolutePath());
+		editor.commit();
+	}
 
 	@Override
 	public void refresh1 () {
 		if (cur_file == null)
-			cur_file = root;
+			cur_file = home;
 		for (File f:cur_file.listFiles(this))
 			list.add(f);
 		main.updatePath(cur_file.getAbsolutePath());
@@ -59,7 +72,12 @@ implements FilenameFilter {
 
 	@Override
 	protected void setup (File file, TextView title, ImageView icon) {
+		if (file == null)
+			return;
 		String n = file.getName();
+		if (!cur_file.getAbsolutePath().equals("/"))
+			if (file.getAbsolutePath().equals(cur_file.getParentFile().getAbsolutePath()))
+				n = "..";
 		title.setText(n);
 		if (file.isDirectory())
 			icon.setImageResource(R.drawable.folder);
@@ -73,8 +91,10 @@ implements FilenameFilter {
 
 	@Override
 	public void onItemClick (AdapterView<?> parent, View view, int position, long id) {
-		File file = list.get(position);
+		File file = getItem(position);
 		if (file.isDirectory()) {
+			if (!file.canRead())
+				return;
 			cur_file = file;
 			refresh();
 		} else
@@ -86,9 +106,12 @@ implements FilenameFilter {
 		if (cur_file == null)
 			return false;
 		if (cur_file.getAbsolutePath().equals(
-				root.getAbsolutePath()))
+				"/"))
 			return false;
-		cur_file = cur_file.getParentFile();
+		File f = cur_file.getParentFile();
+		if (!f.canRead())
+			return false;
+		cur_file = f;
 		refresh();
 		return true;
 	}
@@ -96,8 +119,8 @@ implements FilenameFilter {
 		String path = apk.getAbsolutePath();
 		PackageInfo info = pm.getPackageArchiveInfo(path, 0);
 		ApplicationInfo app = info.applicationInfo;
-		app.sourceDir=path;
-		app.publicSourceDir=path;
+		app.sourceDir = path;
+		app.publicSourceDir = path;
 		return app.loadIcon(pm);
 	}
 
@@ -108,7 +131,31 @@ implements FilenameFilter {
 
 	@Override
 	public void reset () {
-		cur_file=null;
+		cur_file = null;
 	}
-	
+
+	@Override
+	public int getCount () {
+		int c= super.getCount();
+		File f =cur_file.getParentFile();
+		if (f != null)
+			if (f.canRead())
+				c++;
+		return c;
+	}
+
+	@Override
+	public File getItem (int p1) {
+		File f = cur_file.getParentFile();
+		if (f != null) {
+			if (f.canRead()) {
+				if (p1 == 0)
+					return f;
+				p1--;
+			}
+		}
+		return super.getItem(p1);
+	}
+
+
 }

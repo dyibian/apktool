@@ -12,7 +12,6 @@ public class SmaliLexer extends LexerThread {
 		super(ch);
 	}
 	protected void tokenize() {
-		_tokens = new ArrayList<Pair>();
 		CharSeqReader reader = new CharSeqReader(doc);
 		smaliFlexLexer lexer = new smaliFlexLexer(reader);
 		int lastType = 0;
