@@ -16,10 +16,10 @@
  */
 package brut.androlib;
 
-import brut.util.Log;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
+import org.jf.util.Log;
 
 /**
  * @author Ryszard Wiśniewski <brut.alll@gmail.com>

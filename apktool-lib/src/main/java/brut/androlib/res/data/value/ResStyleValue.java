@@ -21,8 +21,8 @@ import brut.androlib.res.data.ResResSpec;
 import brut.androlib.res.data.ResResource;
 import brut.androlib.res.xml.ResValuesXmlSerializable;
 import brut.util.Duo;
-import brut.util.Log;
 import java.io.IOException;
+import org.jf.util.Log;
 import org.xmlpull.v1.XmlSerializer;
 
 /**

@@ -4,9 +4,9 @@ import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.style.URLSpan;
 import brut.androlib.Androlib;
-import brut.util.Log;
+import brut.androlib.R;
 import com.a4455jkjh.apktool.ApktoolActivity;
-import com.a4455jkjh.apktool.R;
+import org.jf.util.Log;
 
 public class HelpDialog extends ProcessDialog {
 	public HelpDialog(ApktoolActivity a, CharSequence t) {

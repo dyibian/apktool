@@ -16,8 +16,8 @@
  */
 package brut.androlib.res.data;
 
-import brut.util.Log;
 import brut.androlib.R;
+import org.jf.util.Log;
 
 /**
  * @author Ryszard Wiśniewski <brut.alll@gmail.com>

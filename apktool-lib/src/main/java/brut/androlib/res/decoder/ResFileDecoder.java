@@ -24,11 +24,10 @@ import brut.androlib.res.data.value.ResFileValue;
 import brut.directory.DirUtil;
 import brut.directory.Directory;
 import brut.directory.DirectoryException;
-import brut.util.Log;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.util.logging.Level;
+import org.jf.util.Log;
 
 /**
  * @author Ryszard Wiśniewski <brut.alll@gmail.com>

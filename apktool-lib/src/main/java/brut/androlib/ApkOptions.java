@@ -16,9 +16,9 @@
  */
 package brut.androlib;
 
-import brut.util.Log;
 import java.io.File;
 import java.util.Collection;
+import org.jf.util.Log;
 
 public class ApkOptions {
     public boolean forceBuildAll = false;

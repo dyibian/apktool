@@ -21,13 +21,12 @@ import android.util.TypedValue;
 import brut.androlib.AndrolibException;
 import brut.androlib.res.xml.ResXmlEncoders;
 import brut.util.ExtDataInput;
-import brut.util.Log;
 import com.google.common.io.LittleEndianDataInputStream;
 import java.io.DataInput;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.Reader;
-import java.util.logging.Level;
+import org.jf.util.Log;
 import org.xmlpull.v1.XmlPullParserException;
 
 /**

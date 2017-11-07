@@ -27,11 +27,10 @@ import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Iterator;
-import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.apache.commons.io.IOUtils;
-import brut.util.Log;
+import org.jf.util.Log;
 
 /**
  * @author Ryszard Wiśniewski <brut.alll@gmail.com>

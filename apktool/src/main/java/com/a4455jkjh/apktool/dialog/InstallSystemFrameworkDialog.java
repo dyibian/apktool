@@ -3,7 +3,6 @@ import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import brut.androlib.res.decoder.ARSCDecoder;
-import brut.util.Log;
 import com.a4455jkjh.apktool.utils.Settings;
 import java.io.ByteArrayInputStream;
 import java.io.File;
@@ -15,6 +14,7 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 import java.util.zip.ZipOutputStream;
 import org.apache.commons.io.IOUtils;
+import org.jf.util.Log;
 
 public class InstallSystemFrameworkDialog extends ProcessDialog<PackageManager> {
 	public InstallSystemFrameworkDialog (Context c) {

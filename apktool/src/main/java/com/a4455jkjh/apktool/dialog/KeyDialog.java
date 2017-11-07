@@ -2,7 +2,6 @@ package com.a4455jkjh.apktool.dialog;
 
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
-import brut.util.Log;
 import com.a4455jkjh.apktool.ApktoolActivity;
 import com.a4455jkjh.apktool.preference.KeystorePreference;
 import com.a4455jkjh.apktool.utils.KeyParam;
@@ -11,7 +10,6 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.security.Key;
-import java.security.KeyFactory;
 import java.security.KeyStore;
 import java.security.KeyStoreException;
 import java.security.NoSuchAlgorithmException;
@@ -22,11 +20,11 @@ import java.security.cert.CertificateException;
 import java.security.cert.CertificateFactory;
 import java.security.cert.X509Certificate;
 import java.security.spec.InvalidKeySpecException;
-import java.security.spec.PKCS8EncodedKeySpec;
 import java.util.Enumeration;
 import org.apache.commons.io.IOUtils;
-import sun1.security.util.DerValue;
+import org.jf.util.Log;
 import sun1.security.pkcs.PKCS8Key;
+import sun1.security.util.DerValue;
 
 public class KeyDialog extends ProcessDialog<File> 
 implements PasswordDialog.Callback {

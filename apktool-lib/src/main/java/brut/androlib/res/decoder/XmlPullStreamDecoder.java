@@ -19,14 +19,12 @@ package brut.androlib.res.decoder;
 import brut.androlib.AndrolibException;
 import brut.androlib.res.data.ResTable;
 import brut.androlib.res.util.ExtXmlSerializer;
-import brut.util.Log;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import org.jf.util.Log;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
-import org.xmlpull.v1.XmlPullParserFactory;
-import org.antlr.runtime.Parser;
 
 /**
  * @author Ryszard Wiśniewski <brut.alll@gmail.com>

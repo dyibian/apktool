@@ -17,6 +17,7 @@
 package brut.androlib;
 
 import brut.androlib.Androlib;
+import brut.androlib.R;
 import brut.androlib.meta.MetaInfo;
 import brut.androlib.meta.UsesFramework;
 import brut.androlib.res.AndrolibResources;
@@ -31,7 +32,6 @@ import brut.directory.Directory;
 import brut.directory.DirectoryException;
 import brut.directory.ExtFile;
 import brut.util.BrutIO;
-import brut.util.Log;
 import brut.util.OS;
 import java.io.BufferedInputStream;
 import java.io.File;
@@ -52,6 +52,7 @@ import java.util.zip.ZipOutputStream;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.jf.util.Log;
 
 /**
  * @author Ryszard Wiśniewski <brut.alll@gmail.com>

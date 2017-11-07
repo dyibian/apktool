@@ -108,10 +108,10 @@ implements FilenameFilter {
 	public boolean goBack () {
 		if (cur_file == null)
 			return false;
-		if (!(cur_file.getParentFile().canRead()))
-			return false;
 		if (cur_file.getAbsolutePath().equals(
 				"/"))
+			return false;
+		if (!(cur_file.getParentFile().canRead()))
 			return false;
 		File f = cur_file.getParentFile();
 		if (!f.canRead())

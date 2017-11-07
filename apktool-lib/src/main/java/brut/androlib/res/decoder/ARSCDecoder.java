@@ -18,6 +18,7 @@ package brut.androlib.res.decoder;
 
 import android.util.TypedValue;
 import brut.androlib.AndrolibException;
+import brut.androlib.R;
 import brut.androlib.res.data.ResConfigFlags;
 import brut.androlib.res.data.ResID;
 import brut.androlib.res.data.ResPackage;
@@ -36,7 +37,6 @@ import brut.androlib.res.data.value.ResValue;
 import brut.androlib.res.data.value.ResValueFactory;
 import brut.util.Duo;
 import brut.util.ExtDataInput;
-import brut.util.Log;
 import com.google.common.io.LittleEndianDataInputStream;
 import java.io.DataInput;
 import java.io.EOFException;
@@ -48,7 +48,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import org.apache.commons.io.input.CountingInputStream;
-import brut.androlib.R;
+import org.jf.util.Log;
 
 /**
  * @author Ryszard Wiśniewski <brut.alll@gmail.com>

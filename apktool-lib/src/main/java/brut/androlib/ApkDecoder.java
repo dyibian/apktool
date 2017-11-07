@@ -16,6 +16,8 @@
  */
 package brut.androlib;
 
+import brut.androlib.Androlib;
+import brut.androlib.R;
 import brut.androlib.err.InFileNotFoundException;
 import brut.androlib.err.OutDirExistsException;
 import brut.androlib.err.UndefinedResObject;
@@ -30,7 +32,6 @@ import brut.androlib.res.xml.ResXmlPatcher;
 import brut.common.BrutException;
 import brut.directory.DirectoryException;
 import brut.directory.ExtFile;
-import brut.util.Log;
 import brut.util.OS;
 import com.google.common.base.Strings;
 import java.io.File;
@@ -40,6 +41,7 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.Map;
 import java.util.Set;
+import org.jf.util.Log;
 
 /**
  * @author Ryszard Wiśniewski <brut.alll@gmail.com>
@@ -101,7 +103,7 @@ public class ApkDecoder {
             }
             outDir.mkdirs();
 
-            brut.util.Log.infoResources(R.string.version1, Androlib.getVersion() ,mApkFile.getName());
+            Log.infoResources(R.string.version1, Androlib.getVersion() ,mApkFile.getName());
 
             if (hasResources()) {
                 switch (mDecodeResources) {

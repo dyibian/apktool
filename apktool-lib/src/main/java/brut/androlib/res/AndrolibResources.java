@@ -18,6 +18,7 @@ package brut.androlib.res;
 
 import brut.androlib.AndrolibException;
 import brut.androlib.ApkOptions;
+import brut.androlib.R;
 import brut.androlib.err.CantFindFrameworkResException;
 import brut.androlib.meta.MetaInfo;
 import brut.androlib.meta.PackageInfo;
@@ -49,7 +50,6 @@ import brut.directory.ExtFile;
 import brut.directory.FileDirectory;
 import brut.util.Duo;
 import brut.util.Jar;
-import brut.util.Log;
 import brut.util.OS;
 import java.io.BufferedInputStream;
 import java.io.ByteArrayInputStream;
@@ -71,8 +71,8 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 import java.util.zip.ZipOutputStream;
 import org.apache.commons.io.IOUtils;
+import org.jf.util.Log;
 import org.xmlpull.v1.XmlSerializer;
-import brut.androlib.R;
 
 /**
  * @author Ryszard Wiśniewski <brut.alll@gmail.com>

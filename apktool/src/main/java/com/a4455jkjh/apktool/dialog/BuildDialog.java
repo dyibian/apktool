@@ -1,11 +1,9 @@
 package com.a4455jkjh.apktool.dialog;
-import android.app.Activity;
 import brut.androlib.Androlib;
 import brut.androlib.ApkOptions;
-import brut.util.Log;
 import com.a4455jkjh.apktool.ApktoolActivity;
 import java.io.File;
-import android.content.Context;
+import org.jf.util.Log;
 
 public class BuildDialog extends ProcessDialog<ApkOptions>
 implements PasswordDialog.Callback {

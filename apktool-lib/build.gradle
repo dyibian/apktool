@@ -23,4 +23,6 @@ dependencies {
     compile project(':brut.j.dir')
     compile project(':brut.j.util')
     compile project(':brut.j.common')
+	compile project(':baksmali')
+	compile project(':smali')
 }

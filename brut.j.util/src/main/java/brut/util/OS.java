@@ -20,7 +20,7 @@ import brut.common.BrutException;
 import java.io.*;
 import java.util.Arrays;
 import java.util.logging.Logger;
-
+import org.jf.util.Log;
 import org.apache.commons.io.IOUtils;
 
 /**

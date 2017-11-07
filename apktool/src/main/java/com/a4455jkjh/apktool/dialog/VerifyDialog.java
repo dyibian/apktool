@@ -1,6 +1,5 @@
 package com.a4455jkjh.apktool.dialog;
 
-import brut.util.Log;
 import com.a4455jkjh.apktool.ApktoolActivity;
 import com.android.apksig.ApkVerifier;
 import com.android.apksig.apk.ApkFormatException;
@@ -10,13 +9,14 @@ import java.security.Key;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.security.PublicKey;
+import java.security.cert.CertificateEncodingException;
 import java.security.cert.X509Certificate;
 import java.security.interfaces.DSAKey;
 import java.security.interfaces.DSAParams;
 import java.security.interfaces.ECKey;
 import java.security.interfaces.RSAKey;
 import java.util.List;
-import java.security.cert.CertificateEncodingException;
+import org.jf.util.Log;
 
 public class VerifyDialog extends ProcessDialog<File> {
 	public VerifyDialog (ApktoolActivity a, CharSequence t) {

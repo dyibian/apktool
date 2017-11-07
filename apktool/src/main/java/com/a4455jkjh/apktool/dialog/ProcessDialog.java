@@ -10,15 +10,14 @@ import android.text.method.LinkMovementMethod;
 import android.text.style.BackgroundColorSpan;
 import android.text.style.ForegroundColorSpan;
 import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.ScrollView;
 import android.widget.TextView;
-import brut.util.Log;
 import com.a4455jkjh.apktool.ApktoolActivity;
 import com.a4455jkjh.apktool.R;
 import java.util.HashMap;
 import java.util.Map;
-import org.xmlpull.v1.XmlPullParser;
-import android.widget.ProgressBar;
+import org.jf.util.Log;
 
 public abstract class ProcessDialog<T> extends ApktoolDialog<T>
 implements Runnable {

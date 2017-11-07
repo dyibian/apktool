@@ -1,9 +1,8 @@
 package com.a4455jkjh.apktool.dialog;
 
-import android.content.Context;
 import brut.androlib.ApkOptions;
-import brut.util.Log;
 import com.a4455jkjh.apktool.ApktoolActivity;
+import org.jf.util.Log;
 
 public class SignDialog extends ProcessDialog<ApkOptions>
 {

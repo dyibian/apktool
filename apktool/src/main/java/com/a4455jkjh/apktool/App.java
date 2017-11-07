@@ -6,7 +6,6 @@ import android.content.res.AssetManager;
 import android.os.Build;
 import android.os.StrictMode;
 import android.preference.PreferenceManager;
-import brut.util.Log;
 import com.a4455jkjh.apktool.utils.Settings;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -15,6 +14,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.security.Security;
 import org.apache.commons.io.IOUtils;
+import org.jf.util.Log;
 import sun1.security.provider.JavaProvider;
 
 public class App extends Application {
