@@ -18,6 +18,7 @@ import java.io.FilenameFilter;
 public class FileAdapter extends ApktoolAdapter<File>
 implements FilenameFilter {
 	private static File home;
+	
 	private static File cur_file = null;
 	private FileUtils fileUtils;
 	public static void init (Context c) {
@@ -81,9 +82,11 @@ implements FilenameFilter {
 		title.setText(n);
 		if (file.isDirectory())
 			icon.setImageResource(R.drawable.folder);
-		else if (n.endsWith(".apk")) 
-			icon.setImageDrawable(loadIcon(file));
-		else if (isKey(n))
+		else if (n.endsWith(".apk")) {
+			Drawable draw = loadIcon(file);
+			if (draw != null)
+				icon.setImageDrawable(draw);
+		} else if (isKey(n))
 			icon.setImageResource(R.drawable.key);
 		else
 			icon.setImageResource(R.drawable.file);
@@ -105,6 +108,8 @@ implements FilenameFilter {
 	public boolean goBack () {
 		if (cur_file == null)
 			return false;
+		if (!(cur_file.getParentFile().canRead()))
+			return false;
 		if (cur_file.getAbsolutePath().equals(
 				"/"))
 			return false;
@@ -118,6 +123,8 @@ implements FilenameFilter {
 	public Drawable loadIcon (File apk) {
 		String path = apk.getAbsolutePath();
 		PackageInfo info = pm.getPackageArchiveInfo(path, 0);
+		if (info == null)
+			return null;
 		ApplicationInfo app = info.applicationInfo;
 		app.sourceDir = path;
 		app.publicSourceDir = path;

@@ -172,6 +172,7 @@ public class ApkDecoder {
             writeMetaFile();
 			Log.info("输出文件夹为："+outDir);
         } catch (Exception ex) {
+			Log.log(Log.LogLevel.WARN,null,ex);
             throw new AndrolibException( ex);
         } finally {
             try {

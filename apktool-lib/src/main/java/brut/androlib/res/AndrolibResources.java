@@ -234,7 +234,7 @@ final public class AndrolibResources {
             fileDecoder.decodeManifest(inApk, "AndroidManifest.xml", out, "AndroidManifest.xml");
 
             // Remove versionName / versionCode (aapt API 16)
-            if (!resTable.getAnalysisMode()) {
+           /* if (!resTable.getAnalysisMode()) {
 
                 // check for a mismatch between resources.arsc package and the package listed in AndroidManifest
                 // also remove the android::versionCode / versionName from manifest for rebuild
@@ -246,7 +246,7 @@ final public class AndrolibResources {
 														 outDir.getAbsolutePath() + File.separator + "AndroidManifest.xml"));
 
                 mPackageId = String.valueOf(resTable.getPackageId());
-            }
+            }*/
         } catch (DirectoryException ex) {
             throw new AndrolibException(ex);
         }

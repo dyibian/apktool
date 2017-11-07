@@ -1,32 +1,28 @@
 package com.a4455jkjh.apktool;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import com.a4455jkjh.apktool.views.SmaliEditor;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import org.apache.commons.io.IOUtils;
 import android.view.Menu;
-import com.myopicmobile.textwarrior.common.ColorScheme;
-import com.myopicmobile.textwarrior.common.ColorSchemeLight;
-import com.myopicmobile.textwarrior.common.ColorSchemeDark;
 import android.view.MenuItem;
-import android.widget.Toast;
 import android.widget.SearchView;
+import android.widget.Toast;
+import com.a4455jkjh.apktool.views.SmaliEditor;
+import com.myopicmobile.textwarrior.common.ColorSchemeDark;
+import com.myopicmobile.textwarrior.common.ColorSchemeLight;
 import jadx.core.utils.exceptions.JadxException;
+import java.io.File;
+import java.io.IOException;
 import org.antlr.runtime.RecognitionException;
-import android.view.View;
 
-public class SmaliActivity extends ApktoolActivity {
+public class SmaliActivity extends ApktoolActivity
+implements DialogInterface.OnClickListener {
 	private SmaliEditor editor;
-	private boolean changed;
 	@Override
-	protected void onCreate(Bundle savedInstanceState) {
+	protected void onCreate (Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.editor);
-		changed=true;
 		editor = findViewById1(R.id.editor);
 		if (theme.equals("light"))
 			editor.setColorScheme(new ColorSchemeLight());
@@ -43,22 +39,26 @@ public class SmaliActivity extends ApktoolActivity {
 	}
 
 	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
+	public boolean onCreateOptionsMenu (Menu menu) {
 		getMenuInflater().
 			inflate(R.menu.smali, menu);
 		return true;
 	}
 
 	@Override
-	public boolean onPrepareOptionsMenu(Menu menu) {
+	public boolean onPrepareOptionsMenu (Menu menu) {
 		int type = editor.type;
 		MenuItem save = menu.findItem(R.id.save);
 		MenuItem tran = menu.findItem(R.id.translate);
-		if(type==0){
-			save.setEnabled(changed);
+		if (type == 0) {
+			save.setEnabled(editor.changed);
 			tran.setTitle("转为Java");
 			save.setVisible(true);
-		}else{
+		} else if (type == 2) {
+			save.setEnabled(editor.changed);
+			tran.setVisible(false);
+			save.setEnabled(true);
+		} else {
 			save.setVisible(false);
 			tran.setTitle("返回Smali");
 		}
@@ -66,13 +66,14 @@ public class SmaliActivity extends ApktoolActivity {
 	}
 
 	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
+	public boolean onOptionsItemSelected (MenuItem item) {
 		switch (item.getItemId()) {
 			case R.id.save:
 				if (editor.save())
 					Toast.makeText(this, "保存成功", 0).show();
 				else
 					Toast.makeText(this, "保存失败", 0).show();
+				invalidateOptionsMenu();
 				break;
 			case R.id.undo:
 				editor.undo();
@@ -90,10 +91,10 @@ public class SmaliActivity extends ApktoolActivity {
 				break;
 			case R.id.translate:
 				try {
-					if(!editor.translate())
-						Toast.makeText(this,"转换失败",0).show();
+					if (!editor.translate())
+						Toast.makeText(this, "转换失败", 0).show();
 				} catch (IOException | JadxException | RecognitionException e) {
-					
+
 				}
 				invalidateOptionsMenu();
 				break;
@@ -104,11 +105,32 @@ public class SmaliActivity extends ApktoolActivity {
 	@Override
 	public void onBackPressed () {
 		try {
-			if (editor.type == 1)
+			if (editor.type == 1) {
 				editor.translate();
-			else
+				invalidateOptionsMenu();
+			} else if (editor.changed) {
+				showSaveDialog();
+			} else
 				super.onBackPressed();
 		} catch (JadxException e) {} catch (IOException e) {} catch (RecognitionException e) {}
 	}
+
+	private void showSaveDialog () {
+		new AlertDialog.Builder(this).
+			setTitle("保存").
+			setMessage("是否保存？").
+			setPositiveButton("保存", this).
+			setNegativeButton("取消", null).
+			setNeutralButton("不保存", this).
+			create().show();
+	}
+
+	@Override
+	public void onClick (DialogInterface p1, int p2) {
+		if(p2==DialogInterface.BUTTON_POSITIVE)
+			editor.save();
+		finish();
+	}
+
 
 }

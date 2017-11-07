@@ -123,6 +123,7 @@ import android.view.animation.*;
 public abstract class FreeScrollingTextField extends View
 implements Document.TextFieldMetrics{
 
+	public boolean changed = false;
 	protected boolean _isEdited = false; // whether the text field is dirtied
 	protected TouchNavigationMethod _navMethod;
 	protected DocumentProvider _hDoc; // the model in MVC
@@ -326,6 +327,7 @@ implements Document.TextFieldMetrics{
 				// TODO: Implement this method
 				_caretSpan.setFirst(_caretSpan.getFirst()+1);
 				_autoCompletePanel.dismiss();
+				changed=true;
 			}
 
 
@@ -336,6 +338,7 @@ implements Document.TextFieldMetrics{
 				if(delCount<=_caretSpan.getFirst())
 				_caretSpan.setFirst(_caretSpan.getFirst()-1);
 				_autoCompletePanel.dismiss();
+				changed=true;
 			}
 
 			@Override
@@ -355,6 +358,7 @@ implements Document.TextFieldMetrics{
 					_autoCompletePanel.update(_hDoc.subSequence(curr,_caretPosition-curr));
 				else
 					_autoCompletePanel.dismiss();
+				changed=true;
 				}
 		};
 		resetView();

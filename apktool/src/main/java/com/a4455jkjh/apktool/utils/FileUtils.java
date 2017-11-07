@@ -9,6 +9,7 @@ import com.a4455jkjh.apktool.dialog.SignDialog;
 import com.a4455jkjh.apktool.dialog.VerifyDialog;
 import brut.androlib.ApkOptions;
 import com.a4455jkjh.apktool.dialog.KeyDialog;
+import android.graphics.drawable.Drawable;
 
 public class FileUtils {
 	private final MainActivity main;
@@ -46,6 +47,8 @@ public class FileUtils {
 	}
 
 	private void processApk (File apk) {
+		Drawable icon = adapter.loadIcon(apk);
+		
 		main.getDialog().
 			setTitle(apk.getName()).
 			setItems(R.array.apk, new Apk(apk)).

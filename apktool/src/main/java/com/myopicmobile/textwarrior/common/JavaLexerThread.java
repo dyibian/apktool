@@ -18,7 +18,7 @@ public class JavaLexerThread extends LexerThread {
 				break;
 			}
 			int type = Lexer.NORMAL;
-			switch (token) {
+			sw:switch (token) {
 				case ABSTRACT:
 					case INTERFACE:case PUBLIC:
 				case PRIVATE:case PROTECTED:case PACKAGE:
@@ -45,7 +45,7 @@ public class JavaLexerThread extends LexerThread {
 				case TRANSIENT:
 				case VOLATILE:
 					type = Lexer.KEYWORD;
-					break;
+					break sw;
 				case BOOLEAN:
 				case VOID:
 				case CHAR:
@@ -58,7 +58,7 @@ public class JavaLexerThread extends LexerThread {
 				case SHORT:
 				case BYTE:
 					type = Lexer.NAME;
-					break;
+					break sw;
 				case TRUE:
 				case FALSE:
 				case INTLITERAL:
@@ -69,7 +69,7 @@ public class JavaLexerThread extends LexerThread {
 				case STRINGLITERAL:
 				case NULL:
 					type = Lexer.LITERAL;
-					break;
+					break sw;
 				case UNDERSCORE://("_", Tag.NAMED),
 				case ARROW://("->"),
 				case COLCOL://("::"),
@@ -122,21 +122,24 @@ public class JavaLexerThread extends LexerThread {
 				case GTGTGTEQ://(">>>="),
 				case MONKEYS_AT://("@"),
 					type = Lexer.OPERATOR;
-					break;
+					break sw;
 				case IDENTIFIER:
 					type = parseIdentfiter(token.
 										   name().toString());
-					break;
+					break sw;
 				case COMMENT:
 					type = Lexer.DOUBLE_SYMBOL_LINE;
-					break;
-
+					break sw;
+				case ERROR:
+					type=Lexer.UNKNOWN;
+					break sw;
 			}
-			int len = lexer.yylength();
-			if(token==JavaToken.STRINGLITERAL)
-				len++;
+			int len = token.getLen();
 			_tokens.add(new Pair(len, type));
 		}
+		try {
+			lexer.yyclose();
+		} catch (IOException e) {}
 	}
 	private static int parseIdentfiter (String id) {
 		/*if (id.matches("[A-Z].*"))

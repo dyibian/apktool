@@ -21,7 +21,7 @@ import android.content.SharedPreferences;
 import android.widget.Toast;
 
 public class MainActivity extends ApktoolActivity
-implements OnClickListener{
+implements OnClickListener {
 	private ApktoolAdapter adapter;
 	private TextView path;
 	private Spinner location;
@@ -74,13 +74,19 @@ implements OnClickListener{
 		list.setOnItemClickListener(adapter);
 	}
 	public void updatePath (CharSequence text) {
-		path.setText(text+"(点击设置为主目录)");
+		path.setText(text + "(点击设置为主目录)");
 	}
-
+	private long last_press = 0;
 	@Override
 	public void onBackPressed () {
 		if (adapter.goBack())
 			return;
+		long time = System.currentTimeMillis();
+		if ((time - last_press) > 2000) {
+			last_press = time;
+			Toast.makeText(this, "再按一次返回键退出", 0).show();
+			return;
+		}
 		super.onBackPressed();
 	}
 
@@ -154,8 +160,8 @@ implements OnClickListener{
 	@Override
 	public void onClick (View p1) {
 		((FileAdapter)adapter).savePath(prefs);
-		Toast.makeText(this,"设置成功",0).show();
+		Toast.makeText(this, "设置成功", 0).show();
 	}
 
-	
+
 }

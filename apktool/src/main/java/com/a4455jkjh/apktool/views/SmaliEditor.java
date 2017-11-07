@@ -34,6 +34,7 @@ import org.jf.dexlib2.writer.builder.DexBuilder;
 import org.jf.dexlib2.writer.io.FileDataStore;
 import com.myopicmobile.textwarrior.common.JavaLexerThread;
 import com.myopicmobile.textwarrior.common.CharSeqReader;
+import com.myopicmobile.textwarrior.common.XMLFlexerThread;
 
 public class SmaliEditor extends FreeScrollingTextField {
 	private float size;
@@ -71,6 +72,10 @@ public class SmaliEditor extends FreeScrollingTextField {
 	}
 	public void read (String path) throws IOException {
 		this.path = path;
+		if (path.endsWith(".xml"))
+			type = 2;
+		else
+			type = 0;
 		InputStream is=new FileInputStream(path);
 		String text = IOUtils.toString(is);
 		setText(text);
@@ -80,6 +85,7 @@ public class SmaliEditor extends FreeScrollingTextField {
 		try {
 			OutputStream os = new FileOutputStream(path);
 			IOUtils.write(doc.toString(), os);
+			changed=false;
 			return true;
 		} catch (IOException e) {
 			return false;
@@ -199,10 +205,14 @@ public class SmaliEditor extends FreeScrollingTextField {
 	protected LexerThread getlexer () {
 		if (type == 0)
 			return new SmaliLexer(_hDoc);
+		if (type == 2)
+			return new XMLFlexerThread(_hDoc);
 		return new JavaLexerThread(_hDoc);
 	}
 
 	public boolean translate () throws IOException, RecognitionException, JadxException {
+		if (type == 2)
+			return false;
 		if (type == 1) {
 			type = 0;
 			setText(tmp);

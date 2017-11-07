@@ -1,5 +1,6 @@
 package com.myopicmobile.textwarrior.common;
 
+
 %%
 
 %public
@@ -10,14 +11,15 @@ package com.myopicmobile.textwarrior.common;
 %char
 
 %{
-	
-	private static final String chString = "'([^\\\\]|\\\\[bfrtn(\\\\)]|\\\\u[0-9a-fA-F]{4})'";
-	private JavaToken endChar(){
-		String ch = yytext();
-		if(ch.matches(chString))
-			return JavaToken.CHARLITERAL;
-		else
-			return JavaToken.ERROR;
+	private StringBuilder string = new StringBuilder();
+	//private static final String chString = "'([^\\\\]|\\\\[bfrtn(\\\\)]|\\\\u[0-9a-fA-F]{4})'";
+	private JavaToken endStringOrChar(JavaToken token){
+		token.setLen(string.length());
+		return token;
+	}
+	private JavaToken end(JavaToken token){
+		token.setLen(yylength());
+		return token;
 	}
 %}
 HexPrefix = 0 [xX]
@@ -57,135 +59,137 @@ DocumentationComment = "/*" "*"+ [^/*] ~"*/"
 %%
 
 <YYINITIAL>{
-	"abstract"		{return JavaToken.ABSTRACT; }
-	"abstract"		{return JavaToken.ABSTRACT;}
-	"assert"		{return JavaToken.ASSERT;}
-	"boolean"		{return JavaToken.BOOLEAN;}
-	"break"			{return JavaToken.BREAK;}
-	"byte"			{return JavaToken.BYTE;}
-	"case"			{return JavaToken.CASE;}
-	"catch"			{return JavaToken.CATCH;}
-	"char"			{return JavaToken.CHAR;}
-	"class"			{return JavaToken.CLASS;}
-	"const"			{return JavaToken.CONST;}
-	"continue"		{return JavaToken.CONTINUE;}
-	"default"		{return JavaToken.DEFAULT;}
-	"do"			{return JavaToken.DO;}
-	"double"		{return JavaToken.DOUBLE;}
-	"else"			{return JavaToken.ELSE;}
-	"enum"			{return JavaToken.ENUM;}
-	"extends"		{return JavaToken.EXTENDS;}
-	"final"			{return JavaToken.FINAL;}
-	"finally"		{return JavaToken.FINALLY;}
-	"float"			{return JavaToken.FLOAT;}
-	"for"			{return JavaToken.FOR;}
-	"goto"			{return JavaToken.GOTO;}
- 	"if"			{return JavaToken.IF;}
-	"implements"	{return JavaToken.IMPLEMENTS;}
-	"import"		{return JavaToken.IMPORT;}
-	"instanceof"	{return JavaToken.INSTANCEOF;}
-	"int"			{return JavaToken.INT;}
-	"interface"		{return JavaToken.INTERFACE;}
-	"long"			{return JavaToken.LONG;}
-	"native"		{return JavaToken.NATIVE;}
-	"new"			{return JavaToken.NEW;}
-	"package"		{return JavaToken.PACKAGE;}
-	"private"		{return JavaToken.PRIVATE;}
-	"protected"		{return JavaToken.PROTECTED;}
-	"public"		{return JavaToken.PUBLIC;}
-	"return"		{return JavaToken.RETURN;}
-	"short"			{return JavaToken.SHORT;}
-	"static"		{return JavaToken.STATIC;}
-	"strictfp"		{return JavaToken.STRICTFP;}
-	"super"			{return JavaToken.SUPER;}
-	"switch"		{return JavaToken.SWITCH;}
-	"synchronized"	{return JavaToken.SYNCHRONIZED;}
-	"this"			{return JavaToken.THIS;}
-	"throw"			{return JavaToken.THROW;}
-	"throws"		{return JavaToken.THROWS;}
-	"transient"		{return JavaToken.TRANSIENT;}
-	"try"			{return JavaToken.TRY;}
-	"void"			{return JavaToken.VOID;}
-	"volatile"		{return JavaToken.VOLATILE;}
-	"while"			{return JavaToken.WHILE;}
-	{Integer}		{return JavaToken.INTLITERAL;}
-	{Integer} [lL]	{return JavaToken.LONGLITERAL;}
-	{Float} [Ff]	{return JavaToken.FLOATLITERAL;}
-	{Float} [dD]?	{return JavaToken.DOUBLELITERAL;}
-	"true"			{return JavaToken.TRUE;}
-	"false"			{return JavaToken.FALSE;}
-	"null"			{return JavaToken.NULL;}
-	"_"				{return JavaToken.UNDERSCORE;}
-	"->"			{return JavaToken.ARROW;}
-	"::"			{return JavaToken.COLCOL;}
-	"("				{return JavaToken.LPAREN;}
-	")"				{return JavaToken.RPAREN;}
-	"{"				{return JavaToken.LBRACE;}
-	"}"				{return JavaToken.RBRACE;}
-	"["				{return JavaToken.LBRACKET;}
-	"]"				{return JavaToken.RBRACKET;}
-	";"				{return JavaToken.SEMI;}
- 	","				{return JavaToken.COMMA;}
-	"."				{return JavaToken.DOT;}
-	"..."			{return JavaToken.ELLIPSIS;}
-	"="				{return JavaToken.EQ;}
-	">"				{return JavaToken.GT;}
-	"<"				{return JavaToken.LT;}
- 	"!"				{return JavaToken.BANG;}
-	"~"				{return JavaToken.TILDE;}
-	"?"				{return JavaToken.QUES;}
-	":"				{return JavaToken.COLON;}
-	"=="			{return JavaToken.EQEQ;}
-	"<="			{return JavaToken.LTEQ;}
-	">=" 			{return JavaToken.GTEQ;}
-	"!="			{return JavaToken.BANGEQ;}
-	"&&"			{return JavaToken.AMPAMP;}
-	"||"			{return JavaToken.BARBAR;}
-	"//"			{return JavaToken.PLUSPLUS;}
-	"--"			{return JavaToken.SUBSUB;}
-	"+"				{return JavaToken.PLUS;}
-	"-"				{return JavaToken.SUB;}
-	"*"				{return JavaToken.STAR;}
-	"/"				{return JavaToken.SLASH;}
-	"&"				{return JavaToken.AMP;}
-	"|"				{return JavaToken.BAR;}
-	"^"				{return JavaToken.CARET;}
-	"%"				{return JavaToken.PERCENT;}
-	"<<"			{return JavaToken.LTLT;}
-	">>"			{return JavaToken.GTGT;}
-	">>>"			{return JavaToken.GTGTGT;}
-	"+="			{return JavaToken.PLUSEQ;}
-	"-="			{return JavaToken.SUBEQ;}
-	"*="			{return JavaToken.STAREQ;}
-	"/="			{return JavaToken.SLASHEQ;}
-	"&="			{return JavaToken.AMPEQ;}
-	"|="			{return JavaToken.BAREQ;}
-	"^="			{return JavaToken.CARETEQ;}
-	"%="			{return JavaToken.PERCENTEQ;}
-	"<<="			{return JavaToken.LTLTEQ;}
-	">>="			{return JavaToken.GTGTEQ;}
-	">>>="			{return JavaToken.GTGTGTEQ;}
-	"@"				{return JavaToken.MONKEYS_AT;}
-	{Comment}		{return JavaToken.COMMENT;}
-	"\""			{yybegin(STRING);}
-	"'"				{yybegin(CHAR);}
-	[a-zA-Z_][A-Za-z0-9_]*				{return JavaToken.IDENTIFIER;}
-	[\r\n\t ]+ { return JavaToken.SPACE; }
-	<<EOF>>			{return JavaToken.EOF;}
+	"abstract"		{return end(JavaToken.ABSTRACT); }
+	"abstract"		{return end(JavaToken.ABSTRACT);}
+	"assert"		{return end(JavaToken.ASSERT);}
+	"boolean"		{return end(JavaToken.BOOLEAN);}
+	"break"			{return end(JavaToken.BREAK);}
+	"byte"			{return end(JavaToken.BYTE);}
+	"case"			{return end(JavaToken.CASE);}
+	"catch"			{return end(JavaToken.CATCH);}
+	"char"			{return end(JavaToken.CHAR);}
+	"class"			{return end(JavaToken.CLASS);}
+	"const"			{return end(JavaToken.CONST);}
+	"continue"		{return end(JavaToken.CONTINUE);}
+	"default"		{return end(JavaToken.DEFAULT);}
+	"do"			{return end(JavaToken.DO);}
+	"double"		{return end(JavaToken.DOUBLE);}
+	"else"			{return end(JavaToken.ELSE);}
+	"enum"			{return end(JavaToken.ENUM);}
+	"extends"		{return end(JavaToken.EXTENDS);}
+	"final"			{return end(JavaToken.FINAL);}
+	"finally"		{return end(JavaToken.FINALLY);}
+	"float"			{return end(JavaToken.FLOAT);}
+	"for"			{return end(JavaToken.FOR);}
+	"goto"			{return end(JavaToken.GOTO);}
+ 	"if"			{return end(JavaToken.IF);}
+	"implements"	{return end(JavaToken.IMPLEMENTS);}
+	"import"		{return end(JavaToken.IMPORT);}
+	"instanceof"	{return end(JavaToken.INSTANCEOF);}
+	"int"			{return end(JavaToken.INT);}
+	"interface"		{return end(JavaToken.INTERFACE);}
+	"long"			{return end(JavaToken.LONG);}
+	"native"		{return end(JavaToken.NATIVE);}
+	"new"			{return end(JavaToken.NEW);}
+	"package"		{return end(JavaToken.PACKAGE);}
+	"private"		{return end(JavaToken.PRIVATE);}
+	"protected"		{return end(JavaToken.PROTECTED);}
+	"public"		{return end(JavaToken.PUBLIC);}
+	"return"		{return end(JavaToken.RETURN);}
+	"short"			{return end(JavaToken.SHORT);}
+	"static"		{return end(JavaToken.STATIC);}
+	"strictfp"		{return end(JavaToken.STRICTFP);}
+	"super"			{return end(JavaToken.SUPER);}
+	"switch"		{return end(JavaToken.SWITCH);}
+	"synchronized"	{return end(JavaToken.SYNCHRONIZED);}
+	"this"			{return end(JavaToken.THIS);}
+	"throw"			{return end(JavaToken.THROW);}
+	"throws"		{return end(JavaToken.THROWS);}
+	"transient"		{return end(JavaToken.TRANSIENT);}
+	"try"			{return end(JavaToken.TRY);}
+	"void"			{return end(JavaToken.VOID);}
+	"volatile"		{return end(JavaToken.VOLATILE);}
+	"while"			{return end(JavaToken.WHILE);}
+	{Integer}		{return end(JavaToken.INTLITERAL);}
+	{Integer} [lL]	{return end(JavaToken.LONGLITERAL);}
+	{Float} [Ff]	{return end(JavaToken.FLOATLITERAL);}
+	{Float} [dD]?	{return end(JavaToken.DOUBLELITERAL);}
+	"true"			{return end(JavaToken.TRUE);}
+	"false"			{return end(JavaToken.FALSE);}
+	"null"			{return end(JavaToken.NULL);}
+	"_"				{return end(JavaToken.UNDERSCORE);}
+	"->"			{return end(JavaToken.ARROW);}
+	"::"			{return end(JavaToken.COLCOL);}
+	"("				{return end(JavaToken.LPAREN);}
+	")"				{return end(JavaToken.RPAREN);}
+	"{"				{return end(JavaToken.LBRACE);}
+	"}"				{return end(JavaToken.RBRACE);}
+	"["				{return end(JavaToken.LBRACKET);}
+	"]"				{return end(JavaToken.RBRACKET);}
+	";"				{return end(JavaToken.SEMI);}
+ 	","				{return end(JavaToken.COMMA);}
+	"."				{return end(JavaToken.DOT);}
+	"..."			{return end(JavaToken.ELLIPSIS);}
+	"="				{return end(JavaToken.EQ);}
+	">"				{return end(JavaToken.GT);}
+	"<"				{return end(JavaToken.LT);}
+ 	"!"				{return end(JavaToken.BANG);}
+	"~"				{return end(JavaToken.TILDE);}
+	"?"				{return end(JavaToken.QUES);}
+	":"				{return end(JavaToken.COLON);}
+	"=="			{return end(JavaToken.EQEQ);}
+	"<="			{return end(JavaToken.LTEQ);}
+	">=" 			{return end(JavaToken.GTEQ);}
+	"!="			{return end(JavaToken.BANGEQ);}
+	"&&"			{return end(JavaToken.AMPAMP);}
+	"||"			{return end(JavaToken.BARBAR);}
+	"//"			{return end(JavaToken.PLUSPLUS);}
+	"--"			{return end(JavaToken.SUBSUB);}
+	"+"				{return end(JavaToken.PLUS);}
+	"-"				{return end(JavaToken.SUB);}
+	"*"				{return end(JavaToken.STAR);}
+	"/"				{return end(JavaToken.SLASH);}
+	"&"				{return end(JavaToken.AMP);}
+	"|"				{return end(JavaToken.BAR);}
+	"^"				{return end(JavaToken.CARET);}
+	"%"				{return end(JavaToken.PERCENT);}
+	"<<"			{return end(JavaToken.LTLT);}
+	">>"			{return end(JavaToken.GTGT);}
+	">>>"			{return end(JavaToken.GTGTGT);}
+	"+="			{return end(JavaToken.PLUSEQ);}
+	"-="			{return end(JavaToken.SUBEQ);}
+	"*="			{return end(JavaToken.STAREQ);}
+	"/="			{return end(JavaToken.SLASHEQ);}
+	"&="			{return end(JavaToken.AMPEQ);}
+	"|="			{return end(JavaToken.BAREQ);}
+	"^="			{return end(JavaToken.CARETEQ);}
+	"%="			{return end(JavaToken.PERCENTEQ);}
+	"<<="			{return end(JavaToken.LTLTEQ);}
+	">>="			{return end(JavaToken.GTGTEQ);}
+	">>>="			{return end(JavaToken.GTGTGTEQ);}
+	"@"				{return end(JavaToken.MONKEYS_AT);}
+	{Comment}		{return end(JavaToken.COMMENT);}
+	\"				{yybegin(STRING);string.delete(0,string.length());;string.append('"');}
+	'				{yybegin(CHAR);string.delete(0,string.length());;string.append("'");}
+	[a-zA-Z_][A-Za-z0-9_]*				{return end(JavaToken.IDENTIFIER);}
+	[\r\n\t ]+ { return end(JavaToken.SPACE); }
+	<<EOF>>			{return end(JavaToken.EOF);}
 }
 
 <STRING>{
-	"\""			{yybegin(YYINITIAL);zzStartRead--;return JavaToken.STRINGLITERAL;}
+	\"		{yybegin(YYINITIAL);string.append('"');return endStringOrChar(JavaToken.STRINGLITERAL);}
 	
-	[^\r\n]+		{return JavaToken.STRINGLITERAL;}
-	"\\\""			{return JavaToken.STRINGLITERAL;}
-	[\r\n]			{yybegin(YYINITIAL);return JavaToken.ERROR;}
-	<<EOF>>			{return JavaToken.ERROR;}
+	[^\r\n\"\\]+  { string.append(yytext()); }
+	\\[bftrn\"\\]   {string.append(yytext());}
+	{LineTerminator}			{yybegin(YYINITIAL);string.append(yytext());return endStringOrChar(JavaToken.ERROR);}
+	<<EOF>>			{return endStringOrChar(JavaToken.ERROR);}
 }
 
 <CHAR>{
-	'				{return endChar();}
-	[^\r\n]+		{}
-	[\r\n]			{yybegin(YYINITIAL);return JavaToken.ERROR;}
-	<<EOF>>			{return JavaToken.ERROR;}
+	'   {yybegin(YYINITIAL);string.append("'");return endStringOrChar(JavaToken.CHARLITERAL);}
+	[^\r\n\'\\]  |"\\b" | "\\\""  |
+	"\\f" | "\\n" | "\\'"  |
+	"\\t" | "\\r" {string.append(yytext());}
+	{LineTerminator}			{yybegin(YYINITIAL);return endStringOrChar(JavaToken.ERROR);}
+	<<EOF>>			{return endStringOrChar(JavaToken.ERROR);}
 }
